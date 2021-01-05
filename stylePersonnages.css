@@ -75,12 +75,14 @@ h1{
 
 .descriptionHeroes{
     width: 70%;
+    padding: 10px;
 }
 
 .imageHeroes{
     width: 30%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 h2{
@@ -95,4 +97,8 @@ li{
 
 #colorHulk{
     color: #0D6C0F;
+}
+
+#colorThor{
+    color: #EED71A;
 }
