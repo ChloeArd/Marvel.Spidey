@@ -46,3 +46,53 @@ a{
 a:hover{
     background-color: dodgerblue;
 }
+
+main{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    font-size: 30px;
+    color: white;
+}
+
+.containerHeroes{
+    width: 70%;
+    border: 2px solid grey;
+    box-shadow: 10px 10px 10px darkred;
+    border-radius: 5px 5px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    background-color: grey;
+    font-size: 12px;
+    color: white;
+}
+
+.descriptionHeroes{
+    width: 70%;
+}
+
+.imageHeroes{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+}
+
+h2{
+    text-align: center;
+    font-size: 20px;
+    color: #2052AB;
+}
+
+li{
+    margin-left: 13px;
+}
+
+#colorHulk{
+    color: #0D6C0F;
+}
