@@ -62,8 +62,6 @@ main{
 .carousel{
     position: relative;
     margin: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
     width: 1000px;
     height: 500px;
     overflow: hidden;
