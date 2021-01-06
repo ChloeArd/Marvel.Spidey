@@ -99,7 +99,7 @@ li{
     color: #0D6C0F;
 }
 
-#colorThor{
+.colorYellow{
     color: #EED71A;
 }
 
@@ -117,4 +117,8 @@ span{
 
 .colorOrange{
     color: #FF9422;
+}
+
+.colorPurple{
+    color: #651A8A;
 }
