@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ html {
 
 body {
     width: 100%;
-    font-family: 'Cabin', sans-serif;
+    font-family: 'Balsamiq Sans', cursive;
     background-color: #ED3535;
 }
 
@@ -44,7 +44,7 @@ a{
 }
 
 a:hover{
-    background-color: dodgerblue;
+    background-color: #D1E2E8;
 }
 
 main{
@@ -95,7 +95,7 @@ li{
     margin-left: 13px;
 }
 
-#colorHulk{
+.colorGreen{
     color: #0D6C0F;
 }
 
