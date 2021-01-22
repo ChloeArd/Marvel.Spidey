@@ -103,12 +103,8 @@ li{
     color: #EED71A;
 }
 
-.colorRed{
+.colorRed, span{
     color: #AD0404;
-}
-
-span{
-    color: #A02222;
 }
 
 .colorBlack{
