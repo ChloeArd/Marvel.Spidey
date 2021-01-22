@@ -23,7 +23,7 @@ header{
     align-items: center;
 }
 
-a{
+ header a{
     color: #ED3535;
     text-decoration: none;
     border-radius: 10px 10px;
@@ -43,7 +43,7 @@ a{
     margin-left: 400px;
 }
 
-a:hover{
+header a:hover{
     background-color: #D1E2E8;
 }
 
@@ -85,7 +85,7 @@ main{
 .buttonsCarousel {
     position: absolute;
     bottom: 30px;
-    right: 30px;
+    right: 25%;
     display: flex;
 }
 
@@ -93,8 +93,8 @@ main{
     display: block;
     color: white;
     background-color: rgba(150, 150, 150, 0.8);
-    font-size: 20px;
     text-decoration: none;
+    border-radius: 100% 100%;
     padding: 10px;
     margin: 5px;
     transition: all 2s ease-in-out;

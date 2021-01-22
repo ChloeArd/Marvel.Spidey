@@ -12,7 +12,9 @@ html {
 body {
     width: 100%;
     font-family: 'Balsamiq Sans', cursive;
-    background-color: #ED3535;
+    background-image: url("https://images8.alphacoders.com/969/thumb-1920-969451.png");
+    background-attachment: fixed;
+    background-size: 100%;
 }
 
 header{
@@ -63,12 +65,11 @@ h1{
 .containerHeroes{
     width: 70%;
     border: 2px solid grey;
-    box-shadow: 10px 10px 10px darkred;
     border-radius: 5px 5px;
     display: flex;
     flex-direction: row;
     margin-top: 20px;
-    background-color: grey;
+    background-color: rgba(150, 150, 150, 0.8);
     font-size: 12px;
     color: white;
 }
