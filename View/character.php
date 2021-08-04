@@ -9,27 +9,27 @@
 <body>
 
 <header>
-    <img id="logoMarvel" src="https://tse4.mm.bing.net/th?id=OIP.cb1tsxrUOY2CvHKPC_9EIQHaC7&pid=Api&P=0&w=429&h=170">
+    <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
     <a id="acceuil" href="../index.php">Acceuil</a>
     <a href="character.php">Personnages</a>
     <a href="">Créateur</a>
     <a href="">Films</a>
     <a href="">Quiz</a>
     <a href="">Photos</a>
-    <a href="">Memory</a>
 </header>
 
 <main>
     <h1 class="title">SPIDER-MAN</h1>
 
     <div class="width_100 flexRow">
-        <div class="width_30 flexColumn flexCenter">
+        <div class="width_30 flexColumn">
             <img class="width_100" src="https://cdn.discordapp.com/attachments/689017273050202134/872495141133361172/image1.jpg">
             <img class="width_100" src="https://cdn.discordapp.com/attachments/689017273050202134/872515940569481279/image0.jpg">
+            <img class="width_100" src="https://www.cinemascomics.com/wp-content/uploads/2017/04/imagenes-spider-man-homecoming-rodaje-3.jpg.webp">
         </div>
         <div class="width_70 flexColumn">
             <div class="flexCenter flexColumn">
-                <h1>SPIDER-MAN</h1>
+                <h1 class="marginTop">SPIDER-MAN</h1>
                 <h2>Peter Parker</h2>
                 <div class="lineHorizontal width_90 lineTop"></div>
                     <div id="table" class="flexRow">
@@ -75,7 +75,7 @@
 
             <h2 class="titleDescription">1ère apparition</h2>
             <div class="flexCenter flexColumn background">
-                <img class="width_20" src="https://tse2.mm.bing.net/th?id=OIP.pg_ac0QWcIOvrhVgWkk-iQHaK-&pid=Api&P=0&w=300&h=300" alt="Comic book Amazing Fantasy (vol. 1) #15">
+                <img class="width_10" src="https://tse2.mm.bing.net/th?id=OIP.pg_ac0QWcIOvrhVgWkk-iQHaK-&pid=Api&P=0&w=300&h=300" alt="Comic book Amazing Fantasy (vol. 1) #15">
                 <p>Comic book Amazing Fantasy (vol. 1) #15</p>
             </div>
 
@@ -105,7 +105,14 @@
                 </ul>
             </div>
             <h2 class="titleDescription">Equipe</h2>
+            <div class="flexCenter">
+                <img class="width_10" src="https://clipground.com/images/avengers-a-logo-4.png">
+            </div>
             <p class="center"> Avengers</p>
+            <h2 class="titleDescription">Parent connus</h2>
+            <p class="center background">Richard Parker (père, décédé), Mary Parker (mère, décédée), Ben Parker (oncle, décédé), May Parker (tante)</p>
+            <h2 class="titleDescription">Education</h2>
+            <p class="center">Lycée (pas encore diplômé)</p>
             <h2 class="titleDescription">Biographie</h2>
             <div class="background">
                 <div class="width_70 auto">

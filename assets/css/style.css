@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    font-size: 15px;
+    font-size: 20px;
     color: black;
     width: 100%;
 }
@@ -67,6 +67,8 @@ a {
 
 a:hover {
     text-decoration: underline;
+    cursor: url(http://www.rw-designer.com/cursor-extern.php?id=72401), pointer;
+
 }
 
 main{
@@ -82,6 +84,10 @@ h1 {
     font-size: 35px;
 }
 
+.marginTop {
+    margin-top: 20px;
+}
+
 #pictureHeros{
     width: 90%;
 }
@@ -94,13 +100,17 @@ h1 {
     width: 90%;
 }
 
+.width_10 {
+    width: 10%;
+}
+
 .width_30 {
     width: 30%;
 }
 
 .background  {
     width: 100%;
-    background-color: #cbcbcb;
+    background-color: #e7e6e6;
     padding: 20px;
 }
 
