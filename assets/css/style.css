@@ -26,6 +26,12 @@ header{
     font-family: 'Uchen', serif;
 }
 
+footer {
+    width: 100%;
+    background: #0c0c0c;
+    height: 200px;
+}
+
  header a{
     color: white;
     text-decoration: none;

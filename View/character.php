@@ -14,18 +14,18 @@
     <a href="character.php">Personnages</a>
     <a href="">Créateur</a>
     <a href="">Films</a>
-    <a href="">Quiz</a>
     <a href="">Photos</a>
+    <a href="">Quiz</a>
 </header>
 
 <main>
-    <h1 class="title">SPIDER-MAN</h1>
+    <h1 class="title">SPIDER-MAN (Peter Parker)</h1>
 
     <div class="width_100 flexRow">
         <div class="width_30 flexColumn">
             <img class="width_100" src="https://cdn.discordapp.com/attachments/689017273050202134/872495141133361172/image1.jpg">
             <img class="width_100" src="https://cdn.discordapp.com/attachments/689017273050202134/872515940569481279/image0.jpg">
-            <img class="width_100" src="https://www.cinemascomics.com/wp-content/uploads/2017/04/imagenes-spider-man-homecoming-rodaje-3.jpg.webp">
+            <img class="width_100" src="https://i.dailymail.co.uk/i/pix/2016/09/27/23/38DA335900000578-0-image-a-118_1475016067652.jpg">
         </div>
         <div class="width_70 flexColumn">
             <div class="flexCenter flexColumn">
@@ -73,13 +73,13 @@
                 <div class="lineHorizontal width_90 lineBottom"></div>
             </div>
 
-            <h2 class="titleDescription">1ère apparition</h2>
+            <h2 class="titleDescription">1ERE APPARITION</h2>
             <div class="flexCenter flexColumn background">
                 <img class="width_10" src="https://tse2.mm.bing.net/th?id=OIP.pg_ac0QWcIOvrhVgWkk-iQHaK-&pid=Api&P=0&w=300&h=300" alt="Comic book Amazing Fantasy (vol. 1) #15">
                 <p>Comic book Amazing Fantasy (vol. 1) #15</p>
             </div>
 
-            <h2 class="titleDescription">Créateurs</h2>
+            <h2 class="titleDescription">CREATEURS</h2>
             <div class="flexRow flexCenter">
                 <div class="flexColumn flexCenter">
                     <img class="imageChara" src="https://i.pinimg.com/564x/88/bf/dd/88bfdd786306f17ee54b90d85f68db53.jpg" alt="Stan Lee">
@@ -90,12 +90,12 @@
                     <p>Steve Ditko</p>
                 </div>
             </div>
-            <h2 class="titleDescription">Activités</h2>
+            <h2 class="titleDescription">ACTIVITES</h2>
             <p class="center background">Justicier, aventurier, inventeur, ancien chercheur aux Laboratoires Horizon, photographe
                 indépendant, étudiant, skatteur.</p>
-            <h2 class="titleDescription">Caractéristiques</h2>
+            <h2 class="titleDescription">CARACTERISTIQUES</h2>
             <p class="center">Doté de poils microscopiques sur ses mains et ses pieds qui lui permettent d'adhérer aux surface</p>
-            <h2 class="titleDescription">Pouvoirs</h2>
+            <h2 class="titleDescription">POUVOIRS</h2>
             <div class="background">
                 <ul class="auto width_70">
                     <li>Force, endurance, agilité et réflexes surhumains</li>
@@ -104,16 +104,16 @@
                     <li>Facteur guérisseur</li>
                 </ul>
             </div>
-            <h2 class="titleDescription">Equipe</h2>
+            <h2 class="titleDescription">EQUIPE</h2>
             <div class="flexCenter">
                 <img class="width_10" src="https://clipground.com/images/avengers-a-logo-4.png">
             </div>
             <p class="center"> Avengers</p>
-            <h2 class="titleDescription">Parent connus</h2>
+            <h2 class="titleDescription">PARENT CONNUS</h2>
             <p class="center background">Richard Parker (père, décédé), Mary Parker (mère, décédée), Ben Parker (oncle, décédé), May Parker (tante)</p>
-            <h2 class="titleDescription">Education</h2>
+            <h2 class="titleDescription">EDUCATION</h2>
             <p class="center">Lycée (pas encore diplômé)</p>
-            <h2 class="titleDescription">Biographie</h2>
+            <h2 class="titleDescription">BIOGRAPHIE</h2>
             <div class="background">
                 <div class="width_70 auto">
                     <p>Peter Parker est le fils unique de Richard et Mary Parker, tués en travaillant
@@ -131,7 +131,7 @@
 
             </div>
 
-            <h2 class="titleDescription">Acteurs</h2>
+            <h2 class="titleDescription">ACTEURS</h2>
             <div class="flexRow flexCenter">
                 <a href="" class="flexColumn flexCenter">
                     <img class="imageChara" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Tobey_Maguire_2014.jpg" alt="Tobey Maguire">
@@ -158,6 +158,12 @@
     </form>
 
 </main>
+
+<footer class="flexRow">
+    <div class="flexColumn flexCenter">
+        <img class="width_70" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
+    </div>
+</footer>
 
 </body>
 </html>
