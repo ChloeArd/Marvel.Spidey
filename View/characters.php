@@ -13,16 +13,25 @@
     <a id="acceuil" href="../index.php">Acceuil</a>
     <a href="characters.php">Personnages</a>
     <a href="">Créateur</a>
-    <a href="">Histoire</a>
     <a href="">Films</a>
     <a href="">Quiz</a>
+    <a href="">Memory</a>
 </header>
 
 <main>
-    <h1>Les personnages Marvel:</h1>
+    <h1 class="title">Les personnages Marvel :</h1>
+
+    <form method="post" action="">
+        <div class="right">
+            <input class="form" type="text" placeholder="Nom du personnage" name="name">
+            <input class="button" type="submit" value="Rechercher" name="send">
+        </div>
+
+    </form>
+
     <div class="containerHeroes">
         <div class="imageHeroes">
-            <img src="https://tse2.mm.bing.net/th?id=OIP.UNDtWJj95fQkMzwd_7ShEwHaLg&pid=Api&P=0&w=300&h=300">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.WqSgCYAz2i4SB83CK9rz9QHaNK&pid=Api&P=0&w=300&h=300">
         </div>
         <div class="descriptionHeroes">
             <h2>Captain America</h2>

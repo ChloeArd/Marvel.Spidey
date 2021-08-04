@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> MARVELDoc</title>
+    <title> MARVEL.Spidey</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -12,18 +12,14 @@
 <header>
     <img id="logoMarvel" src="https://tse4.mm.bing.net/th?id=OIP.cb1tsxrUOY2CvHKPC_9EIQHaC7&pid=Api&P=0&w=429&h=170">
     <a id="acceuil" href="index.php">Acceuil</a>
-    <a href="View/characters.php">Personnages</a>
+    <a href="View/character.php">Personnages</a>
     <a href="">Créateur</a>
-    <a href="">Histoire</a>
     <a href="">Films</a>
+    <a href="">Photos</a>
     <a href="">Quiz</a>
-    <a href="">Mémory</a>
 </header>
 
 <main>
-    <h1 class="titleIndex"><span class="marvelWord">MARVELDoc</span>, un site pour les <strong>fans de Marvel</strong> en particulier des <strong>super-héros</strong>.</h1> <br>
-    <p class="subtitle">Vous pouvez y trouver la biographie des super-héros, les films Marvel, l'histoire, les créateurs de Marvel
-        et enfin un quiz pour tester vos connaissances en tant que fan de Marvel ! </p>
     <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
         <ol class="carousel-indicators">
             <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
@@ -102,6 +98,9 @@
             <span class="visually-hidden">Suivant</span>
         </a>
     </div>
+    <h1 class="titleIndex"><span class="marvelWord">MARVEL.Spidey</span>, un site pour les <strong>fans de Marvel</strong> en particulier de <strong>Spider-Man</strong>.</h1> <br>
+    <p class="subtitle">Vous pouvez y trouver la biographie de Spider-Man, les acteurs qui ont interpéter ce héros, les films qu'ils jouent, les créateurs de l'homme arraignée
+        et enfin un quiz pour tester vos connaissances en tant que fan de Spidey ! </p>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>

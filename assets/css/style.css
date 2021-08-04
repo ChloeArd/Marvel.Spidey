@@ -11,6 +11,7 @@ html {
 }
 
 body {
+    font-size: 15px;
     color: black;
     width: 100%;
 }
@@ -18,16 +19,15 @@ body {
 header{
     width: 100%;
     height: 80px;
-    background-color: white;
+    background-color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
     font-family: 'Uchen', serif;
-    border-bottom: 1px solid #d2d2d2;
 }
 
  header a{
-    color: #ED3535;
+    color: white;
     text-decoration: none;
     border-radius: 10px 10px;
     padding: 3px;
@@ -40,12 +40,19 @@ header{
     width: 140px;
 }
 
-#acceuil{
-    margin-left: 400px;
+.imageChara {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 15px;
 }
 
-header {
-    margin-bottom: 50px;
+.imageChara:hover {
+    filter: brightness(50%);
+}
+
+#acceuil{
+    margin-left: 400px;
 }
 
 header a:hover{
@@ -53,8 +60,17 @@ header a:hover{
     color: #ED3535;
 }
 
+a {
+    text-decoration: none;
+    color: #0c0c0c;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 main{
-    width: 70%;
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -63,22 +79,94 @@ main{
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 35px;
 }
 
 #pictureHeros{
     width: 90%;
 }
 
+.width_100 {
+    width: 100%;
+}
+
+.width_90 {
+    width: 90%;
+}
+
+.width_30 {
+    width: 30%;
+}
+
+.background  {
+    width: 100%;
+    background-color: #cbcbcb;
+    padding: 20px;
+}
+
+.width_70 {
+    width: 70%;
+}
+
+.center {
+    text-align: center;
+}
+
+.auto {
+    margin: auto;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lineVertical {
+    border-right: 1px solid #a7a7a7;
+    height: 60px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+#table {
+    color: #7e7e7e;
+    font-size: 17px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.lineTop {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.lineBottom {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.lineHorizontal {
+    border-bottom: 1px solid #A7A7A7;
+}
+
 .carousel{
     position: relative;
     margin: auto;
-    width: 1000px;
-    height: 500px;
+    width: 100%;
     overflow: hidden;
-    box-shadow: 10px 10px 30px darkred;
-    border-radius: 3px;
-    margin-top: 10px;
     margin-bottom: 10px;
 }
 
@@ -89,8 +177,7 @@ h1 {
 
 .imagesCarousel img {
     display: block;
-    width: 1000px;
-    height: 500px;
+    width: 100%;
 }
 
 .buttonsCarousel {
@@ -120,27 +207,32 @@ h1 {
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-p{
-    font-size: 20px;
-}
-
 #acceuil{
     margin-left: 400px;
 }
 
+.title {
+    color: white;
+    padding: 40px;
+    background-color: #0c0c0c;
+    width: 100%;
+    text-align: center;
+}
+
 .containerHeroes{
-    width: 70%;
+    width: 95%;
     border-radius: 5px 5px;
     display: flex;
     flex-direction: row;
     margin-top: 20px;
-    background-color: rgba(98, 100, 178, 0.8);
-    font-size: 12px;
+    background-color: rgb(33, 33, 33);
     color: white;
 }
 
 .descriptionHeroes{
     width: 70%;
+    font-size: 15px;
+    line-height: 25px;
     padding: 10px;
 }
 
@@ -153,8 +245,18 @@ p{
 
 h2{
     text-align: center;
-    font-size: 20px;
-    color: #0077FF;
+    font-size: 23px;
+    font-weight: bold;
+    color: #4e4e4e;
+}
+
+.titleDescription {
+    font-size: 25px;
+    margin: 15px;
+}
+
+.width_20 {
+    width: 20%;
 }
 
 .titleIndex {
@@ -168,34 +270,43 @@ h2{
 }
 
 .marvelWord {
-    color: #ED3535;
+    color: #ed3535;
     font-size: 35px;
 }
 
-li{
-    margin-left: 13px;
-}
-
-.colorGreen{
-    color: #0D6C0F;
-}
-
-.colorYellow{
-    color: #EED71A;
-}
-
-.colorRed, span{
-    color: #AD0404;
-}
-
-.colorBlack{
+.descriptionHeroes > p > span, .descriptionHeroes > ul > span {
     color: black;
+    font-weight: bold;
 }
 
-.colorOrange{
-    color: #FF9422;
+form {
+    margin: 20px auto;
 }
 
-.colorPurple{
-    color: #651A8A;
+.right {
+    position: absolute;
+    right: 2.6%;
+}
+
+.form {
+    border: none;
+    color: white;
+    background-color: white;
+    border-bottom: 2px solid #ff0000;
+    padding: 8px;
+    font-size: 18px;
+}
+
+.button {
+    border: none;
+    color: white;
+    font-size: 18px;
+    background-color: #ed3535;
+    border-radius: 10px;
+    padding: 8px;
+    box-shadow: 10px 10px 10px grey;
+}
+
+li{
+    margin-left: 25px;
 }
