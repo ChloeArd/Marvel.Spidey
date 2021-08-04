@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Uchen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap');
 * {
     margin: 0;
     padding: 0;
@@ -10,17 +11,19 @@ html {
 }
 
 body {
+    color: black;
     width: 100%;
-    font-family: 'Balsamiq Sans', cursive;
-    background-color: #ED3535;
 }
 
 header{
-    position: absolute;
-    background-color: black;
+    width: 100%;
+    height: 80px;
+    background-color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
+    font-family: 'Uchen', serif;
+    border-bottom: 1px solid #d2d2d2;
 }
 
  header a{
@@ -28,7 +31,6 @@ header{
     text-decoration: none;
     border-radius: 10px 10px;
     padding: 3px;
-    background-color: white;
     margin-right: 13px;
     margin-left: 13px;
     font-size: 20px;
@@ -36,15 +38,19 @@ header{
 
 #logoMarvel{
     width: 140px;
-
 }
 
 #acceuil{
     margin-left: 400px;
 }
 
+header {
+    margin-bottom: 50px;
+}
+
 header a:hover{
-    background-color: #D1E2E8;
+    text-decoration: underline #ED3535;
+    color: #ED3535;
 }
 
 main{
@@ -53,6 +59,11 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Atkinson Hyperlegible', sans-serif;
+}
+
+h1 {
+    font-size: 40px;
 }
 
 #pictureHeros{
@@ -111,5 +122,80 @@ main{
 
 p{
     font-size: 20px;
+}
+
+#acceuil{
+    margin-left: 400px;
+}
+
+.containerHeroes{
+    width: 70%;
+    border-radius: 5px 5px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    background-color: rgba(98, 100, 178, 0.8);
+    font-size: 12px;
     color: white;
+}
+
+.descriptionHeroes{
+    width: 70%;
+    padding: 10px;
+}
+
+.imageHeroes{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2{
+    text-align: center;
+    font-size: 20px;
+    color: #0077FF;
+}
+
+.titleIndex {
+    font-size: 30px;
+    margin: 10px auto;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: #7e7e7e;
+}
+
+.marvelWord {
+    color: #ED3535;
+    font-size: 35px;
+}
+
+li{
+    margin-left: 13px;
+}
+
+.colorGreen{
+    color: #0D6C0F;
+}
+
+.colorYellow{
+    color: #EED71A;
+}
+
+.colorRed, span{
+    color: #AD0404;
+}
+
+.colorBlack{
+    color: black;
+}
+
+.colorOrange{
+    color: #FF9422;
+}
+
+.colorPurple{
+    color: #651A8A;
 }
