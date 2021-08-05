@@ -13,10 +13,10 @@
     <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
     <a id="acceuil" href="index.php">Acceuil</a>
     <a href="View/characters.php">Personnages</a>
-    <a href="">Créateur</a>
     <a href="">Films</a>
     <a href="">Photos</a>
     <a href="">Quiz</a>
+    <a href="View/memory.php">Memory</a>
 </header>
 
 <main>
@@ -44,49 +44,49 @@
                 <img src="https://images7.alphacoders.com/532/thumb-1920-532650.jpg" class="d-block w-100" alt="1">
             </div>
             <div class="carousel-item">
-                <img src="https://images3.alphacoders.com/949/thumb-1920-949023.jpg" class="d-block w-100" alt="2">
+                <img src="assets/img/2.jpg" class="d-block w-100" alt="2">
             </div>
             <div class="carousel-item">
-                <img src="https://images8.alphacoders.com/100/thumb-1920-1003220.png" class="d-block w-100" alt="3">
+                <img src="assets/img/4.jpg" class="d-block w-100" alt="3">
             </div>
             <div class="carousel-item">
-                <img src="https://images.alphacoders.com/869/thumb-1920-869322.jpg" class="d-block w-100" alt="4">
+                <img src="assets/img/tom1.jpg" class="d-block w-100" alt="4">
             </div>
             <div class="carousel-item">
-                <img src="https://images3.alphacoders.com/792/thumb-1920-792660.jpg" class="d-block w-100" alt="5">
+                <img src="assets/img/tom3.jpg" class="d-block w-100" alt="5">
             </div>
             <div class="carousel-item">
-                <img src="https://images6.alphacoders.com/105/thumb-1920-1050136.jpg" class="d-block w-100" alt="6">
+                <img src="assets/img/21021808_20130723120337329.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg" class="d-block w-100" alt="6">
             </div>
             <div class="carousel-item">
-                <img src="https://images7.alphacoders.com/100/thumb-1920-1003760.jpg" class="d-block w-100" alt="7">
+                <img src="assets/img/104882.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg" class="d-block w-100" alt="7">
             </div>
             <div class="carousel-item">
-                <img src=https://images8.alphacoders.com/101/thumb-1920-1012707.jpg" class="d-block w-100" alt="8">
+                <img src="assets/img/21021809_20130723120341345.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg" class="d-block w-100" alt="10">
             </div>
             <div class="carousel-item">
-                <img src="https://images6.alphacoders.com/101/thumb-1920-1012628.jpg" class="d-block w-100" alt="9">
+                <img src="assets/img/118407.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg" class="d-block w-100" alt="9">
             </div>
             <div class="carousel-item">
-                <img src="https://images6.alphacoders.com/934/thumb-1920-934660.jpg" class="d-block w-100" alt="10">
+                <img src="assets/img/18374036.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg" class="d-block w-100" alt="11">
             </div>
             <div class="carousel-item">
-                <img src="https://images3.alphacoders.com/941/thumb-1920-941028.jpg" class="d-block w-100" alt="11">
+                <img src="assets/img/p4.jpg-r_1920_1080-f_jpg-q_x-xxyxx.jpg" class="d-block w-100" alt="12">
             </div>
             <div class="carousel-item">
-                <img src="https://images4.alphacoders.com/101/thumb-1920-1014895.jpg" class="d-block w-100" alt="12">
+                <img src="assets/img/Tobey%20Maguire%20Holding%20Out%20On%20Spider-Man%20Return.jfif" class="d-block w-100" alt="15">
             </div>
             <div class="carousel-item">
-                <img src="https://images4.alphacoders.com/982/thumb-1920-982092.jpg" class="d-block w-100" alt="13">
+                <img src="assets/img/1ab854e70c7d738391ea4482bb80c3eee97039c8.jpg" class="d-block w-100" alt="13">
             </div>
             <div class="carousel-item">
-                <img src="https://images7.alphacoders.com/106/thumb-1920-1062080.jpg" class="d-block w-100" alt="14">
+                <img src="assets/img/Une%20nouvelle%20bande%20annoncer%20pour%20Spider-Man%20_%20New%20Generation.jfif" class="d-block w-100" alt="14">
             </div>
             <div class="carousel-item">
-                <img src="https://images7.alphacoders.com/448/thumb-1920-448390.jpg" class="d-block w-100" alt="15">
+                <img src="assets/img/spidermanNoir.png" class="d-block w-100" alt="15">
             </div>
             <div class="carousel-item">
-                <img src="https://images4.alphacoders.com/109/thumb-1920-1099015.png" class="d-block w-100" alt="16">
+                <img src="assets/img/spiderman-meme.jpg" class="d-block w-100" alt="16">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
@@ -102,8 +102,14 @@
     <p class="subtitle">Vous pouvez y trouver la biographie de Spider-Man, les acteurs qui ont interpéter ce héros, les films qu'ils jouent, les créateurs de l'homme arraignée
         et enfin un quiz pour tester vos connaissances en tant que fan de Spidey ! </p>
 
-    <img class="width_30" src="https://i.pinimg.com/564x/f7/fc/71/f7fc718119a691e33a9c497a28e7b6bf.jpg">
+    <img class="width_30" src="assets/img/Personnages-celebres-Comics-Spiderman-300509.png">
 </main>
+
+<footer class="flexRow">
+    <div class="flexColumn flexCenter">
+        <img class="width_70" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
+    </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="assets/js/app.js"></script>

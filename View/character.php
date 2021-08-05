@@ -16,6 +16,7 @@
     <a href="">Films</a>
     <a href="">Photos</a>
     <a href="">Quiz</a>
+    <a href="memory.php">Memory</a>
 </header>
 
 <main>

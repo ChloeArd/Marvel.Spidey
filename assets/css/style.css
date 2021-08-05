@@ -371,6 +371,10 @@ form {
     box-shadow: 10px 10px 10px grey;
 }
 
+.button:hover {
+    background-color: #b80000;
+}
+
 li{
     margin-left: 25px;
 }

@@ -13,10 +13,10 @@
     <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
     <a id="acceuil" href="../index.php">Acceuil</a>
     <a href="characters.php">Personnages</a>
-    <a href="">Créateur</a>
     <a href="">Films</a>
     <a href="">Photos</a>
     <a href="">Quiz</a>
+    <a href="memory.php">Mémory</a>
 </header>
 
 <main>

@@ -13,14 +13,21 @@
     <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
     <a id="acceuil" href="../index.php">Acceuil</a>
     <a href="characters.php">Personnages</a>
-    <a href="">Créateur</a>
     <a href="">Films</a>
     <a href="">Photos</a>
     <a href="">Quiz</a>
+    <a href="memory.php">Memory</a>
 </header>
 
 <main>
     <h1 class="title">TOUS LES PERSONNAGES SPIDER-MAN</h1>
+
+    <form method="post" action="">
+        <div class="right">
+            <input class="form" type="text" placeholder="Personnages/Acteur" name="name">
+            <input class="button" type="submit" value="Rechercher" name="send">
+        </div>
+    </form>
 
     <h2 class="titleChara">PERSONNAGES SPIDER-MAN</h2>
     <div class="flexRow flexCenter">
@@ -57,12 +64,7 @@
         </a>
     </div>
 
-    <form method="post" action="">
-        <div class="right">
-            <input class="form" type="text" placeholder="Personnages/Acteur" name="name">
-            <input class="button" type="submit" value="Rechercher" name="send">
-        </div>
-    </form>
+    <h2 class="titleChara">CREATEURS</h2>
 
 </main>
 

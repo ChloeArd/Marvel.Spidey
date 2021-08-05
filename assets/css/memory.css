@@ -1,0 +1,117 @@
+#container{
+    width: 52%;
+    margin: 80px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.case{
+    width: 125px;
+    height: 175px;
+    border: 1px solid darkslategrey;
+    background-image: url("https://cdn.discordapp.com/attachments/689017273050202134/872860370526670848/image0.jpg");
+    background-size: 120px 170px;
+    box-shadow: 5px 5px 5px grey;
+    margin: 10px;
+    display: flex;
+    border-radius: 10px 10px;
+}
+
+.case:hover{
+    box-shadow: 5px 5px 5px white;
+}
+
+img{
+    width: 100%;
+    border-radius: 10px 10px;
+    display: none;
+}
+
+p{
+    display: none;
+    font-size: 90px;
+    text-align: center;
+    margin: auto;
+}
+
+#window{
+    margin-top: 20px;
+    border-radius: 20px;
+    background: #222222;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    padding: 20px;
+    box-shadow: 5px 5px 5px grey;
+    display: none;
+}
+
+#endGame{
+    font-size: 50px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+#scoreGame {
+    font-size: 35px;
+    padding: 8px;
+    background-color: white;
+    border-radius: 5px 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#replay{
+    background-color: #ff0e0e;
+    border: none;
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 15px;
+    margin-top: 100px;
+}
+
+#replay:hover {
+    background-color: #b80000;
+}
+
+@media screen and (max-width: 800px) {
+    #container{
+        width: 80%;
+    }
+    h1{
+        font-size: 60px;
+    }
+    h2{
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    h1{
+        font-size: 40px;
+    }
+    h2{
+        font-size: 20px;
+    }
+    .case{
+        width: 75px;
+        height: 125px;
+        background-size: 70px 120px;
+    }
+    #endGame{
+        font-size: 30px;
+    }
+
+    #scoreGame {
+        font-size: 20px;
+    }
+}
