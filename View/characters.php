@@ -34,17 +34,17 @@
         <a href="character.php" class="flexColumn flexCenter">
             <img class="imageChara" src="../assets/img/230569264_268125674662999_2556334764745098310_n.jpg" alt="SPIDER-MAN">
             <p>SPIDER-MAN </p>
-            <p>PETER PARKER</p>
+            <p class="sentenceGrey">PETER PARKER</p>
         </a>
         <a href="" class="flexColumn flexCenter">
             <img class="imageChara" src="../assets/img/morales.jpg" alt="SPIDER-MAN">
             <p>SPIDER-MAN</p>
-            <p>MILES MORALES</p>
+            <p class="sentenceGrey">MILES MORALES</p>
         </a>
         <a href="" class="flexColumn flexCenter">
             <img class="imageChara" src="../assets/img/spider-man%20black.jpg" alt="SPIDER-MAN">
             <p>SPIDER-MAN NOIR</p>
-            <p>PETER PARKER</p>
+            <p class="sentenceGrey">PETER PARKER</p>
         </a>
     </div>
 

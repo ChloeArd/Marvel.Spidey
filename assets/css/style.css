@@ -378,3 +378,8 @@ form {
 li{
     margin-left: 25px;
 }
+
+.sentenceGrey {
+    font-size: 13px;
+    color: #7e7e7e;
+}
