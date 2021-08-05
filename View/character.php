@@ -11,7 +11,7 @@
 <header>
     <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
     <a id="acceuil" href="../index.php">Acceuil</a>
-    <a href="character.php">Personnages</a>
+    <a href="characters.php">Personnages</a>
     <a href="">Créateur</a>
     <a href="">Films</a>
     <a href="">Photos</a>
@@ -82,11 +82,11 @@
             <h2 class="titleDescription">CREATEURS</h2>
             <div class="flexRow flexCenter">
                 <div class="flexColumn flexCenter">
-                    <img class="imageChara" src="https://i.pinimg.com/564x/88/bf/dd/88bfdd786306f17ee54b90d85f68db53.jpg" alt="Stan Lee">
+                    <img class="imageChara" src="../assets/img/lee.jpg" alt="Stan Lee">
                     <p>Stan Lee</p>
                 </div>
                 <div class="flexColumn flexCenter">
-                    <img class="imageChara" src="https://www.groene.nl/uploads/image/file/000/017/008/medium_Steve_Ditko.jpg" alt="Steve Ditko">
+                    <img class="imageChara" src="../assets/img/ditko.jpg" alt="Steve Ditko">
                     <p>Steve Ditko</p>
                 </div>
             </div>
@@ -134,29 +134,21 @@
             <h2 class="titleDescription">ACTEURS</h2>
             <div class="flexRow flexCenter">
                 <a href="" class="flexColumn flexCenter">
-                    <img class="imageChara" src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Tobey_Maguire_2014.jpg" alt="Tobey Maguire">
+                    <img class="imageChara" src="../assets/img/maguire.jpg" alt="Tobey Maguire">
                     <p>Tobey Maguire</p>
                 </a>
                 <a href="" class="flexColumn flexCenter">
-                    <img class="imageChara" src="http://3.bp.blogspot.com/-032PBacrvYA/T6oA5dExOvI/AAAAAAAADM4/IL3EKRO80FM/s320/Andrew+Garfield6.jpg" alt="Andrew Garfield">
+                    <img class="imageChara" src="../assets/img/garfield.jpg" alt="Andrew Garfield">
                     <p>Andrew Garfield</p>
                 </a>
                 <a href="" class="flexColumn flexCenter">
-                    <img class="imageChara" src="https://tse3.mm.bing.net/th?id=OIP.Pr0EVUGW4HtuHpsJkKr90QHaE8&pid=Api&P=0&w=249&h=167" alt="Tom Holland">
+                    <img class="imageChara" src="../assets/img/holland.jpg" alt="Tom Holland">
                     <p>Tom Holland</p>
                 </a>
             </div>
 
         </div>
     </div>
-
-    <form method="post" action="">
-        <div class="right">
-            <input class="form" type="text" placeholder="Acteur" name="name">
-            <input class="button" type="submit" value="Rechercher" name="send">
-        </div>
-    </form>
-
 </main>
 
 <footer class="flexRow">

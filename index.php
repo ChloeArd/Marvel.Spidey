@@ -12,7 +12,7 @@
 <header>
     <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
     <a id="acceuil" href="index.php">Acceuil</a>
-    <a href="View/character.php">Personnages</a>
+    <a href="View/characters.php">Personnages</a>
     <a href="">Créateur</a>
     <a href="">Films</a>
     <a href="">Photos</a>
@@ -101,6 +101,8 @@
     <h1 class="titleIndex"><span class="marvelWord">MARVEL.Spidey</span>, un site pour les <strong>fans de Marvel</strong> en particulier de <strong>Spider-Man</strong>.</h1> <br>
     <p class="subtitle">Vous pouvez y trouver la biographie de Spider-Man, les acteurs qui ont interpéter ce héros, les films qu'ils jouent, les créateurs de l'homme arraignée
         et enfin un quiz pour tester vos connaissances en tant que fan de Spidey ! </p>
+
+    <img class="width_30" src="https://i.pinimg.com/564x/f7/fc/71/f7fc718119a691e33a9c497a28e7b6bf.jpg">
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
