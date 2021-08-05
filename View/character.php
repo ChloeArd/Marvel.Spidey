@@ -25,8 +25,8 @@
     <div class="width_100 flexRow">
         <div class="width_30 flexColumn">
             <img class="width_100" src="https://cdn.discordapp.com/attachments/689017273050202134/872495141133361172/image1.jpg">
-            <img class="width_100" src="https://cdn.discordapp.com/attachments/689017273050202134/872515940569481279/image0.jpg">
-            <img class="width_100" src="https://i.dailymail.co.uk/i/pix/2016/09/27/23/38DA335900000578-0-image-a-118_1475016067652.jpg">
+            <img class="width_100" src="https://i.pinimg.com/564x/f7/28/08/f728083cf1487e59d205c839605d71e7.jpg">
+            <img class="width_100" src="https://i.pinimg.com/564x/26/16/ab/2616ab5b6ceae652cc37b3e7e25dd269.jpg">
         </div>
         <div class="width_70 flexColumn">
             <div class="flexCenter flexColumn">
