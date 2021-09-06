@@ -447,16 +447,28 @@ li{
     }
 }
 
-@media screen and (max-width: 900px) {
-    #photoCharacter {
-        display: none;
-    }
-    #descriptionCharacter {
-        width: 100%;
+@media screen and (max-width: 800px) {
+    #acceuil {
+        margin-left: 15px;
     }
     header a {
         font-size: 16px;
         margin-right: 8px;
         margin-left: 8px;
+    }
+    #table {
+        font-size: 12px;
+    }
+    .imgMovies {
+        width: 250px;
+    }
+    .width_px {
+        width: 270px;
+    }
+}
+
+@media screen and (max-width: 5700px) {
+    .pictures {
+        width: 43%;
     }
 }
