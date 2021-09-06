@@ -14,7 +14,7 @@
     <a id="acceuil" href="../index.php">Acceuil</a>
     <a href="characters.php">Personnages</a>
     <a href="movies.php">Films</a>
-    <a href="">Photos</a>
+    <a href="pictures.php">Photos</a>
     <a href="">Quiz</a>
     <a href="memory.php">Mémory</a>
 </header>

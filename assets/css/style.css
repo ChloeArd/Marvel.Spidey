@@ -35,7 +35,6 @@ footer {
  header a{
     color: white;
     text-decoration: none;
-    border-radius: 10px 10px;
     padding: 3px;
     margin-right: 13px;
     margin-left: 13px;
@@ -55,10 +54,6 @@ footer {
 
 .imageChara:hover {
     filter: brightness(50%);
-}
-
-#acceuil{
-    margin-left: 400px;
 }
 
 header a:hover{
@@ -189,6 +184,12 @@ h1 {
     margin: 15px;
 }
 
+.pictures {
+    width: 22.5%;
+    border-radius: 15px;
+    margin: 15px;
+}
+
 .yellow {
     color: #d0c100;
 }
@@ -214,7 +215,6 @@ h1 {
 #awards {
     display: none;
 }
-
 
 .fab, .fas {
     color: black;
@@ -271,7 +271,7 @@ h1 {
 }
 
 #acceuil{
-    margin-left: 400px;
+    margin-left: 100px;
 }
 
 .title {
@@ -394,4 +394,69 @@ li{
 
 .imgMovies:hover {
     filter: brightness(50%);
+}
+
+.titleMovies {
+    color: grey;
+    font-size: 18px;
+    text-align: center;
+}
+
+.buttonLink {
+    position: absolute;
+    right: 10%;
+}
+
+.buttonMarg {
+    margin: 40px;
+}
+
+.colorWhite {
+    color: white;
+}
+
+.width_px {
+    width: 220px;
+}
+
+@media screen and (max-width: 1000px) {
+    .photoActor{
+        width: 45%;
+        margin: 10px;
+    }
+    .pictures {
+        width: 28%;
+    }
+    .imageChara {
+        width: 160px;
+        height: 160px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #photoCharacter {
+        display: none;
+    }
+    #descriptionCharacter {
+        width: 100%;
+    }
+    header a {
+        font-size: 18px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #photoCharacter {
+        display: none;
+    }
+    #descriptionCharacter {
+        width: 100%;
+    }
+    header a {
+        font-size: 16px;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
 }

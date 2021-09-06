@@ -11,10 +11,10 @@
 
 <header>
     <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
-    <a id="acceuil" href="../index.php">Acceuil</a>
+    <a id="acceuil" href="../index.php">Accueil</a>
     <a href="characters.php">Personnages</a>
     <a href="movies.php">Films</a>
-    <a href="">Photos</a>
+    <a href="pictures.php">Photos</a>
     <a href="">Quiz</a>
     <a href="memory.php">Mémory</a>
 </header>
@@ -23,12 +23,12 @@
     <h1 class="title">TOM HOLLAND</h1>
 
     <div class="width_100 flexRow">
-        <div class="width_30 flexColumn">
+        <div id="photoCharacter" class="width_30 flexColumn">
             <img class="width_100" src="https://i.dailymail.co.uk/i/pix/2016/09/27/23/38DA335900000578-0-image-a-118_1475016067652.jpg">
             <img class="width_100" src="https://cdn.discordapp.com/attachments/689017273050202134/872495141133361172/image1.jpg">
             <img class="width_100" src="https://cdn.discordapp.com/attachments/689017273050202134/872515940569481279/image0.jpg">
         </div>
-        <div class="width_70 flexColumn">
+        <div id="descriptionCharacter" class="width_70 flexColumn">
             <div class="flexCenter flexColumn">
                 <h1 class="marginTop">TOM HOLLAND</h1>
                 <div class="flexColumn flexCenter">

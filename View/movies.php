@@ -11,10 +11,10 @@
 
 <header>
     <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
-    <a id="acceuil" href="../index.php">Acceuil</a>
+    <a id="acceuil" href="../index.php">Accueil</a>
     <a href="characters.php">Personnages</a>
     <a href="movies.php">Films</a>
-    <a href="">Photos</a>
+    <a href="pictures.php">Photos</a>
     <a href="">Quiz</a>
     <a href="memory.php">Mémory</a>
 </header>
@@ -24,26 +24,70 @@
 
     <h2 class="titleChara">SPIDER-MAN : TOM HOLLAND</h2>
     <div class="width_80 flexRow wrap auto">
-        <a href="" >
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+            <p class="titleMovies">Captain America : Civil War</p>
+        </a>
+        <a href="" class="width_px center">
             <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
         </a>
-        <a href="" >
+        <a href="" class="width_px center">
             <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
         </a>
-        <a href="" >
+        <a href="" class="width_px center">
             <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
         </a>
-        <a href="" >
+        <a href="" class="width_px center">
             <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
         </a>
-        <a href="" >
-            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-        </a>
-        <a href="" >
+        <a href="" class="width_px center">
             <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
         </a>
     </div>
 
+    <h2 class="titleChara">SPIDER-MAN : ANDREW GARFIELD</h2>
+    <div class="width_80 flexRow wrap auto">
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+    </div>
+
+    <h2 class="titleChara">SPIDER-MAN : TOBEY MAGUIRE</h2>
+    <div class="width_80 flexRow wrap auto">
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+        <a href="" class="width_px center">
+            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+        </a>
+    </div>
 
 </main>
 

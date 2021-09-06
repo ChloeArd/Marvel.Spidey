@@ -11,10 +11,10 @@
 
 <header>
     <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
-    <a id="acceuil" href="index.php">Acceuil</a>
+    <a id="acceuil" href="index.php">Accueil</a>
     <a href="View/characters.php">Personnages</a>
-    <a href="">Films</a>
-    <a href="">Photos</a>
+    <a href="View/movies.php">Films</a>
+    <a href="View/pictures.php">Photos</a>
     <a href="">Quiz</a>
     <a href="View/memory.php">Memory</a>
 </header>
