@@ -26,7 +26,7 @@
         <a href="" class="button buttonLink"><i class="fas fa-plus colorWhite"></i></a>
     </div>
 
-    <div class="flexRow wrap">
+    <div class="flexRow wrap picturesAll">
         <img class="pictures" src="../assets/img/tom1.jpg">
         <img class="pictures" src="../assets/img/tom2.jpg">
         <img class="pictures" src="../assets/img/tom3.jpg">

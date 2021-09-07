@@ -462,7 +462,7 @@ li{
     color: #7e7e7e;
 }
 
-.picturesActor {
+.picturesActor, .picturesAll, #game {
     justify-content: center;
 }
 
