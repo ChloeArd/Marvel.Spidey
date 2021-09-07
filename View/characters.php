@@ -45,7 +45,7 @@
     </form>
 
     <h2 class="titleChara">PERSONNAGES SPIDER-MAN</h2>
-    <div class="flexRow flexCenter">
+    <div class="flexRow flexCenter wrap">
         <a href="character.php" class="flexColumn flexCenter">
             <img class="imageChara" src="../assets/img/230569264_268125674662999_2556334764745098310_n.jpg" alt="SPIDER-MAN">
             <p>SPIDER-MAN </p>
@@ -64,7 +64,7 @@
     </div>
 
     <h2 class="titleChara">ACTEURS</h2>
-    <div class="flexRow flexCenter">
+    <div class="flexRow flexCenter wrap">
         <a href="" class="flexColumn flexCenter">
             <img class="imageChara" src="../assets/img/maguire.jpg" alt="Tobey Maguire">
             <p>Tobey Maguire</p>

@@ -203,7 +203,7 @@ h1 {
 }
 
 .blue {
-    color: #0039ff;
+    color: #5e7acf;
 }
 
 .awards {
@@ -462,6 +462,10 @@ li{
     color: #7e7e7e;
 }
 
+.picturesActor {
+    justify-content: center;
+}
+
 @media screen and (max-width: 1000px) {
     .photoActor{
         width: 45%;
@@ -545,5 +549,29 @@ li{
     }
     .imgMovies {
         width: 150px;
+    }
+    #table {
+        flex-direction: column;
+        width: 70%;
+        font-size: 17px;
+    }
+    .lineVertical {
+        border-bottom: 1px solid #A7A7A7;
+        border-right: 0;
+        height: 0;
+        margin: 15px 0 15px 0;
+        width: 100%;
+    }
+    .lineHorizontal {
+        display: none;
+    }
+    .picturesBook, .team {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .photoActor {
+        width: 80%;
     }
 }

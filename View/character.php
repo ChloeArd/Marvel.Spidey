@@ -75,12 +75,12 @@
 
             <h2 class="titleDescription">1ERE APPARITION</h2>
             <div class="flexCenter flexColumn background">
-                <img class="width_10" src="https://tse2.mm.bing.net/th?id=OIP.pg_ac0QWcIOvrhVgWkk-iQHaK-&pid=Api&P=0&w=300&h=300" alt="Comic book Amazing Fantasy (vol. 1) #15">
+                <img class="width_20 picturesBook" src="https://tse2.mm.bing.net/th?id=OIP.pg_ac0QWcIOvrhVgWkk-iQHaK-&pid=Api&P=0&w=300&h=300" alt="Comic book Amazing Fantasy (vol. 1) #15">
                 <p>Comic book Amazing Fantasy (vol. 1) #15</p>
             </div>
 
             <h2 class="titleDescription">CREATEURS</h2>
-            <div class="flexRow flexCenter">
+            <div class="flexRow flexCenter wrap">
                 <div class="flexColumn flexCenter">
                     <img class="imageChara" src="../assets/img/lee.jpg" alt="Stan Lee">
                     <p>Stan Lee</p>
@@ -106,7 +106,7 @@
             </div>
             <h2 class="titleDescription">EQUIPE</h2>
             <div class="flexCenter">
-                <img class="width_10" src="https://clipground.com/images/avengers-a-logo-4.png">
+                <img class="width_20 team" src="https://clipground.com/images/avengers-a-logo-4.png">
             </div>
             <p class="center"> Avengers</p>
             <h2 class="titleDescription">PARENT CONNUS</h2>
@@ -132,7 +132,7 @@
             </div>
 
             <h2 class="titleDescription">ACTEURS</h2>
-            <div class="flexRow flexCenter">
+            <div class="flexRow flexCenter wrap">
                 <a href="" class="flexColumn flexCenter">
                     <img class="imageChara" src="../assets/img/maguire.jpg" alt="Tobey Maguire">
                     <p>Tobey Maguire</p>
