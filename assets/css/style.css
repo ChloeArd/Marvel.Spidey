@@ -429,9 +429,25 @@ li{
 }
 
 #subMenu {
-    background-color: rgba(44, 150, 198, 0.7);
+    padding: 20px;
+    background-color: black;
     position: absolute;
     z-index: 999;
+    color: white;
+}
+
+.linkMenuMobile {
+    font-size: 2rem;
+    padding: 10px;
+}
+
+.fa-chevron-circle-right {
+    margin: 0 10px 0 10px;
+}
+
+.linkMenuMobile:hover {
+    background-color: rgba(207, 205, 205, 0.7);
+    border-radius: 10px;
 }
 
 #logoMenu {
@@ -497,7 +513,7 @@ li{
     #menu {
         display: none;
     }
-    #menuMobile {
+    #menuMobile{
         display: flex;
     }
     #logoMarvel {

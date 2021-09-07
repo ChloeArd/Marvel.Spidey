@@ -24,15 +24,17 @@
         <p id="logoMenu"><i class="fas fa-bars colorWhite"></i></p>
         <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
     </div>
-
-    <div id="subMenu" class="flexColumn">
-        <a class="linkMenuMobile flexRow align" href=""><i class="fas fa-chevron-circle-right"></i>Accueil</a>
-        <a class="linkMenuMobile flexRow align" href=""><i class="fas fa-chevron-circle-right"></i>Personnages</a>
-        <a class="linkMenuMobile flexRow align" href=""><i class="fas fa-chevron-circle-right"></i>Films</a>
-    </div>
 </header>
 
 <main>
+    <div id="subMenu" class="flexColumn">
+        <a class="linkMenuMobile colorWhite flexRow align" href=""><i class="fas fa-chevron-circle-right colorWhite"></i>Accueil</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href=""><i class="fas fa-chevron-circle-right colorWhite"></i>Personnages</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href=""><i class="fas fa-chevron-circle-right colorWhite"></i>Films</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href=""><i class="fas fa-chevron-circle-right colorWhite"></i>Photos</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href=""><i class="fas fa-chevron-circle-right colorWhite"></i>Quiz</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href=""><i class="fas fa-chevron-circle-right colorWhite"></i>Memory</a>
+    </div>
     <h1 class="title">TOUS LES PERSONNAGES SPIDER-MAN</h1>
 
     <form method="post" action="">
@@ -86,6 +88,8 @@
         <img class="width_70" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
     </div>
 </footer>
+
+<script src="/assets/js/app2.js"></script>
 
 </body>
 </html>
