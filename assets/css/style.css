@@ -396,7 +396,7 @@ li{
     width: 80%;
 }
 
-.imgMovies:hover {
+.imgMovies:hover, .pictures:hover {
     filter: brightness(80%);
 }
 
@@ -461,6 +461,8 @@ li{
 #logoMenu:hover {
     color: #7e7e7e;
 }
+
+
 
 .picturesActor, .picturesAll, #game {
     justify-content: center;
@@ -573,5 +575,11 @@ li{
 @media screen and (max-width: 400px) {
     .photoActor {
         width: 80%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .form, .button {
+        font-size: 13px;
     }
 }
