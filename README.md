@@ -1,2 +1,2 @@
-# MarvelDoc
+# Marvel.Spidey
 Un site Marvel contenant des descriptions sur les personnages, sa création, par qui, comment est venu cette idée de créer des super-Héros, ...
