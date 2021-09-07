@@ -41,6 +41,11 @@ footer {
     font-size: 20px;
 }
 
+ .align {
+     display: flex;
+     align-items: center;
+ }
+
 #logoMarvel{
     width: 140px;
 }
@@ -419,6 +424,24 @@ li{
     width: 220px;
 }
 
+#subMenu, #menuMobile {
+    display: none;
+}
+
+#subMenu {
+    background-color: rgba(44, 150, 198, 0.7);
+    position: absolute;
+    z-index: 999;
+}
+
+#logoMenu {
+    margin-left: 30px;
+}
+
+#logoMenu:hover {
+    color: #7e7e7e;
+}
+
 @media screen and (max-width: 1000px) {
     .photoActor{
         width: 45%;
@@ -467,8 +490,18 @@ li{
     }
 }
 
-@media screen and (max-width: 5700px) {
+@media screen and (max-width: 700px) {
     .pictures {
         width: 43%;
+    }
+    #menu {
+        display: none;
+    }
+    #menuMobile {
+        display: flex;
+    }
+    #logoMarvel {
+        position: absolute;
+        right: 10%;
     }
 }

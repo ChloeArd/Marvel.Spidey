@@ -20,16 +20,16 @@
         <a href="memory.php">Memory</a>
     </div>
 
-<div id="menuMobile" class="flexRow align">
-    <p id="logoMenu"><i class="fas fa-bars"></i></p>
-    <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
-</div>
+    <div id="menuMobile" class="flexRow align width_100">
+        <p id="logoMenu"><i class="fas fa-bars colorWhite"></i></p>
+        <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
+    </div>
 
-<div id="subMenu" class="flexColumn">
-    <a class="linkMenuMobile flexRow align" href=""><i class="fas fa-chevron-circle-right"></i>Accueil</a>
-    <a class="linkMenuMobile flexRow align" href=""><i class="fas fa-chevron-circle-right"></i>Personnages</a>
-    <a class="linkMenuMobile flexRow align" href=""><i class="fas fa-chevron-circle-right"></i>Films</a>
-</div>
+    <div id="subMenu" class="flexColumn">
+        <a class="linkMenuMobile flexRow align" href=""><i class="fas fa-chevron-circle-right"></i>Accueil</a>
+        <a class="linkMenuMobile flexRow align" href=""><i class="fas fa-chevron-circle-right"></i>Personnages</a>
+        <a class="linkMenuMobile flexRow align" href=""><i class="fas fa-chevron-circle-right"></i>Films</a>
+    </div>
 </header>
 
 <main>
