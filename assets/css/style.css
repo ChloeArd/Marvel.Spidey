@@ -23,6 +23,7 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     font-family: 'Uchen', serif;
 }
 
@@ -48,6 +49,8 @@ footer {
 
 #logoMarvel{
     width: 140px;
+    position: absolute;
+    left: 5%;
 }
 
 .imageChara {
@@ -275,10 +278,6 @@ h1 {
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-#acceuil{
-    margin-left: 100px;
-}
-
 .title {
     color: white;
     padding: 40px;
@@ -398,7 +397,7 @@ li{
 }
 
 .imgMovies:hover {
-    filter: brightness(50%);
+    filter: brightness(80%);
 }
 
 .titleMovies {
@@ -422,6 +421,11 @@ li{
 
 .width_px {
     width: 220px;
+}
+
+.width_px:hover {
+    transform-origin: center;
+    transform: scale(1.2);
 }
 
 #subMenu, #menuMobile {
@@ -470,6 +474,9 @@ li{
         width: 160px;
         height: 160px;
     }
+    #logoMarvel {
+        left: 1%;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -504,6 +511,12 @@ li{
     .width_px {
         width: 270px;
     }
+    header {
+        justify-content: flex-end;
+    }
+    #logoMarvel {
+        left: 5%;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -517,7 +530,20 @@ li{
         display: flex;
     }
     #logoMarvel {
-        position: absolute;
+        left: initial;
         right: 10%;
+    }
+    #containerMovies {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .width_px {
+        width: 180px;
+    }
+    .imgMovies {
+        width: 150px;
     }
 }
