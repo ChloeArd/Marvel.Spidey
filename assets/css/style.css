@@ -156,6 +156,12 @@ h1 {
     margin-right: 15px;
 }
 
+.lineVertical2 {
+    height: 300px;
+    border-right: 2px solid #a7a7a7;
+    margin: 15px;
+}
+
 #table {
     color: #7e7e7e;
     font-size: 17px;
@@ -177,6 +183,12 @@ h1 {
 
 .lineHorizontal {
     border-bottom: 1px solid #A7A7A7;
+}
+
+.lineHorizontal2 {
+    border-bottom: 2px solid #A7A7A7;
+    width: 50%;
+    margin: 30px auto;
 }
 
 .titleChara {
@@ -462,10 +474,39 @@ li{
     color: #7e7e7e;
 }
 
-
-
-.picturesActor, .picturesAll, #game {
+.picturesActor, .picturesAll, #game, .contentCenter {
     justify-content: center;
+}
+
+.width_40 {
+    width: 40%;
+}
+
+.width_50 {
+    width: 50%;
+}
+
+.description {
+    color: #353535;
+    font-size: 17px;
+    padding: 3px 0 3px 0;
+}
+
+.video {
+    margin: 30px 0 30px 0;
+}
+
+.width_60 {
+    width: 60%;
+}
+
+.comment {
+    margin: 20px auto;
+    background-color: #0c0c0c;
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
 }
 
 @media screen and (max-width: 1000px) {
