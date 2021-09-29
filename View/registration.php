@@ -40,53 +40,20 @@
         <a class="linkMenuMobile colorWhite flexRow align" href="memory.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Memory</a>
         <a class="linkMenuMobile colorWhite flexRow align" href="registration.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Inscription</a>
         <a class="linkMenuMobile colorWhite flexRow align" href="connection.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Connexion</a>
-    </div>
-    <h1 class="title">TOUS LES PERSONNAGES SPIDER-MAN</h1>
 
-    <form method="post" action="">
-        <div class="right">
-            <input class="form" type="text" placeholder="Personnages/Acteur" name="name">
-            <input class="button" type="submit" value="Rechercher" name="send">
-        </div>
+    </div>
+    <h1 class="title">Inscrivez-vous</h1>
+
+    <form id="formConnect" method="post" action="#" class="flexColumn">
+        <label for="pseudo">Pseudo *</label>
+        <input id="pseudo" class="form" type="text" name="pseudo">
+        <label for="password">Mot de passe *</label>
+        <p class="alertMdp">Le mdp doit contenir au moins une majuscule, une minuscule, un chiffre, un caractère spécial et doit etre supérieur à 8 caractères.</p>
+        <input id="pseudo" class="form" type="text" name="pseudo">
+        <label for="password">Répet du mot de passe *</label>
+        <input id="password" class="form" type="password" name="password">
+        <input class="button" type="submit" value="M'inscrire" name="connect">
     </form>
-
-    <h2 class="titleChara">PERSONNAGES SPIDER-MAN</h2>
-    <div class="flexRow flexCenter wrap">
-        <a href="character.php" class="flexColumn flexCenter">
-            <img class="imageChara" src="../assets/img/230569264_268125674662999_2556334764745098310_n.jpg" alt="SPIDER-MAN">
-            <p>SPIDER-MAN </p>
-            <p class="sentenceGrey">PETER PARKER</p>
-        </a>
-        <a href="" class="flexColumn flexCenter">
-            <img class="imageChara" src="../assets/img/morales.jpg" alt="SPIDER-MAN">
-            <p>SPIDER-MAN</p>
-            <p class="sentenceGrey">MILES MORALES</p>
-        </a>
-        <a href="" class="flexColumn flexCenter">
-            <img class="imageChara" src="../assets/img/spider-man%20black.jpg" alt="SPIDER-MAN">
-            <p>SPIDER-MAN NOIR</p>
-            <p class="sentenceGrey">PETER PARKER</p>
-        </a>
-    </div>
-
-    <h2 class="titleChara">ACTEURS</h2>
-    <div class="flexRow flexCenter wrap">
-        <a href="" class="flexColumn flexCenter">
-            <img class="imageChara" src="../assets/img/maguire.jpg" alt="Tobey Maguire">
-            <p>Tobey Maguire</p>
-        </a>
-        <a href="" class="flexColumn flexCenter">
-            <img class="imageChara" src="../assets/img/garfield.jpg" alt="Andrew Garfield">
-            <p>Andrew Garfield</p>
-        </a>
-        <a href="actor.php" class="flexColumn flexCenter">
-            <img class="imageChara" src="../assets/img/holland.jpg" alt="Tom Holland">
-            <p>Tom Holland</p>
-        </a>
-    </div>
-
-    <h2 class="titleChara">CREATEURS</h2>
-
 </main>
 
 <footer class="flexRow">

@@ -50,7 +50,7 @@
         </div>
         <div class="lineVertical2"></div>
         <div class="flexColumn width_40">
-            <h3 class="bold marginTop">Synopsis</h3>
+            <h3 class="bold marginTop red">Synopsis</h3>
             <p class="marginTop">Après ses spectaculaires débuts dans Captain America : Civil War, le jeune Peter Parker découvre peu à peu
                 sa nouvelle identité, celle de Spider-Man, le super-héros lanceur de toile. Galvanisé par son expérience avec
                 les Avengers, Peter rentre chez lui auprès de sa tante May, sous l’œil attentif de son nouveau mentor, Tony Stark.
@@ -66,7 +66,7 @@
 
     <div class="lineHorizontal2"></div>
     <div class="width_60 auto">
-        <h3>COMMENTAIRES</h3>
+        <h3 class="red">COMMENTAIRES</h3>
 
         <div class="comment">
             <h4>Pseudo</h4>

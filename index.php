@@ -17,6 +17,11 @@
     <a href="View/pictures.php">Photos</a>
     <a href="">Quiz</a>
     <a href="View/memory.php">Memory</a>
+    <div class="account">
+        <a href="View/registration.php">Inscription</a>
+        <span class="colorWhite">/</span>
+        <a href="View/connection.php">Connexion</a>
+    </div>
 </header>
 
 <main>
@@ -106,8 +111,12 @@
 </main>
 
 <footer class="flexRow">
-    <div class="flexColumn flexCenter">
+    <div class="flexRow flexCenter">
         <img class="width_70" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
+    </div>
+    <div class="flexRow flexCenter content">
+        <a class="colorWhite" href="#">Mentions légales</a>
+        <a class="colorWhite" href="#">Contact</a>
     </div>
 </footer>
 
