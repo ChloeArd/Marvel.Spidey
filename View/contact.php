@@ -20,7 +20,7 @@
         <a href="memory.php">Memory</a>
     </div>
     <div class="account">
-        <a href="registration.php">Inscription</a>
+        <a href="create/registration.php">Inscription</a>
         <span class="colorWhite">/</span>
         <a href="connection.php">Connexion</a>
     </div>
@@ -38,21 +38,20 @@
         <a class="linkMenuMobile colorWhite flexRow align" href="pictures.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Photos</a>
         <a class="linkMenuMobile colorWhite flexRow align" href=""><i class="fas fa-chevron-circle-right colorWhite"></i>Quiz</a>
         <a class="linkMenuMobile colorWhite flexRow align" href="memory.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Memory</a>
-        <a class="linkMenuMobile colorWhite flexRow align" href="registration.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Inscription</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href="create/registration.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Inscription</a>
         <a class="linkMenuMobile colorWhite flexRow align" href="connection.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Connexion</a>
 
     </div>
-    <h1 class="title">Inscrivez-vous</h1>
+    <h1 class="title">Contactez-nous</h1>
 
-    <form id="formConnect" method="post" action="#" class="flexColumn">
-        <label for="pseudo">Pseudo *</label>
-        <input id="pseudo" class="form" type="text" name="pseudo">
-        <label for="password">Mot de passe *</label>
-        <p class="alertMdp">Le mdp doit contenir au moins une majuscule, une minuscule, un chiffre, un caractère spécial et doit etre supérieur à 8 caractères.</p>
-        <input id="pseudo" class="form" type="text" name="pseudo">
-        <label for="password">Répet du mot de passe *</label>
-        <input id="password" class="form" type="password" name="password">
-        <input class="button" type="submit" value="M'inscrire" name="connect">
+    <form id="formConnect" method="post" action="#" class="flexColumn width_40">
+        <label for="email">Email *</label>
+        <input id="email" class="form" type="email" name="email">
+        <label for="subject">Sujet *</label>
+        <input id="subject" class="form" type="text" name="subject">
+        <label for="message">Message *</label>
+        <textarea name="message" id="message" class="form"></textarea>
+        <input class="button" type="submit" value="Envoyer" name="send">
     </form>
 </main>
 
@@ -62,7 +61,7 @@
     </div>
     <div class="flexRow flexCenter content">
         <a class="colorWhite" href="#">Mentions légales</a>
-        <a class="colorWhite" href="#">Contact</a>
+        <a class="colorWhite" href="contact.php">Contact</a>
     </div>
 </footer>
 

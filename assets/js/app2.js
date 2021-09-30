@@ -7,11 +7,12 @@ if (buttonDisplay) {
     buttonDisplay.addEventListener("click",function (){
         if (nbClick === 0) {
             awards.style.display = "block";
+            document.getElementById("menuAccountMobile").classList = "fas fa-caret-up";
             nbClick++;
-            console.log(nbClick);
         }
         else {
             awards.style.display = "none";
+            document.getElementById("menuAccountMobile").classList = "fas fa-caret-down";
             nbClick = 0;
         }
     });
@@ -31,3 +32,18 @@ if (document.getElementById("menuMobile")) {
     });
 }
 
+if (document.getElementById("menuAccountMobile")) {
+    let click = 0;
+    document.getElementById("menuAccountMobile").addEventListener("click", function () {
+        if (click === 0) {
+            document.getElementById("subMenuAccount").style.display = "flex";
+            document.getElementById("menuAccountMobile").classList = "fas fa-caret-up colorWhite";
+            click++;
+        }
+        else {
+            document.getElementById("subMenuAccount").style.display = "none";
+            document.getElementById("menuAccountMobile").classList = "fas fa-caret-down colorWhite";
+            click = 0;
+        }
+    });
+}

@@ -17,6 +17,11 @@ body {
     width: 100%;
 }
 
+#wrap {
+    min-height: 100%;
+    position: relative;
+}
+
 header{
     width: 100%;
     height: 80px;
@@ -32,6 +37,9 @@ footer {
     width: 100%;
     background: #0c0c0c;
     height: 200px;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -200px;
 }
 
  header a, footer > div > a{
@@ -232,7 +240,7 @@ h1 {
     margin: 5px 10px 5px 10px;
 }
 
-.fa-caret-down {
+.fa-caret-down, .fa-caret-up {
     font-size: 12px;
     color: black;
     border: 1px solid #A7A7A7;
@@ -400,6 +408,12 @@ form {
     font-size: 18px;
 }
 
+#message {
+    border: 2px solid #ff0000;
+    height: 200px;
+    margin: 10px;
+}
+
 .button {
     border: none;
     color: white;
@@ -407,7 +421,6 @@ form {
     background-color: #ed3535;
     border-radius: 10px;
     padding: 8px;
-    box-shadow: 10px 10px 10px grey;
 }
 
 .button:hover {
@@ -563,6 +576,76 @@ footer > div > a {
     font-size: 12px;
 }
 
+#accountMain {
+    background-color: #131313;
+}
+
+.menuAccount, #subMenuAccount {
+    border: 3px solid #727272;
+    border-radius: 15px;
+    background-color: #0c0c0c;
+    padding: 10px;
+    margin: 20px;
+}
+
+.menuAccount > a, #subMenuAccount > a {
+    color: white;
+    padding: 5px;
+    margin: 5px;
+    background-color: #131313;
+}
+
+.menuAccount > a:hover {
+    background-color: #525252;
+}
+
+.menuAccount > a.disconnection, #subMenuAccount > a.disconnection, .disconnection {
+    background-color: #ff0e0e;
+}
+
+.disconnection:hover, #subMenuAccount > a.disconnection:hover, .menuAccount > a.disconnection:hover {
+    background-color: #b80000;
+}
+
+.contentAccount {
+    padding: 50px;
+}
+
+.info {
+    background-color: #343434;
+    padding: 5px;
+    margin: 10px;
+    font-size: 25px;
+}
+
+.contentAccount > a {
+    margin: 15px;
+    border-radius: 20px;
+}
+
+.contentAccount > a.edit1, .contentAccount > a.edit2 {
+    background-color: white;
+    color: black;
+}
+
+.contentAccount > a.edit1:hover {
+    color: white;
+    background-color: gold;
+}
+
+.contentAccount > a.edit2:hover {
+    color: white;
+    background-color: #457bd3;
+}
+
+.fa-edit {
+    margin-left: 10px;
+}
+
+#subMenuAccount, #menuAccountMobile {
+    display: none;
+}
+
 @media screen and (max-width: 1250px) {
     .account {
         position: relative;
@@ -573,7 +656,9 @@ footer > div > a {
         display: flex;
         flex-direction: column-reverse;
     }
-
+    #formConnect, .contentAccount > a {
+        width: 90%;
+    }
 }
 
 @media screen and (max-width: 1000px) {
@@ -590,6 +675,9 @@ footer > div > a {
     }
     #logoMarvel {
         left: 1%;
+    }
+    #accountMain {
+        width: 95%;
     }
 }
 
@@ -627,6 +715,31 @@ footer > div > a {
     }
     header {
         justify-content: flex-end;
+    }
+    #menuAccount {
+        display: none;
+    }
+    .contentAccount {
+        width: 95%;
+        margin: auto;
+        padding: 20px;
+    }
+    #accountPage {
+        flex-direction: column;
+    }
+    #menuAccountMobile {
+        display: block;
+        width: 100px;
+        text-align: center;
+        padding: 7px;
+        margin: 10px;
+    }
+    #subMenuAccount {
+        margin-top: 40px;
+        position: absolute;
+        width: 40%;
+        border: none;
+        background-color: RGBA(0,0,0,0.8);
     }
 }
 
@@ -691,6 +804,9 @@ footer > div > a {
 @media screen and (max-width: 400px) {
     .photoActor {
         width: 80%;
+    }
+    .info, .contentAccount > a {
+        font-size: 18px;
     }
 }
 

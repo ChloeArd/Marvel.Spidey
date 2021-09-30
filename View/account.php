@@ -9,7 +9,6 @@
 </head>
 <body>
 
-<div id="wrap">
     <header class="wrap">
         <div id="menu" class="flexRow flexCenter">
             <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
@@ -27,11 +26,11 @@
         </div>
         <div id="menuMobile" class="flexRow align width_100">
             <p id="logoMenu"><i class="fas fa-bars colorWhite"></i></p>
-            <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
+            <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png" alt="nom image">
         </div>
     </header>
 
-    <main>
+    <main id="accountMain">
         <div id="subMenu" class="flexColumn">
             <a class="linkMenuMobile colorWhite flexRow align" href="../index.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Accueil</a>
             <a class="linkMenuMobile colorWhite flexRow align" href="characters.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Personnages</a>
@@ -42,51 +41,51 @@
             <a class="linkMenuMobile colorWhite flexRow align" href="create/registration.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Inscription</a>
             <a class="linkMenuMobile colorWhite flexRow align" href="connection.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Connexion</a>
         </div>
-        <h1 class="title">TOUS LES PERSONNAGES SPIDER-MAN</h1>
 
-        <form method="post" action="">
-            <div class="right">
-                <input class="form" type="text" placeholder="Personnages/Acteur" name="name">
-                <input class="button" type="submit" value="Rechercher" name="send">
+        <h1 class="title">Bienvenue, ChloeArd !</h1>
+
+        <div  class="width_80 auto">
+            <div class="flexCenter">
+                <img class="imageChara" src="https://tse2.mm.bing.net/th?id=OIP.QV-PHx-CKWn3BZsxpDFsmgHaHa&pid=Api&P=0&w=300&h=300" alt="Prénom Nom">
             </div>
-        </form>
+            <div id="accountPage" class="flexRow">
+                <div id="menuAccount" class="menuAccount width_20 flexColumn">
+                    <a href="#">Mon profil</a>
+                    <a href="#">Mes photos</a>
+                    <a href="#">Mes favoris</a>
+                    <a href="#">Gestion des utilisateurs</a>
+                    <a href="#">Gestion des personnages</a>
+                    <a href="#">Gestion des films</a>
+                    <a href="#">Gestion des photos</a>
+                    <a href="#">Gestion des quiz</a>
+                    <a class="disconnection" href="#">Me déconnecter</a>
+                </div>
+                <div class="flexColumn align">
+                    <div class="auto">
+                        <i id="menuAccountMobile" class="fas fa-caret-down colorWhite"></i>
+                    </div>
+                    <div id="subMenuAccount" class="width_20 flexColumn">
+                        <a href="#">Mon profil</a>
+                        <a href="#">Mes photos</a>
+                        <a href="#">Mes favoris</a>
+                        <a href="#">Gestion des utilisateurs</a>
+                        <a href="#">Gestion des personnages</a>
+                        <a href="#">Gestion des films</a>
+                        <a href="#">Gestion des photos</a>
+                        <a href="#">Gestion des quiz</a>
+                        <a class="disconnection" href="#">Me déconnecter</a>
+                    </div>
+                </div>
 
-        <h2 class="titleChara">PERSONNAGES SPIDER-MAN</h2>
-        <div class="flexRow flexCenter wrap">
-            <a href="character.php" class="flexColumn flexCenter">
-                <img class="imageChara" src="../assets/img/230569264_268125674662999_2556334764745098310_n.jpg" alt="SPIDER-MAN">
-                <p>SPIDER-MAN </p>
-                <p class="sentenceGrey">PETER PARKER</p>
-            </a>
-            <a href="" class="flexColumn flexCenter">
-                <img class="imageChara" src="../assets/img/morales.jpg" alt="SPIDER-MAN">
-                <p>SPIDER-MAN</p>
-                <p class="sentenceGrey">MILES MORALES</p>
-            </a>
-            <a href="" class="flexColumn flexCenter">
-                <img class="imageChara" src="../assets/img/spider-man%20black.jpg" alt="SPIDER-MAN">
-                <p>SPIDER-MAN NOIR</p>
-                <p class="sentenceGrey">PETER PARKER</p>
-            </a>
+                <div class="menuAccount contentAccount width_80 flexCenter flexColumn">
+                    <p class="red info width_100">Pseudo : <span class="colorWhite">ChloeArd</span></p>
+                    <p class="red info width_100">Email : <span class="colorWhite">prenom.nom@gmail.com</span></p>
+                    <a href="update/updateAccount.php" class="width_40 flexCenter edit1">Modifier <i class="far fa-edit"></i></a>
+                    <a href="#" class="width_40 flexCenter edit2">Changer mon mot de passe<i class="far fa-edit"></i></a>
+                    <a href="#" class="width_40 flexCenter disconnection deleteButton">Supprimer mon compte</a>
+                </div>
+            </div>
         </div>
-
-        <h2 class="titleChara">ACTEURS</h2>
-        <div class="flexRow flexCenter wrap">
-            <a href="" class="flexColumn flexCenter">
-                <img class="imageChara" src="../assets/img/maguire.jpg" alt="Tobey Maguire">
-                <p>Tobey Maguire</p>
-            </a>
-            <a href="" class="flexColumn flexCenter">
-                <img class="imageChara" src="../assets/img/garfield.jpg" alt="Andrew Garfield">
-                <p>Andrew Garfield</p>
-            </a>
-            <a href="actor.php" class="flexColumn flexCenter">
-                <img class="imageChara" src="../assets/img/holland.jpg" alt="Tom Holland">
-                <p>Tom Holland</p>
-            </a>
-        </div>
-
-        <h2 class="titleChara">CREATEURS</h2>
 
     </main>
 
@@ -96,10 +95,9 @@
         </div>
         <div class="flexRow flexCenter content">
             <a class="colorWhite" href="#">Mentions légales</a>
-            <a class="colorWhite" href="#">Contact</a>
+            <a class="colorWhite" href="contact.php">Contact</a>
         </div>
     </footer>
-</div>
 
 <script src="/assets/js/app2.js"></script>
 
