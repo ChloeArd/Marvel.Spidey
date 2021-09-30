@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://kit.fontawesome.com/351e9300a0.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="backgroundBlack">
 
     <header class="wrap">
         <div id="menu" class="flexRow flexCenter">
@@ -81,8 +81,8 @@
                     <p class="red info width_100">Pseudo : <span class="colorWhite">ChloeArd</span></p>
                     <p class="red info width_100">Email : <span class="colorWhite">prenom.nom@gmail.com</span></p>
                     <a href="update/updateAccount.php" class="width_40 flexCenter edit1">Modifier <i class="far fa-edit"></i></a>
-                    <a href="#" class="width_40 flexCenter edit2">Changer mon mot de passe<i class="far fa-edit"></i></a>
-                    <a href="#" class="width_40 flexCenter disconnection deleteButton">Supprimer mon compte</a>
+                    <a href="update/updatePassword.php" class="width_40 flexCenter edit2">Changer mon mot de passe<i class="far fa-edit"></i></a>
+                    <a href="delete/deleteAccount.php" class="width_40 flexCenter disconnection deleteButton">Supprimer mon compte</a>
                 </div>
             </div>
         </div>

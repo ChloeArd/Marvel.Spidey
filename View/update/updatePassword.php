@@ -44,17 +44,14 @@
             <a class="linkMenuMobile colorWhite flexRow align" href="../connection.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Connexion</a>
         </div>
 
-        <h1 class="title">Modifier mes informations personnelles</h1>
+        <h1 class="title">Changer mon mot de passe</h1>
         <div  class="width_80 auto">
-            <form id="formConnect" method="post" action="#" class="flexColumn width_60" enctype="multipart/form-data">
-                <label for="picture" class="colorWhite">Sélectionner une image de profil (PNG, JPEG, JPG) : </label>
-                <input class="button" type="file" name="picture" id="picture" accept="image/png, image/jpeg, image/jpg">
-                <span>(Max: 6Mo)</span>
-                <label for="pseudo" class="colorWhite">Pseudo</label>
-                <input id="pseudo" class="form" type="text" name="pseudo">
-                <label for="email" class="colorWhite">Email</label>
-                <input id="email" class="form" type="email" name="email">
-                <input class="button" type="submit" value="Enregistrer" name="send">
+            <form id="formConnect" method="post" action="#" class="flexColumn width_60">
+                <label for="passNow" class="colorWhite">Mot de passe actuel *</label>
+                <input id="passNow" class="form" type="password" name="passNow">
+                <label for="passNew" class="colorWhite">Nouveau mot de passe *</label>
+                <input id="passNew" class="form" type="password" name="passNew">
+                <input class="button" type="submit" value="Changer" name="send">
             </form>
         </div>
     </main>

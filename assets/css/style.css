@@ -37,9 +37,13 @@ footer {
     width: 100%;
     background: #0c0c0c;
     height: 200px;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: -200px;
+    <!--position: absolute;-->
+    <!--bottom: 0;-->
+    <!--margin-bottom: -200px;-->
+}
+
+.backgroundBlack {
+    background-color: #131313;
 }
 
  header a, footer > div > a{
@@ -576,10 +580,6 @@ footer > div > a {
     font-size: 12px;
 }
 
-#accountMain {
-    background-color: #131313;
-}
-
 .menuAccount, #subMenuAccount {
     border: 3px solid #727272;
     border-radius: 15px;
@@ -593,6 +593,20 @@ footer > div > a {
     padding: 5px;
     margin: 5px;
     background-color: #131313;
+}
+
+.buttonEnter {
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 30px;
+    width: 40%;
+}
+
+.title2 {
+    font-size: 40px;
 }
 
 .menuAccount > a:hover {
@@ -679,6 +693,24 @@ footer > div > a {
     #accountMain {
         width: 95%;
     }
+    #infoMovie {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    #synopsis {
+        width: 100%;
+    }
+    #synopsis > h3 {
+        text-align: center;
+    }
+    .lineVertical2 {
+        display: none;
+    }
+    iframe {
+        width: 671px;
+        height: 346px;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -762,6 +794,10 @@ footer > div > a {
         width: 100%;
         justify-content: center;
     }
+    iframe {
+        width: 471px;
+        height: 256px;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -801,12 +837,23 @@ footer > div > a {
     }
 }
 
+@media screen and (max-width: 500px) {
+    iframe {
+        width: 371px;
+        height: 206px;
+    }
+}
+
 @media screen and (max-width: 400px) {
     .photoActor {
         width: 80%;
     }
     .info, .contentAccount > a {
         font-size: 18px;
+    }
+    iframe {
+        width: 271px;
+        height: 156px;
     }
 }
 

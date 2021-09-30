@@ -44,17 +44,13 @@
             <a class="linkMenuMobile colorWhite flexRow align" href="../connection.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Connexion</a>
         </div>
 
-        <h1 class="title">Modifier mes informations personnelles</h1>
-        <div  class="width_80 auto">
-            <form id="formConnect" method="post" action="#" class="flexColumn width_60" enctype="multipart/form-data">
-                <label for="picture" class="colorWhite">Sélectionner une image de profil (PNG, JPEG, JPG) : </label>
-                <input class="button" type="file" name="picture" id="picture" accept="image/png, image/jpeg, image/jpg">
-                <span>(Max: 6Mo)</span>
-                <label for="pseudo" class="colorWhite">Pseudo</label>
-                <input id="pseudo" class="form" type="text" name="pseudo">
-                <label for="email" class="colorWhite">Email</label>
-                <input id="email" class="form" type="email" name="email">
-                <input class="button" type="submit" value="Enregistrer" name="send">
+        <h1 class="title">Supprimer mon compte</h1>
+        <div class="flexColumn flexCenter">
+            <h2 class="red title2"> Voulez-vous vraiment supprimer votre compte ?</h2>
+            <p class="grey">En supprimant votre compte, vous effacez toutes les photos, commentaires que vous avez postés et vos favoris.</p>
+            <form id="delete" class="width_80 flexColumn flexCenter" method="post" action="">
+                <p class="colorWhite">Pseudo</p>
+                <input type="submit" class="disconnection buttonEnter" value="Supprimer">
             </form>
         </div>
     </main>
