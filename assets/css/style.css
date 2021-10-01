@@ -226,8 +226,16 @@ h1 {
 
 .pictures {
     width: 22.5%;
-    border-radius: 15px;
     margin: 15px;
+    border-radius: 15px;
+}
+
+.pictures > img {
+    border-radius: 15px;
+}
+
+.picture {
+    width: 95%;
 }
 
 .grey {
@@ -743,6 +751,12 @@ footer > div > a {
     text-align: center;
     padding: 7px;
     margin: 10px;
+}
+
+.titlePicture {
+    margin-top: 20px;
+    color: black;
+    font-size: 40px;
 }
 
 @media screen and (max-width: 1300px) {

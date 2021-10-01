@@ -43,31 +43,16 @@
             <a class="linkMenuMobile colorWhite flexRow align" href="connection.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Connexion</a>
         </div>
 
-        <h1 class="title">Photos</h1>
+        <h1 class="title">Photo</h1>
 
-        <div class="buttonMarg flexCenter">
-            <a href="" class="button buttonLink"><i class="fas fa-plus colorWhite"></i></a>
-        </div>
-
-        <div class="flexRow wrap picturesAll">
-            <a class="pictures" href="picture.php">
-                <img class="width_100" src="../assets/img/tom1.jpg">
-            </a>
-            <a class="pictures" href="#">
-                <img class="width_100" src="../assets/img/tom2.jpg">
-            </a>
-            <a class="pictures" href="#">
-                <img class="width_100" src="../assets/img/tom3.jpg">
-            </a>
-            <a class="pictures" href="#">
-                <img class="width_100" src="../assets/img/tom4.jpg">
-            </a>
-            <a class="pictures" href="#">
-                <img class="width_100" src="../assets/img/tom5.jpg">
-            </a>
-            <a class="pictures" href="#">
-                <img class="width_100" src="../assets/img/tom6.jpg">
-            </a>
+        <div class="flexRow wrap picturesAll width_80 auto">
+            <div class="width_60">
+                <img class="pictures picture" src="../assets/img/tom1.jpg">
+            </div>
+            <div class="width_40">
+                <h2 class="titlePicture">Spider-Man : Homecoming</h2>
+                <h3 class="subtitle">Description....</h3>
+            </div>
         </div>
 
     </main>
