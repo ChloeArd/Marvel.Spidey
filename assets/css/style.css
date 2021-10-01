@@ -255,7 +255,7 @@ h1 {
 
 #awards {
     display: none;
-    padding: 20px;
+    padding: 50px;
 }
 
 .fab, .fas {
@@ -652,12 +652,104 @@ footer > div > a {
     background-color: #457bd3;
 }
 
-.fa-edit {
+.edit1 > .fa-edit, .edit2 > .fa-edit {
     margin-left: 10px;
+}
+
+.logoEdit:hover {
+    background-color: gold;
+    color: white;
+}
+
+.logoDelete:hover {
+    background-color: #ff0e0e;
+    color: white;
 }
 
 #subMenuAccount, #menuAccountMobile {
     display: none;
+}
+
+.flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 190px;
+    perspective: 1000px;
+    margin: 15px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 15px;
+}
+
+.flip-card-front > .pictures {
+    width: 300px;
+    height: 190px;
+    margin: 0;
+}
+
+.flip-card-back {
+    background-color: #e7e6e6;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+}
+
+.flip-card-back > h1 {
+    font-size: 27px;
+}
+
+.menuAccount > h3 {
+    text-decoration: underline;
+}
+
+.logoStar {
+    color: #ffcc00;
+}
+
+.logoStar:hover {
+    color: #b80000;
+}
+
+.starPosition {
+    position: absolute;
+    margin-top: -140px;
+    margin-left: 20px;
+}
+.starPosition2 {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#menuAccountMobile2 {
+    width: 100px;
+    text-align: center;
+    padding: 7px;
+    margin: 10px;
+}
+
+@media screen and (max-width: 1300px) {
+    .flip-card-front > .pictures, .flip-card {
+        width: 220px;
+        height: 150px;
+    }
 }
 
 @media screen and (max-width: 1250px) {
@@ -670,8 +762,15 @@ footer > div > a {
         display: flex;
         flex-direction: column-reverse;
     }
-    #formConnect, .contentAccount > a {
+    #formConnect, .contentAccount > a, #accountWidth {
         width: 90%;
+    }
+}
+
+@media screen and (max-width: 1060px) {
+    .flip-card-front > .pictures, .flip-card {
+        width: 200px;
+        height: 150px;
     }
 }
 
@@ -700,6 +799,7 @@ footer > div > a {
     }
     #synopsis {
         width: 100%;
+        padding: 20px;
     }
     #synopsis > h3 {
         text-align: center;
@@ -710,6 +810,10 @@ footer > div > a {
     iframe {
         width: 671px;
         height: 346px;
+    }
+    .flip-card-front > .pictures, .flip-card {
+        width: 300px;
+        height: 190px;
     }
 }
 
@@ -724,6 +828,9 @@ footer > div > a {
         font-size: 18px;
         margin-right: 10px;
         margin-left: 10px;
+    }
+    #accountWidth {
+        width: 99%;
     }
 }
 
@@ -767,16 +874,21 @@ footer > div > a {
         margin: 10px;
     }
     #subMenuAccount {
+        z-index: 9999;
         margin-top: 40px;
         position: absolute;
         width: 40%;
         border: none;
         background-color: RGBA(0,0,0,0.8);
     }
+    .flip-card-front > .pictures, .flip-card {
+        width: 200px;
+        height: 150px;
+    }
 }
 
 @media screen and (max-width: 700px) {
-    .pictures {
+    .pictures, .flip-card  {
         width: 43%;
     }
     #menu, .account {
@@ -835,12 +947,19 @@ footer > div > a {
         padding: 5px;
         border: none;
     }
+    .flip-card-front > .pictures, .flip-card {
+        width: 300px;
+        height: 190px;
+    }
 }
 
 @media screen and (max-width: 500px) {
     iframe {
         width: 371px;
         height: 206px;
+    }
+    #subMenuAccount {
+        width: 70%;
     }
 }
 
@@ -855,10 +974,24 @@ footer > div > a {
         width: 271px;
         height: 156px;
     }
+    .flip-card-front > .pictures, .flip-card {
+        width: 250px;
+        height: 160px;
+    }
 }
 
 @media screen and (max-width: 360px) {
     .form, .button {
         font-size: 13px;
+    }
+    .flip-card-front > .pictures, .flip-card {
+        width: 200px;
+        height: 120px;
+    }
+    .datePubli {
+        font-size: 12px;
+    }
+    .flip-card-back > h1 {
+        font-size: 20px;
     }
 }

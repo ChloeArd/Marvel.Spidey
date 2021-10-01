@@ -7,12 +7,12 @@ if (buttonDisplay) {
     buttonDisplay.addEventListener("click",function (){
         if (nbClick === 0) {
             awards.style.display = "block";
-            document.getElementById("menuAccountMobile").classList = "fas fa-caret-up";
+            document.getElementById("menuAccountMobile2").classList = "fas fa-caret-up";
             nbClick++;
         }
         else {
             awards.style.display = "none";
-            document.getElementById("menuAccountMobile").classList = "fas fa-caret-down";
+            document.getElementById("menuAccountMobile2").classList = "fas fa-caret-down";
             nbClick = 0;
         }
     });

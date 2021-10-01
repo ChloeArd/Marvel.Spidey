@@ -9,6 +9,7 @@
 </head>
 <body class="backgroundBlack">
 
+<div id="wrap">
     <header class="wrap">
         <div id="menu" class="flexRow flexCenter">
             <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
@@ -42,13 +43,9 @@
             <a class="linkMenuMobile colorWhite flexRow align" href="connection.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Connexion</a>
         </div>
 
-        <h1 class="title">Mon profil</h1>
-        <h2 class="colorWhite marginTop">Bienvenue, ChloeArd !</h2>
+        <h1 class="title">Mes Favoris</h1>
 
-        <div  class="width_80 auto">
-            <div class="flexCenter">
-                <img class="imageChara" src="https://tse2.mm.bing.net/th?id=OIP.QV-PHx-CKWn3BZsxpDFsmgHaHa&pid=Api&P=0&w=300&h=300" alt="Prénom Nom">
-            </div>
+        <div id="accountWidth" class="width_80 auto">
             <div id="accountPage" class="flexRow">
                 <div id="menuAccount" class="menuAccount width_20 flexColumn">
                     <a href="account.php">Mon profil</a>
@@ -78,12 +75,35 @@
                     </div>
                 </div>
 
-                <div class="menuAccount contentAccount width_80 flexCenter flexColumn">
-                    <p class="red info width_100">Pseudo : <span class="colorWhite">ChloeArd</span></p>
-                    <p class="red info width_100">Email : <span class="colorWhite">prenom.nom@gmail.com</span></p>
-                    <a href="update/updateAccount.php" class="width_40 flexCenter edit1">Modifier <i class="far fa-edit"></i></a>
-                    <a href="update/updatePassword.php" class="width_40 flexCenter edit2 center">Changer mon mot de passe<i class="far fa-edit"></i></a>
-                    <a href="delete/deleteAccount.php" class="width_40 flexCenter disconnection center deleteButton">Supprimer mon compte</a>
+                <div class="menuAccount contentAccount width_80 flexColumn">
+                    <h3 class="colorWhite de">Mes photos favorites</h3>
+                    <div class="flexRow wrap picturesAll width_100">
+                        <img class="pictures" src="../assets/img/tom1.jpg">
+                        <div class="width_10">
+                            <a href="#"><i class="fas fa-star logoStar starPosition2"></i></a>
+                        </div>
+                        <img class="pictures" src="../assets/img/tom2.jpg">
+                        <div class="width_10">
+                            <a href="#"><i class="fas fa-star logoStar starPosition2"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="colorWhite">Mes films favoris</h3>
+                    <div id="containerMovies" class="width_80 flexRow wrap auto flexCenter">
+                        <a href="movie.php" class="width_px center">
+                            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+                            <p class="titleMovies">Captain America : Civil War</p>
+                            <div class="width_10">
+                                <a href="#"><i class="fas fa-star logoStar starPosition"></i></a>
+                            </div>
+
+                        </a>
+                        <a href="movie.php" class="width_px center">
+                            <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
+                            <p class="titleMovies">Captain America : Civil War</p>
+                            <div class="width_10">
+                                <a href="#"><i class="fas fa-star logoStar starPosition"></i></a>
+                            </div>
+                        </a>
                 </div>
             </div>
         </div>
@@ -91,14 +111,11 @@
     </main>
 
     <footer class="flexRow">
-        <div class="flexRow flexCenter">
+        <div class="flexColumn flexCenter">
             <img class="width_70" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
         </div>
-        <div class="flexRow flexCenter content">
-            <a class="colorWhite" href="#">Mentions légales</a>
-            <a class="colorWhite" href="contact.php">Contact</a>
-        </div>
     </footer>
+</div>
 
 <script src="/assets/js/app2.js"></script>
 
