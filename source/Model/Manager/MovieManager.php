@@ -3,46 +3,52 @@
 namespace Chloe\Marvel\Model\Manager;
 
 use Chloe\Marvel\Model\DB;
-use Chloe\Marvel\Model\Entity\Picture;
+use Chloe\Marvel\Model\Entity\Movie;
 use Chloe\Marvel\Model\Manager\Traits\ManagerTrait;
 
 require_once "Traits/ManagerTrait.php";
 
-class PictureManager {
+class MovieManager {
 
     use ManagerTrait;
 
     /**
-     * Return a picture based on id.
+     * Return a movie based on id.
      * @param $id
-     * @return Picture
+     * @return Movie
      */
-    public function getPicture($id): Picture {
-        $request = DB::getInstance()->prepare("SELECT * FROM picture WHERE id = :id");
+    public function getMovie($id): Movie {
+        $request = DB::getInstance()->prepare("SELECT * FROM movie WHERE id = :id");
         $id = intval($id);
         $request->bindParam(":id", $id);
         $request->execute();
         $info = $request->fetch();
-        $picture = new Picture();
+        $movie = new Movie();
         if ($info) {
-            $picture->setId($info['id']);
-            $picture->setPicture($info['picture']);
-            $picture->setTitle($info['title']);
-            $picture->setDescription($info['description']);
+            $movie->setId($info['id']);
+            $movie->setTitle($info['title']);
+            $movie->setPicture($info['picture']);
+            $movie->setDate($info['date']);
+            $movie->setTime($info['time']);
+            $movie->setDirector($info['director']);
+            $movie->setActors($info['actors']);
+            $movie->setSynopsis($info['synopsis']);
+            $movie->setVideo($info['video']);
         }
-        return $picture;
+        return $movie;
     }
 
     /**
-     * returns all pictures
+     * returns all movies
      * @return array
      */
-    public function getPictures(): array {
+    public function getMovies(): array {
         $picture = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM picture ORDER by id DESC");
+        $request = DB::getInstance()->prepare("SELECT * FROM movie ORDER by id DESC");
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description']);
+                $picture[] = new Movie($info['id'], $info['title'], $info['picture'], $info['date'], $info['time'], $info['director'],
+                    $info['actors'], $info['synopsis'], $info['video']);
             }
         }
         return $picture;
