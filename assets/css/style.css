@@ -235,7 +235,7 @@ h1 {
 }
 
 .picture {
-    width: 95%;
+    width: 100%;
 }
 
 .grey {
@@ -755,7 +755,7 @@ footer > div > a {
 
 .titlePicture {
     margin-top: 20px;
-    color: black;
+    color: #ff0e0e;
     font-size: 40px;
 }
 
@@ -776,8 +776,16 @@ footer > div > a {
         display: flex;
         flex-direction: column-reverse;
     }
-    #formConnect, .contentAccount > a, #accountWidth {
+    #formConnect, .contentAccount > a, #accountWidth, #modify1 {
         width: 90%;
+    }
+    #flexPicture {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #commentPicture {
+        width: 100%;
     }
 }
 
@@ -828,6 +836,9 @@ footer > div > a {
     .flip-card-front > .pictures, .flip-card {
         width: 300px;
         height: 190px;
+    }
+    .picture {
+        width: 100%;
     }
 }
 
@@ -899,11 +910,17 @@ footer > div > a {
         width: 200px;
         height: 150px;
     }
+    #flexPicture {
+        width: 98%;
+    }
 }
 
 @media screen and (max-width: 700px) {
     .pictures, .flip-card  {
         width: 43%;
+    }
+    .picture {
+        width: 100%;
     }
     #menu, .account {
         display: none;
@@ -974,6 +991,9 @@ footer > div > a {
     }
     #subMenuAccount {
         width: 70%;
+    }
+    .titlePicture {
+        font-size: 30px;
     }
 }
 

@@ -31,7 +31,7 @@
         </div>
     </header>
 
-    <main id="accountMain">
+    <main>
         <div id="subMenu" class="flexColumn">
             <a class="linkMenuMobile colorWhite flexRow align" href="../index.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Accueil</a>
             <a class="linkMenuMobile colorWhite flexRow align" href="characters.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Personnages</a>
@@ -44,6 +44,11 @@
         </div>
 
         <h1 class="title">Photos</h1>
+
+        <form method="post" action="#" class="flexRow">
+            <input class="form grey" type="text" name="search">
+            <input class="button" type="submit" value="Rechercher" name="submit">
+        </form>
 
         <div class="buttonMarg flexCenter">
             <a href="" class="button buttonLink"><i class="fas fa-plus colorWhite"></i></a>

@@ -31,7 +31,7 @@
         </div>
     </header>
 
-    <main id="accountMain">
+    <main>
         <div id="subMenu" class="flexColumn">
             <a class="linkMenuMobile colorWhite flexRow align" href="../index.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Accueil</a>
             <a class="linkMenuMobile colorWhite flexRow align" href="characters.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Personnages</a>
@@ -45,16 +45,39 @@
 
         <h1 class="title">Photo</h1>
 
-        <div class="flexRow wrap picturesAll width_80 auto">
-            <div class="width_60">
-                <img class="pictures picture" src="../assets/img/tom1.jpg">
+        <div id="flexPicture" class="flexRow wrap picturesAll width_80 auto">
+            <div id="modify1" class="width_60 flexRow">
+                <div class="width_90">
+                    <img class="pictures picture" src="../assets/img/tom1.jpg">
+                </div>
+                <div class="width_10">
+                    <a href="#"><i class="far fa-star logoStar starPosition2"></i></a>
+                </div>
             </div>
-            <div class="width_40">
+            <div id="commentPicture" class="width_40 flexCenter flexColumn">
                 <h2 class="titlePicture">Spider-Man : Homecoming</h2>
-                <h3 class="subtitle">Description....</h3>
+                <h3 class="subtitle marginTop">Description....</h3>
+                <div class="width_90 auto">
+
+                    <div class="lineHorizontal2"></div>
+
+                    <h3 class="grey">COMMENTAIRES</h3>
+
+                    <div class="comment">
+                        <h4>Pseudo</h4>
+                        <p class="marginTop">Contenuuuuuuuu...</p>
+                    </div>
+                    <div class="comment">
+                        <h4>Pseudo</h4>
+                        <p class="marginTop">Contenuuuuuuuu...</p>
+                    </div>
+                    <div class="comment">
+                        <h4>Pseudo</h4>
+                        <p class="marginTop">Contenuuuuuuuu...</p>
+                    </div>
+                </div>
             </div>
         </div>
-
     </main>
 
     <footer class="flexRow">
