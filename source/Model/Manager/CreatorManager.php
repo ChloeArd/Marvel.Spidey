@@ -72,7 +72,7 @@ class CreatorManager {
      */
     public function add (Creator $creator): bool {
         $request = DB::getInstance()->prepare("
-            INSERT INTO movie (firstname, lastname, picture)
+            INSERT INTO creator (firstname, lastname, picture)
                 VALUES (:firstname, :lastname, :picture) 
         ");
 
@@ -89,7 +89,7 @@ class CreatorManager {
      * @return bool
      */
     public function update (Creator $creator): bool {
-        $request = DB::getInstance()->prepare("UPDATE movie SET firstname = :firstname, lastname = :lastname, picture = :picture WHERE id = :id");
+        $request = DB::getInstance()->prepare("UPDATE creator SET firstname = :firstname, lastname = :lastname, picture = :picture WHERE id = :id");
 
         $request->bindValue(':id', $creator->getId());
         $request->bindValue(':firstname', $creator->setFirstname($creator->getFirstname()));
