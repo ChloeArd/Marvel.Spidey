@@ -55,70 +55,82 @@ class MovieManager {
     }
 
     /**
-     * return one picture
+     * return one movie
      * @param int $id
      * @return array
      */
-    public function getPictureId(int $id): array {
+    public function getMovieId(int $id): array {
         $picture = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM picture WHERE id = :id");
+        $request = DB::getInstance()->prepare("SELECT * FROM movie WHERE id = :id");
         $request->bindValue(":id", $id);
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description']);
+                $picture[] = new Movie($info['id'], $info['title'], $info['picture'], $info['date'], $info['time'], $info['director'],
+                    $info['actors'], $info['synopsis'], $info['video']);
             }
         }
         return $picture;
     }
 
     /**
-     * add a picture
-     * @param Picture $picture
+     * add a movie
+     * @param Movie $movie
      * @return bool
      */
-    public function add (Picture $picture): bool {
+    public function add (Movie $movie): bool {
         $request = DB::getInstance()->prepare("
-            INSERT INTO picture (picture, title, description)
-                VALUES (:picture, :title, :description) 
+            INSERT INTO movie (title, picture, date, time, director, actors, synopsis, video)
+                VALUES (:title, :picture, :date, :time, :director, :actors, :synopsis, :video) 
         ");
 
-        $request->bindValue(':picture', $picture->getPicture());
-        $request->bindValue(':title', $picture->getTitle());
-        $request->bindValue(':description', $picture->getDescription());
+        $request->bindValue(':title', $movie->getTitle());
+        $request->bindValue(':picture', $movie->getPicture());
+        $request->bindValue(':date', $movie->getDate());
+        $request->bindValue(':time', $movie->getTime());
+        $request->bindValue(':director', $movie->getDirector());
+        $request->bindValue(':actors', $movie->getActors());
+        $request->bindValue(':synopsis', $movie->getSynopsis());
+        $request->bindValue(':video', $movie->getVideo());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }
 
     /**
-     * update a picture
-     * @param Picture $picture
+     * update a movie
+     * @param Movie $movie
      * @return bool
      */
-    public function update (Picture $picture): bool {
-        $request = DB::getInstance()->prepare("UPDATE picture SET picture = :picture, title = :title, description = :description WHERE id = :id");
+    public function update (Movie $movie): bool {
+        $request = DB::getInstance()->prepare("UPDATE movie SET title = :title, picture = :picture, date = :date, time = :time,
+                 director = :director, actors = :actors, synopsis = :synopsis, video = :video WHERE id = :id");
 
-        $request->bindValue(':id', $picture->getId());
-        $request->bindValue(':picture', $picture->getPicture());
-        $request->bindValue(':title', $picture->getTitle());
-        $request->bindValue(':description', $picture->setDescription($picture->getDescription()));
+        $request->bindValue(':id', $movie->getId());
+        $request->bindValue(':title', $movie->setTitle($movie->getTitle()));
+        $request->bindValue(':picture', $movie->setPicture($movie->getPicture()));
+        $request->bindValue(':date', $movie->setDate($movie->getDate()));
+        $request->bindValue(':time', $movie->setTime($movie->getTime()));
+        $request->bindValue(':director', $movie->setDirector($movie->getDirector()));
+        $request->bindValue(':actors', $movie->setActors($movie->getActors()));
+        $request->bindValue(':synopsis', $movie->setSynopsis($movie->getSynopsis()));
+        $request->bindValue(':video', $movie->setVideo($movie->getVideo()));
 
         return $request->execute();
     }
 
     /**
-     * Delete a picture
-     * @param Picture $picture
+     * Delete a movie
+     * @param Movie $movie
      * @return bool
      */
-    public function delete (Picture $picture): bool {
-        $request = DB::getInstance()->prepare("DELETE FROM comment_picture WHERE picture_fk = :picture_fk");
-        $request->bindValue(":picture_fk", $picture->getId());
+    public function delete (Movie $movie): bool {
+        $request = DB::getInstance()->prepare("DELETE FROM comment_movie WHERE movie_fk = :movie_fk");
+        $request->bindValue(":movie_fk", $movie->getId());
         $request->execute();
-        $request = DB::getInstance()->prepare("DELETE FROM favorite_picture WHERE picture_fk = :picture_fk");
-        $request->bindValue(":picture_fk", $picture->getId());
+        $request = DB::getInstance()->prepare("DELETE FROM favorite_movie WHERE movie_fk = :movie_fk");
+        $request->bindValue(":movie_fk", $movie->getId());
         $request->execute();
-        $request = DB::getInstance()->prepare("DELETE FROM picture WHERE id = :id");
-        $request->bindValue(":id", $picture->getId());
+        $request = DB::getInstance()->prepare("DELETE FROM movie WHERE id = :id");
+        $request->bindValue(":id", $movie->getId());
         return $request->execute();
     }
 }
