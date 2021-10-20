@@ -9,7 +9,7 @@ use PDOException;
 class DB {
 
     private string $server = 'localhost';
-    private string $nameDb = 'mavelSpidey';
+    private string $nameDb = 'marvelspidey';
     private string $user = 'root';
     private string $password = '';
 

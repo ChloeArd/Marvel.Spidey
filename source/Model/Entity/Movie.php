@@ -13,6 +13,7 @@ class Movie {
     private ?string $actors;
     private ?string $synopsis;
     private ?string $video;
+    private ?Actor $actor_fk;
 
     /**
      * @param int|null $id
@@ -24,9 +25,10 @@ class Movie {
      * @param string|null $actors
      * @param string|null $synopsis
      * @param string|null $video
+     * @param Actor|null $actor_fk
      */
     public function __construct(?int $id = null, ?string $title = null, ?string $picture = null, ?string $date = null, ?string $time = null,
-    ?string $director = null, ?string $actors = null, ?string $synopsis = null, ?string $video = null) {
+    ?string $director = null, ?string $actors = null, ?string $synopsis = null, ?string $video = null, ?Actor $actor_fk = null) {
         $this->id = $id;
         $this->title = $title;
         $this->picture = $picture;
@@ -36,6 +38,7 @@ class Movie {
         $this->actors = $actors;
         $this->synopsis = $synopsis;
         $this->video = $video;
+        $this->actor_fk = $actor_fk;
     }
 
     /**
@@ -171,5 +174,20 @@ class Movie {
     public function setVideo(?string $video): ?string {
         $this->video = $video;
         return $video;
+    }
+
+    /**
+     * @return Actor|null
+     */
+    public function getActorFk(): ?Actor {
+        return $this->actor_fk;
+    }
+
+    /**
+     * @param Actor|null $actor_fk
+     */
+    public function setActorFk(?Actor $actor_fk): ?Actor {
+        $this->actor_fk = $actor_fk;
+        return $actor_fk;
     }
 }

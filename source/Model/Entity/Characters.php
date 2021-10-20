@@ -28,8 +28,6 @@ class Characters {
     private ?string $picture1;
     private ?string $picture2;
     private ?string $picture3;
-    private ?Actor $actor_fk;
-    private ?Creator $creator_fk;
 
     /**
      * @param int|null $id
@@ -56,15 +54,12 @@ class Characters {
      * @param string|null $picture1
      * @param string|null $picture2
      * @param string|null $picture3
-     * @param Actor|null $actor_fk
-     * @param Creator|null $creator_fk
      */
     public function __construct(?int $id = null, ?string $pseudo = null, ?string $firstname = null, ?string $lastname = null,
     ?string $picture = null, ?string $species = null, ?string $sex = null, ?string $size = null, ?string $hair = null,
     ?string $eyes = null, ?string $origin = null, ?string $place = null, ?string $picturesBook = null, ?string $titleBook = null,
     ?string $activity = null, ?string $characteristic = null, ?string $powers = null, ?string $team = null, ?string $parent = null,
-    ?string $situation = null, ?string $biography = null, ?string $picture1 = null, ?string $picture2 = null, ?string $picture3 = null,
-    ?Actor $actor_fk = null, ?Creator $creator_fk = null) {
+    ?string $situation = null, ?string $biography = null, ?string $picture1 = null, ?string $picture2 = null, ?string $picture3 = null,) {
     $this->id = $id;
     $this->pseudo = $pseudo;
     $this->firstname = $firstname;
@@ -89,8 +84,6 @@ class Characters {
     $this->picture1 = $picture1;
     $this->picture2 = $picture2;
     $this->picture3 = $picture3;
-    $this->actor_fk = $actor_fk;
-    $this->creator_fk = $creator_fk;
     }
 
     /**
@@ -451,35 +444,5 @@ class Characters {
     public function setPicture3(?string $picture3): ?string {
         $this->picture3 = $picture3;
         return $picture3;
-    }
-
-    /**
-     * @return Actor|null
-     */
-    public function getActorFk(): ?Actor {
-        return $this->actor_fk;
-    }
-
-    /**
-     * @param Actor|null $actor_fk
-     */
-    public function setActorFk(?Actor $actor_fk): ?Actor {
-        $this->actor_fk = $actor_fk;
-        return $actor_fk;
-    }
-
-    /**
-     * @return Creator|null
-     */
-    public function getCreatorFk(): ?Creator {
-        return $this->creator_fk;
-    }
-
-    /**
-     * @param Creator|null $creator_fk
-     */
-    public function setCreatorFk(?Creator $creator_fk): ?Creator {
-        $this->creator_fk = $creator_fk;
-        return $creator_fk;
     }
 }

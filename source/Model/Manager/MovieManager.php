@@ -3,7 +3,9 @@
 namespace Chloe\Marvel\Model\Manager;
 
 use Chloe\Marvel\Model\DB;
+use Chloe\Marvel\Model\Entity\Actor;
 use Chloe\Marvel\Model\Entity\Movie;
+use Chloe\Marvel\Model\Manager\ActorManager;
 use Chloe\Marvel\Model\Manager\Traits\ManagerTrait;
 
 require_once "Traits/ManagerTrait.php";
@@ -11,6 +13,12 @@ require_once "Traits/ManagerTrait.php";
 class MovieManager {
 
     use ManagerTrait;
+
+    private ActorManager $actorManager;
+
+    public function __construct() {
+        $this->actorManager = new ActorManager();
+    }
 
     /**
      * Return a movie based on id.
@@ -34,24 +42,30 @@ class MovieManager {
             $movie->setActors($info['actors']);
             $movie->setSynopsis($info['synopsis']);
             $movie->setVideo($info['video']);
+            $movie->setActorFk($info['actor_fk']);
         }
         return $movie;
     }
 
     /**
-     * returns all movies
+     * return all movies
+     * @param int $actor_fk
      * @return array
      */
-    public function getMovies(): array {
-        $picture = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM movie ORDER by id DESC");
+    public function getMovies(int $actor_fk): array {
+        $movie = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM movie WHERE actor_fk = :actor_fk ORDER by date DESC");
+        $request->bindValue(':actor_fk', $actor_fk);
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $picture[] = new Movie($info['id'], $info['title'], $info['picture'], $info['date'], $info['time'], $info['director'],
-                    $info['actors'], $info['synopsis'], $info['video']);
+                $actor = ActorManager::getManager()->getActor($info['actor_fk']);
+                if($actor->getId()) {
+                    $movie[] = new Movie($info['id'], $info['title'], $info['picture'], $info['date'], $info['time'], $info['director'],
+                        $info['actors'], $info['synopsis'], $info['video'], $actor);
+                }
             }
         }
-        return $picture;
+        return $movie;
     }
 
     /**
@@ -60,16 +74,19 @@ class MovieManager {
      * @return array
      */
     public function getMovieId(int $id): array {
-        $picture = [];
+        $movie = [];
         $request = DB::getInstance()->prepare("SELECT * FROM movie WHERE id = :id");
         $request->bindValue(":id", $id);
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $picture[] = new Movie($info['id'], $info['title'], $info['picture'], $info['date'], $info['time'], $info['director'],
-                    $info['actors'], $info['synopsis'], $info['video']);
+                $actor = ActorManager::getManager()->getActor($info['actor_fk']);
+                if($actor->getId()) {
+                    $movie[] = new Movie($info['id'], $info['title'], $info['picture'], $info['date'], $info['time'], $info['director'],
+                        $info['actors'], $info['synopsis'], $info['video'], $actor);
+                }
             }
         }
-        return $picture;
+        return $movie;
     }
 
     /**
@@ -79,8 +96,8 @@ class MovieManager {
      */
     public function add (Movie $movie): bool {
         $request = DB::getInstance()->prepare("
-            INSERT INTO movie (title, picture, date, time, director, actors, synopsis, video)
-                VALUES (:title, :picture, :date, :time, :director, :actors, :synopsis, :video) 
+            INSERT INTO movie (title, picture, date, time, director, actors, synopsis, video, actor_fk)
+                VALUES (:title, :picture, :date, :time, :director, :actors, :synopsis, :video, :actor_fk) 
         ");
 
         $request->bindValue(':title', $movie->getTitle());
@@ -91,6 +108,7 @@ class MovieManager {
         $request->bindValue(':actors', $movie->getActors());
         $request->bindValue(':synopsis', $movie->getSynopsis());
         $request->bindValue(':video', $movie->getVideo());
+        $request->bindValue(':actor_fk', $movie->getActorFk());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }
@@ -102,7 +120,7 @@ class MovieManager {
      */
     public function update (Movie $movie): bool {
         $request = DB::getInstance()->prepare("UPDATE movie SET title = :title, picture = :picture, date = :date, time = :time,
-                 director = :director, actors = :actors, synopsis = :synopsis, video = :video WHERE id = :id");
+                 director = :director, actors = :actors, synopsis = :synopsis, video = :video, actor_fk = :actor_fk WHERE id = :id");
 
         $request->bindValue(':id', $movie->getId());
         $request->bindValue(':title', $movie->setTitle($movie->getTitle()));
@@ -113,6 +131,7 @@ class MovieManager {
         $request->bindValue(':actors', $movie->setActors($movie->getActors()));
         $request->bindValue(':synopsis', $movie->setSynopsis($movie->getSynopsis()));
         $request->bindValue(':video', $movie->setVideo($movie->getVideo()));
+        $request->bindValue(':actor_fk', $movie->setActorFk($movie->getActorFk()));
 
         return $request->execute();
     }
