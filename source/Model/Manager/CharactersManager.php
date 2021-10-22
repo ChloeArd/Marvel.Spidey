@@ -169,21 +169,21 @@ class CharactersManager {
 
     /**
      * Delete a creator
-     * @param Characters $character
+     * @param int $id
      * @return bool
      */
-    public function delete (Characters $character): bool {
+    public function delete (int $id): bool {
         $request = DB::getInstance()->prepare("DELETE FROM creator_characters WHERE characters_fk = :characters_fk");
-        $request->bindValue(":characters_fk", $character->getId());
+        $request->bindValue(":characters_fk", $id);
         $request->execute();
         $request = DB::getInstance()->prepare("DELETE FROM actor_characters WHERE characters_fk = :characters_fk");
-        $request->bindValue(":characters_fk", $character->getId());
+        $request->bindValue(":characters_fk", $id);
         $request->execute();
         $request = DB::getInstance()->prepare("DELETE FROM creator WHERE characters_fk = :characters_fk");
-        $request->bindValue(":characters_fk", $character->getId());
+        $request->bindValue(":characters_fk", $id);
         $request->execute();
         $request = DB::getInstance()->prepare("DELETE FROM characters WHERE id = :id");
-        $request->bindValue(":id", $character->getId());
+        $request->bindValue(":id", $id);
         return $request->execute();
     }
 

@@ -138,18 +138,18 @@ class MovieManager {
 
     /**
      * Delete a movie
-     * @param Movie $movie
+     * @param int $id
      * @return bool
      */
-    public function delete (Movie $movie): bool {
+    public function delete (int $id): bool {
         $request = DB::getInstance()->prepare("DELETE FROM comment_movie WHERE movie_fk = :movie_fk");
-        $request->bindValue(":movie_fk", $movie->getId());
+        $request->bindValue(":movie_fk", $id);
         $request->execute();
         $request = DB::getInstance()->prepare("DELETE FROM favorite_movie WHERE movie_fk = :movie_fk");
-        $request->bindValue(":movie_fk", $movie->getId());
+        $request->bindValue(":movie_fk", $id);
         $request->execute();
         $request = DB::getInstance()->prepare("DELETE FROM movie WHERE id = :id");
-        $request->bindValue(":id", $movie->getId());
+        $request->bindValue(":id", $id);
         return $request->execute();
     }
 }

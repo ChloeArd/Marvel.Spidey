@@ -101,15 +101,15 @@ class CreatorManager {
 
     /**
      * Delete a creator
-     * @param Creator $creator
+     * @param int $id
      * @return bool
      */
-    public function delete (Creator $creator): bool {
+    public function delete (int $id): bool {
         $request = DB::getInstance()->prepare("DELETE FROM creator_characters WHERE creator_fk = :creator_fk");
-        $request->bindValue(":creator_fk", $creator->getId());
+        $request->bindValue(":creator_fk", $id);
         $request->execute();
         $request = DB::getInstance()->prepare("DELETE FROM creator WHERE id = :id");
-        $request->bindValue(":id", $creator->getId());
+        $request->bindValue(":id", $id);
         return $request->execute();
     }
 }

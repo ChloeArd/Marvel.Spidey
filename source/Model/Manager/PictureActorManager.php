@@ -98,12 +98,12 @@ class PictureActorManager {
 
     /**
      * Delete a picture of a actor
-     * @param PictureActor $pictureActor
+     * @param int $id
      * @return bool
      */
-    public function delete (PictureActor $pictureActor): bool {
+    public function delete (int $id): bool {
         $request = DB::getInstance()->prepare("DELETE FROM picture_actor WHERE id = :id");
-        $request->bindValue(":id", $pictureActor->getId());
+        $request->bindValue(":id", $id);
         return $request->execute();
     }
 }

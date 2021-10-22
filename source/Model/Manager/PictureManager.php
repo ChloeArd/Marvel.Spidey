@@ -12,6 +12,12 @@ class PictureManager {
 
     use ManagerTrait;
 
+    private UserManager $userManager;
+
+    public function __construct() {
+        $this->userManager = new UserManager();
+    }
+
     /**
      * Return a picture based on id.
      * @param $id
@@ -29,6 +35,8 @@ class PictureManager {
             $picture->setPicture($info['picture']);
             $picture->setTitle($info['title']);
             $picture->setDescription($info['description']);
+            $user = $this->userManager->getUser($info['user_fk']);
+            $picture->setUserFk($user);
         }
         return $picture;
     }
@@ -42,7 +50,10 @@ class PictureManager {
         $request = DB::getInstance()->prepare("SELECT * FROM picture ORDER by id DESC");
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description']);
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                if ($user->getId()) {
+                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $user);
+                }
             }
         }
         return $picture;
@@ -59,8 +70,30 @@ class PictureManager {
         $request->bindValue(":id", $id);
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description']);
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                if ($user->getId()) {
+                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $user);
+                }
             }
+        }
+        return $picture;
+    }
+
+    /**
+     * all photos that a user has posted
+     * @param int $user_fk
+     * @return array
+     */
+    public function getPictureUser(int $user_fk): array {
+        $picture = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM picture WHERE user_fk = :user_fk ORDER by id DESC");
+        $request->bindValue(":user_fk", $user_fk);
+        if($request->execute()) {
+            foreach ($request->fetchAll() as $info) {
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                if ($user->getId()) {
+                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $user);
+                }            }
         }
         return $picture;
     }
@@ -72,8 +105,8 @@ class PictureManager {
      */
     public function add (Picture $picture): bool {
         $request = DB::getInstance()->prepare("
-            INSERT INTO picture (picture, title, description)
-                VALUES (:picture, :title, :description) 
+            INSERT INTO picture (picture, title, description, user_fk)
+                VALUES (:picture, :title, :description, :user_fk) 
         ");
 
         $request->bindValue(':picture', $picture->getPicture());
@@ -101,18 +134,18 @@ class PictureManager {
 
     /**
      * Delete a picture
-     * @param Picture $picture
+     * @param int $id
      * @return bool
      */
-    public function delete (Picture $picture): bool {
+    public function delete (int $id): bool {
         $request = DB::getInstance()->prepare("DELETE FROM comment_picture WHERE picture_fk = :picture_fk");
-        $request->bindValue(":picture_fk", $picture->getId());
+        $request->bindValue(":picture_fk", $id);
         $request->execute();
         $request = DB::getInstance()->prepare("DELETE FROM favorite_picture WHERE picture_fk = :picture_fk");
-        $request->bindValue(":picture_fk", $picture->getId());
+        $request->bindValue(":picture_fk", $id);
         $request->execute();
         $request = DB::getInstance()->prepare("DELETE FROM picture WHERE id = :id");
-        $request->bindValue(":id", $picture->getId());
+        $request->bindValue(":id", $id);
         return $request->execute();
     }
 }

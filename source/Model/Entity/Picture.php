@@ -8,14 +8,16 @@ class Picture {
     private ?string $picture;
     private ?string $title;
     private ?string $description;
+    private ?User $user_fk;
 
     /**
      * @param int|null $id
      * @param string|null $picture
      * @param string|null $title
      * @param string|null $description
+     * @param User|null $user_fk
      */
-    public function __construct(?int $id = null, ?string $picture = null, ?string $title = null, ?string $description = null) {
+    public function __construct(?int $id = null, ?string $picture = null, ?string $title = null, ?string $description = null, ?User $user_fk = null) {
         $this->id = $id;
         $this->picture = $picture;
         $this->title = $title;
@@ -80,5 +82,20 @@ class Picture {
     public function setDescription(?string $description): ?string {
         $this->description = $description;
         return $description;
+    }
+
+    /**
+     * @return User|null
+     */
+    public function getUserFk(): ?User {
+        return $this->user_fk;
+    }
+
+    /**
+     * @param User|null $user_fk
+     */
+    public function setUserFk(?User $user_fk): ?User {
+        $this->user_fk = $user_fk;
+        return $user_fk;
     }
 }

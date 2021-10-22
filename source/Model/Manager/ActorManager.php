@@ -137,12 +137,12 @@ class ActorManager {
 
     /**
      * Delete a actor
-     * @param Actor $actor
+     * @param int $id
      * @return bool
      */
-    public function delete (Actor $actor): bool {
+    public function delete (int $id): bool {
         $request = DB::getInstance()->prepare("DELETE FROM actor WHERE id = :id");
-        $request->bindValue(":id", $actor->getId());
+        $request->bindValue(":id", $id);
         return $request->execute();
     }
 }
