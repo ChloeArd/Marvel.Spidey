@@ -10,6 +10,8 @@ class CommentMovie {
     private ?User $user_fk;
     private ?Movie $movie_fk;
     private ?int $report;
+    private ?string $why;
+    private ?string $date_report;
 
     /**
      * @param int|null $id
@@ -18,15 +20,19 @@ class CommentMovie {
      * @param User|null $user_fk
      * @param Movie|null $movie_fk
      * @param int|null $report
+     * @param string|null $why
+     * @param string|null $date_report
      */
     public function __construct(?int $id = null, ?string $comment = null, ?string $date = null, ?User $user_fk = null,
-    ?Movie $movie_fk = null, ?int $report = null) {
+    ?Movie $movie_fk = null, ?int $report = null, ?string $why = null, ?string $date_report = null) {
         $this->id = $id;
         $this->comment = $comment;
         $this->date = $date;
         $this->user_fk = $user_fk;
         $this->movie_fk = $movie_fk;
         $this->report = $report;
+        $this->why = $why;
+        $this->date_report = $date_report;
     }
 
     /**
@@ -117,5 +123,35 @@ class CommentMovie {
     public function setReport(?int $report): ?int {
         $this->report = $report;
         return $report;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getWhy(): ?string {
+        return $this->why;
+    }
+
+    /**
+     * @param string|null $why
+     */
+    public function setWhy(?string $why): ?string {
+        $this->why = $why;
+        return $why;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDateReport(): ?string {
+        return $this->date_report;
+    }
+
+    /**
+     * @param string|null $date_report
+     */
+    public function setDateReport(?string $date_report): ?string {
+        $this->date_report = $date_report;
+        return $date_report;
     }
 }

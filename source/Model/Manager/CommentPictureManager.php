@@ -42,6 +42,8 @@ class CommentPictureManager {
             $picture = $this->pictureManager->getPicture($info['picture_fk']);
             $commentPicture->setPictureFk($picture);
             $commentPicture->setReport($info['report']);
+            $commentPicture->setWhy($info['why']);
+            $commentPicture->setDateReport($info['date_report']);
         }
         return $commentPicture;
     }
@@ -61,7 +63,7 @@ class CommentPictureManager {
                 $picture = PictureManager::getManager()->getPicture($info['picture_fk']);
                 if ($user->getId()) {
                     if ($picture->getId()) {
-                        $commentPicture[] = new CommentPicture($info['id'], $info['comment'], $info['date'], $user, $picture, $info['report']);
+                        $commentPicture[] = new CommentPicture($info['id'], $info['comment'], $info['date'], $user, $picture);
                     }
                 }
             }
@@ -86,7 +88,29 @@ class CommentPictureManager {
                 $picture = PictureManager::getManager()->getPicture($info['picture_fk']);
                 if ($user->getId()) {
                     if ($picture->getId()) {
-                        $commentPicture[] = new CommentPicture($info['id'], $info['comment'], $info['date'], $user, $picture, $info['report']);
+                        $commentPicture[] = new CommentPicture($info['id'], $info['comment'], $info['date'], $user, $picture);
+                    }
+                }
+            }
+        }
+        return $commentPicture;
+    }
+
+    /**
+     * all comments of a picture report
+     * @return array
+     */
+    public function getCommentsPictureReport(): array {
+        $commentPicture = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM comment_picture WHERE report = :report ORDER BY date_report DESC");
+        $request->bindValue(":report", 1);
+        if($request->execute()) {
+            foreach ($request->fetchAll() as $info) {
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                $picture = PictureManager::getManager()->getPicture($info['picture_fk']);
+                if ($user->getId()) {
+                    if ($picture->getId()) {
+                        $commentPicture[] = new CommentPicture($info['id'], $info['comment'], $info['date'], $user, $picture);
                     }
                 }
             }
@@ -125,6 +149,20 @@ class CommentPictureManager {
         $request->bindValue(':id', $commentPicture->getId());
         $request->bindValue(':title', $commentPicture->setComment($commentPicture->getComment()));
         $request->bindValue(':picture', $commentPicture->setDate($commentPicture->getDate()));
+
+        return $request->execute();
+    }
+
+    /**
+     * report a comment
+     * @param CommentPicture $commentPicture
+     * @return bool
+     */
+    public function report (CommentPicture $commentPicture): bool {
+        $request = DB::getInstance()->prepare("UPDATE comment_picture SET report = :report WHERE id = :id");
+
+        $request->bindValue(':id', $commentPicture->getId());
+        $request->bindValue(':report', 1);
 
         return $request->execute();
     }

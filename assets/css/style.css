@@ -759,6 +759,10 @@ footer > div > a {
     font-size: 40px;
 }
 
+.margR {
+    margin-right: 10px;
+}
+
 @media screen and (max-width: 1300px) {
     .flip-card-front > .pictures, .flip-card {
         width: 220px;

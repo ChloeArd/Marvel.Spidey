@@ -41,6 +41,8 @@ class CommentMovieManager {
             $movie = $this->movieManager->getMovie($info['movie_fk']);
             $commentMovie->setMovieFk($movie);
             $commentMovie->setReport($info['report']);
+            $commentMovie->setWhy($info['why']);
+            $commentMovie->setDateReport($info['date_report']);
         }
         return $commentMovie;
     }
@@ -60,7 +62,7 @@ class CommentMovieManager {
                 $movie = MovieManager::getManager()->getMovie($info['movie_fk']);
                 if ($user->getId()) {
                     if ($movie->getId()) {
-                        $commentMovie[] = new CommentMovie($info['id'], $info['comment'], $info['date'], $user, $movie, $info['report']);
+                        $commentMovie[] = new CommentMovie($info['id'], $info['comment'], $info['date'], $user, $movie);
                     }
                 }
             }
@@ -85,7 +87,29 @@ class CommentMovieManager {
                 $movie = MovieManager::getManager()->getMovie($info['movie_fk']);
                 if ($user->getId()) {
                     if ($movie->getId()) {
-                        $commentMovie[] = new CommentMovie($info['id'], $info['comment'], $info['date'], $user, $movie, $info['report']);
+                        $commentMovie[] = new CommentMovie($info['id'], $info['comment'], $info['date'], $user, $movie,);
+                    }
+                }
+            }
+        }
+        return $commentMovie;
+    }
+
+    /**
+     * return all report comments of a movie
+     * @return array
+     */
+    public function getCommentsMovieReport(): array {
+        $commentMovie = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM comment_movie WHERE report = :report ORDER BY date_report DESC");
+        $request->bindValue(":report", 1);
+        if($request->execute()) {
+            foreach ($request->fetchAll() as $info) {
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                $movie = MovieManager::getManager()->getMovie($info['movie_fk']);
+                if ($user->getId()) {
+                    if ($movie->getId()) {
+                        $commentMovie[] = new CommentMovie($info['id'], $info['comment'], $info['date'], $user, $movie, $info['report'], $info['why'], $info['date_report']);
                     }
                 }
             }
@@ -124,6 +148,20 @@ class CommentMovieManager {
         $request->bindValue(':id', $commentMovie->getId());
         $request->bindValue(':title', $commentMovie->setComment($commentMovie->getComment()));
         $request->bindValue(':picture', $commentMovie->setDate($commentMovie->getDate()));
+
+        return $request->execute();
+    }
+
+    /**
+     * report a comment
+     * @param CommentMovie $commentMovie
+     * @return bool
+     */
+    public function report (CommentMovie $commentMovie): bool {
+        $request = DB::getInstance()->prepare("UPDATE comment_movie SET report = :report WHERE id = :id");
+
+        $request->bindValue(':id', $commentMovie->getId());
+        $request->bindValue(':report', 1);
 
         return $request->execute();
     }

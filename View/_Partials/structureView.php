@@ -6,79 +6,54 @@
     <link id="logoPage" rel="icon" type="image/png" href="">
     <script src="https://kit.fontawesome.com/351e9300a0.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/css/style.css">
 </head>
 <body>
 <div id="wrap">
-    <header>
-        <div class="flexCenter">
-            <img class="logoAnim" src="" alt="Logo Anim'Nord">
+    <header class="wrap">
+        <div id="menu" class="flexRow flexCenter">
+            <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png" alt="MARVEL.Spidey">
+            <a href="../../">Accueil</a>
+            <a href="../characters.php">Personnages</a>
+            <a href="../movies.php">Films</a>
+            <a href="../pictures.php">Photos</a>
+            <a href="">Quiz</a>
+            <a href="../memory.php">Memory</a>
         </div>
-        <div id="menu" class="menu flexCenter flexRow">
-            <p><i class="fas fa-paw"></i></p>
-            <a class="linkMenu" href="../../index.php">Accueil</a>
-            <a class="linkMenu" href="../../index.php?controller=adlost">Perdus</a>
-            <a class="linkMenu" href="../../index.php?controller=adfind">Trouvés</a>
+        <div class="account">
             <?php
-            if (isset($_SESSION["id"])) {
-                ?>
-                <a class="linkMenu" href="../../index.php?controller=ad">Publier une annonce</a>
-                <a class="linkMenu" id="pseudo" href="../../index.php?controller=user&action=view&id=<?=$_SESSION['id'] ?>"><i class="fas fa-user-circle"></i><?= $_SESSION["firstname"]?></a>
-                <?php
+            if (isset($_SESSION['id'])) { ?>
+                <a href="../../index.php?controller=user&action=view"><i class="fas fa-user-circle colorWhite margR"></i><?=$_SESSION['pseudo']?></a>
+            <?php
             }
-            else {
-                ?>
-                <a class="linkMenu" href="../../index.php?controller=connection">Connexion</a>
-                <a class="linkMenu" href="../../index.php?controller=registration">Inscription </a>
-                <?php
+            else { ?>
+                <a href="../../index.php?controller=home&page=registration">Inscription</a>
+                <span class="colorWhite">/</span>
+                <a href="../../index.php?controller=home&page=connection">Connexion</a>
+            <?php
             }
             ?>
-            <p><i class="fas fa-paw"></i></p>
         </div>
-
-        <div id="menuMobile" class="flexRow align">
-            <p id="logoMenu"><i class="fas fa-bars"></i></p>
-            <img class="logoAnim2" src="" alt="Logo Anim'Nord">
-        </div>
-
-        <div id="subMenu" class="flexColumn">
-            <a class="linkMenuMobile flexRow align" href="../../index.php"><i class="fas fa-chevron-circle-right"></i>Accueil</a>
-            <a class="linkMenuMobile flexRow align" href="../../index.php?controller=adlost"><i class="fas fa-chevron-circle-right"></i>Perdus</a>
-            <a class="linkMenuMobile flexRow align" href="../../index.php?controller=adfind"><i class="fas fa-chevron-circle-right"></i>Trouvés</a>
-            <?php
-            if (isset($_SESSION["id"])) {
-                ?>
-                <a class="linkMenuMobile flexRow align" href="../../index.php?controller=ad"><i class="fas fa-chevron-circle-right"></i>Publier une annonce</a>
-                <a class="linkMenuMobile flexRow align" href="../../index.php?controller=user&action=view&id=<?=$_SESSION['id'] ?>"><i class="fas fa-chevron-circle-right"></i><i class="fas fa-user-circle"></i><?= $_SESSION["firstname"]?></a>
-                <?php
-            }
-            else {
-                ?>
-                <a class="linkMenuMobile flexRow align" href="../../index.php?controller=connection"><i class="fas fa-chevron-circle-right"></i>Connexion</a>
-                <a class="linkMenuMobile flexRow align" href="../../index.php?controller=registration"><i class="fas fa-chevron-circle-right"></i>Inscription</a>
-                <?php
-            }
-            ?>
+        <div id="menuMobile" class="flexRow align width_100">
+            <p id="logoMenu"><i class="fas fa-bars colorWhite"></i></p>
+            <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png" alt="MARVEL.Spidey">
         </div>
     </header>
 
     <?= $html ?>
 
-    <footer class="flexCenter flexColumn">
-        <img id="logosite" src="" alt="Logo Anim'Nord">
-        <p class="colorWhite size18">Suivez-nous :</p>
-        <div class="flexRow">
-            <a href="#"><i class="fab fa-facebook-square linkSocial"></i></a>
-            <a href="#"><i class="fab fa-twitter-square linkSocial"></i></a>
-            <a href="#"><i class="fab fa-instagram-square linkSocial"></i></a>
+    <footer class="flexRow">
+        <div class="flexRow flexCenter">
+            <img class="width_70" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png" alt="MARVEL.Spidey">
         </div>
-        <div class="separatorHorizontal2"></div>
-        <div id="containerlinkFooter" class="flexRow">
-            <a href="../../index.php?controller=legalNotice" class="linkFooter underline">Mentions légales</a>
-            <a href="../../index.php?controller=contact" class="linkFooter underline">Contact</a>
+        <div class="flexRow flexCenter content">
+            <a class="colorWhite" href="#">Mentions légales</a>
+            <a class="colorWhite" href="#">Contact</a>
         </div>
     </footer>
 </div>
-<script src="/assets/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script src="../../assets/js/app.js"></script>
 </body>
 </html>
