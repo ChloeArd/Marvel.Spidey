@@ -78,7 +78,7 @@
                 <div class="menuAccount contentAccount width_80 flexColumn">
                     <h3 class="colorWhite de">Mes photos favorites</h3>
                     <div class="flexRow wrap picturesAll width_100">
-                        <img class="pictures" src="../assets/img/tom1.jpg">
+                        <img class="pictures" src="../assets/img/carousel/tom1.jpg">
                         <div class="width_10">
                             <a href="#"><i class="fas fa-star logoStar starPosition2"></i></a>
                         </div>

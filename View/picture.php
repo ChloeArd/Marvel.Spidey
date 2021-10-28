@@ -48,7 +48,7 @@
         <div id="flexPicture" class="flexRow wrap picturesAll width_80 auto">
             <div id="modify1" class="width_60 flexRow">
                 <div class="width_90">
-                    <img class="pictures picture" src="../assets/img/tom1.jpg">
+                    <img class="pictures picture" src="../assets/img/carousel/tom1.jpg">
                 </div>
                 <div class="width_10">
                     <a href="#"><i class="far fa-star logoStar starPosition2"></i></a>

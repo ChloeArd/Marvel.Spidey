@@ -5,6 +5,7 @@ require 'vendor/autoload.php';
 
 require_once 'source/Controller/Traits/ReturnViewTrait.php';
 
+use Chloe\Marvel\Controller\CarouselController;
 use Chloe\Marvel\Controller\HomeController;
 use Chloe\Marvel\Controller\UserController;
 
@@ -40,6 +41,18 @@ if (isset($_GET['controller'])) {
                         break;
                 }
             }
+        case 'carousel' :
+            $controller = new CarouselController();
+                if (isset($_GET['action'])) {
+                    switch ($_GET['action']) {
+                        case 'add' :
+                            $controller->add($_POST, $_FILES);
+                            break;
+                        case 'delete' :
+                            $controller->delete($_POST);
+                            break;
+                    }
+                }
     }
 }
 else {

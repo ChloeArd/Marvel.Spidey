@@ -46,7 +46,7 @@ class DB {
  * @param string $regularName
  * @return string
  */
-function getRandomName(string $regularName) {
+function getRandomName(string $regularName): string {
     $infos = pathinfo($regularName);
     try {
         $bytes = random_bytes(15) ;

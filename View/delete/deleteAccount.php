@@ -50,6 +50,7 @@
             <p class="grey">En supprimant votre compte, vous effacez toutes les photos, commentaires que vous avez postés et vos favoris.</p>
             <form id="delete" class="width_80 flexColumn flexCenter" method="post" action="">
                 <p class="colorWhite">Pseudo</p>
+                <input type="hidden" name="id" value="id">
                 <input type="submit" class="disconnection buttonEnter" value="Supprimer">
             </form>
         </div>

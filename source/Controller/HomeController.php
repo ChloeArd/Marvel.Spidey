@@ -12,7 +12,7 @@ class HomeController {
     public function homePage() {
         $manager = new CarouselManager();
         $carousel = $manager->getCarousels();
-        $this->return("home", "Accueil", ["carousels" => $carousel]);
+        $this->return("home", "Accueil", ["carousel" => $carousel]);
     }
 
     public function connection() {

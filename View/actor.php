@@ -152,9 +152,9 @@
 
                 <h2 class="titleDescription">PHOTOS</h2>
                 <div class="flexRow wrap picturesActor">
-                    <img class="photoActor" src="../assets/img/tom1.jpg">
+                    <img class="photoActor" src="../assets/img/carousel/tom1.jpg">
                     <img class="photoActor" src="../assets/img/tom2.jpg">
-                    <img class="photoActor" src="../assets/img/tom3.jpg">
+                    <img class="photoActor" src="../assets/img/carousel/tom3.jpg">
                     <img class="photoActor" src="../assets/img/tom4.jpg">
                     <img class="photoActor" src="../assets/img/tom5.jpg">
                     <img class="photoActor" src="../assets/img/tom6.jpg">

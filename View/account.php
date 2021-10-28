@@ -23,12 +23,17 @@
                     <a href="account.php">Mon profil</a>
                     <a href="accountPicture.php">Mes photos</a>
                     <a href="accountFavorites.php">Mes favoris</a>
-                    <a href="#">Gestion des utilisateurs</a>
-                    <a href="#">Gestion des personnages</a>
-                    <a href="#">Gestion des films</a>
-                    <a href="#">Gestion des photos</a>
-                    <a href="#">Gestion des quiz</a>
-                    <a class="disconnection" href="#">Me déconnecter</a>
+                    <?php
+                    if ($_SESSION['role_fk'] == 1) { ?>
+                        <a href="#">Gestion des utilisateurs</a>
+                        <a href="#">Gestion des personnages</a>
+                        <a href="#">Gestion des films</a>
+                        <a href="#">Gestion des photos</a>
+                        <a href="#">Gestion des quiz</a>
+                    <?php
+                    }
+                    ?>
+                    <a class="disconnection" href="../assets/php/disconnection.php">Me déconnecter</a>
                 </div>
                 <div class="flexColumn align">
                     <div class="auto">
@@ -38,12 +43,17 @@
                         <a href="account.php">Mon profil</a>
                         <a href="accountPicture.php">Mes photos</a>
                         <a href="accountFavorites.php">Mes favoris</a>
-                        <a href="#">Gestion des utilisateurs</a>
-                        <a href="#">Gestion des personnages</a>
-                        <a href="#">Gestion des films</a>
-                        <a href="#">Gestion des photos</a>
-                        <a href="#">Gestion des quiz</a>
-                        <a class="disconnection" href="#">Me déconnecter</a>
+                        <?php
+                        if ($_SESSION['role_fk'] == 1) { ?>
+                            <a href="#">Gestion des utilisateurs</a>
+                            <a href="#">Gestion des personnages</a>
+                            <a href="#">Gestion des films</a>
+                            <a href="#">Gestion des photos</a>
+                            <a href="#">Gestion des quiz</a>
+                            <?php
+                        }
+                        ?>
+                        <a class="disconnection" href="../assets/php/disconnection.php">Me déconnecter</a>
                     </div>
                 </div>
 

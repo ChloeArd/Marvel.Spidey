@@ -763,6 +763,23 @@ footer > div > a {
     margin-right: 10px;
 }
 
+.buttonView {
+    color: #ff0e0e;
+    font-size: 30px;
+    margin: 0 30px;
+}
+
+.buttonView:hover {
+    color: #0c0c0c;
+}
+
+.containerView {
+    padding: 10px;
+    margin: 10px 0;
+    border-top: 2px solid #e7e6e6;
+    border-bottom: 2px solid #e7e6e6;
+}
+
 @media screen and (max-width: 1300px) {
     .flip-card-front > .pictures, .flip-card {
         width: 220px;
