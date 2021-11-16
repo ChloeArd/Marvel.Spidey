@@ -56,7 +56,7 @@ class PictureActorManager {
                 $actor = ActorManager::getManager()->getActor($info['actor_fk']);
                 if ($picture->getId()) {
                     if ($actor->getId()) {
-                        $pictureActor[] = new PictureActor($info['id'], $info['picture_fk'], $info['actor_fk']);
+                        $pictureActor[] = new PictureActor($info['id'], $picture, $actor);
                     }
                 }
             }

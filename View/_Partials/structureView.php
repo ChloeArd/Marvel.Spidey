@@ -15,7 +15,7 @@
         <div id="menu" class="flexRow flexCenter">
             <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png" alt="MARVEL.Spidey">
             <a href="../../">Accueil</a>
-            <a href="../characters.php">Personnages</a>
+            <a href="../../index.php?controller=character&action=viewAll">Personnages</a>
             <a href="../movies.php">Films</a>
             <a href="../pictures.php">Photos</a>
             <a href="">Quiz</a>
@@ -41,6 +41,26 @@
         </div>
     </header>
 
+    <div id="subMenu" class="flexColumn">
+        <a class="linkMenuMobile colorWhite flexRow align" href="../../index.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Accueil</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href="../../index.php?controller=character&action=viewAll"><i class="fas fa-chevron-circle-right colorWhite"></i>Personnages</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href="../movies.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Films</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href="../pictures.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Photos</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href=""><i class="fas fa-chevron-circle-right colorWhite"></i>Quiz</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href="../memory.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Memory</a>
+        <?php
+        if (isset($_SESSION['id'])) { ?>
+            <a class="linkMenuMobile colorWhite flexRow align" href="../../index.php?controller=user&action=view"><i class="fas fa-chevron-circle-right colorWhite"></i><i class="fas fa-user-circle colorWhite margR"></i><?=$_SESSION['pseudo']?></a>
+            <?php
+        }
+        else { ?>
+            <a class="linkMenuMobile colorWhite flexRow align" href="../../index.php?controller=home&page=registration"><i class="fas fa-chevron-circle-right colorWhite"></i>Inscription</a>
+            <a class="linkMenuMobile colorWhite flexRow align" href="../../index.php?controller=home&page=connection"><i class="fas fa-chevron-circle-right colorWhite"></i>Connexion</a>
+            <?php
+        }
+        ?>
+    </div>
+
     <?= $html ?>
 
     <footer class="flexRow">
@@ -49,11 +69,12 @@
         </div>
         <div class="flexRow flexCenter content">
             <a class="colorWhite" href="#">Mentions légales</a>
-            <a class="colorWhite" href="#">Contact</a>
+            <a class="colorWhite" href="../../index.php?controller=home&page=contact">Contact</a>
         </div>
     </footer>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/app2.js"></script>
 </body>
 </html>

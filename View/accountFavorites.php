@@ -82,7 +82,7 @@
                         <div class="width_10">
                             <a href="#"><i class="fas fa-star logoStar starPosition2"></i></a>
                         </div>
-                        <img class="pictures" src="../assets/img/tom2.jpg">
+                        <img class="pictures" src="../assets/img/picture/tom2.jpg">
                         <div class="width_10">
                             <a href="#"><i class="fas fa-star logoStar starPosition2"></i></a>
                         </div>

@@ -37,7 +37,7 @@ class Actor {
      */
     public function __construct(?int $id = null, ?string $firstname = null, ?string $lastname = null, ?string $picture = null,
     ?string $birthName = null, ?string $birth = null, ?string $nationality = null, ?string $profession =null, ?string $movies = null,
-    ?string $biography = null, ?string $awards = null, ?string $picture1 = null, ?string $picture2 = null, ?string $picture3 = null,){
+    ?string $biography = null, ?string $awards = null, ?string $picture1 = null, ?string $picture2 = null, ?string $picture3 = null){
         $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
@@ -171,6 +171,7 @@ class Actor {
      */
     public function setProfession(?string $profession): ?string {
         $this->profession = $profession;
+        return $profession;
     }
 
     /**

@@ -22,4 +22,8 @@ class HomeController {
     public function registration() {
         $this->return("create/registration", "Inscription");
     }
+
+    public function contact() {
+        $this->return("contact", "Contact");
+    }
 }

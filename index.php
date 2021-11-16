@@ -5,7 +5,9 @@ require 'vendor/autoload.php';
 
 require_once 'source/Controller/Traits/ReturnViewTrait.php';
 
+use Chloe\Marvel\Controller\ActorController;
 use Chloe\Marvel\Controller\CarouselController;
+use Chloe\Marvel\Controller\CharactersController;
 use Chloe\Marvel\Controller\HomeController;
 use Chloe\Marvel\Controller\UserController;
 
@@ -20,6 +22,9 @@ if (isset($_GET['controller'])) {
                         break;
                     case 'registration' :
                         $controller->registration();
+                        break;
+                    case 'contact' :
+                        $controller->contact();
                         break;
                 }
             }
@@ -53,6 +58,40 @@ if (isset($_GET['controller'])) {
                             break;
                     }
                 }
+        case "character" :
+            $controller = new CharactersController();
+            if (isset($_GET['action'])) {
+                switch ($_GET['action']) {
+                    case 'viewAll' :
+                        $controller->charactersPage();
+                        break;
+                    case 'view' :
+                        $controller->character($_GET['id']);
+                        break;
+                    case 'add' :
+                        break;
+                    case 'update' :
+                        break;
+                    case 'delete' :
+                        break;
+                }
+            }
+        case "actor" :
+            $controller = new ActorController();
+            if (isset($_GET['action'])) {
+                switch ($_GET['action']) {
+                    case 'view' :
+                        $controller->actor($_GET['id']);
+                        break;
+                    case 'add' :
+                        break;
+                    case 'update' :
+                        break;
+                    case 'delete' :
+                        break;
+                }
+            }
+
     }
 }
 else {

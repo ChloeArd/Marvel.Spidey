@@ -56,7 +56,7 @@ class ActorCharactersManager {
                 $character = CharactersManager::getManager()->getCharacter($info['characters_fk']);
                 if ($actor->getId()) {
                     if ($character->getId()) {
-                        $a_c[] = new ActorCharacters($info['id'], $info['actor_fk'], $info['characters_fk']);
+                        $a_c[] = new ActorCharacters($info['id'], $actor, $character);
                     }
                 }
             }

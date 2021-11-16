@@ -56,22 +56,22 @@
 
         <div class="flexRow wrap picturesAll">
             <a class="pictures" href="picture.php">
-                <img class="width_100" src="../assets/img/carousel/tom1.jpg">
+                <img class="width_100" src="../assets/img/picture/tom1.jpg">
             </a>
             <a class="pictures" href="#">
-                <img class="width_100" src="../assets/img/tom2.jpg">
+                <img class="width_100" src="../assets/img/picture/tom2.jpg">
             </a>
             <a class="pictures" href="#">
-                <img class="width_100" src="../assets/img/carousel/tom3.jpg">
+                <img class="width_100" src="../assets/img/picture/tom3.jpg">
             </a>
             <a class="pictures" href="#">
-                <img class="width_100" src="../assets/img/tom4.jpg">
+                <img class="width_100" src="../assets/img/picture/tom4.jpg">
             </a>
             <a class="pictures" href="#">
-                <img class="width_100" src="../assets/img/tom5.jpg">
+                <img class="width_100" src="../assets/img/picture/tom5.jpg">
             </a>
             <a class="pictures" href="#">
-                <img class="width_100" src="../assets/img/tom6.jpg">
+                <img class="width_100" src="../assets/img/picture/tom6.jpg">
             </a>
         </div>
 

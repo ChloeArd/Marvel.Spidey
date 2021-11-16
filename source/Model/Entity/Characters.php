@@ -59,7 +59,7 @@ class Characters {
     ?string $picture = null, ?string $species = null, ?string $sex = null, ?string $size = null, ?string $hair = null,
     ?string $eyes = null, ?string $origin = null, ?string $place = null, ?string $picturesBook = null, ?string $titleBook = null,
     ?string $activity = null, ?string $characteristic = null, ?string $powers = null, ?string $team = null, ?string $parent = null,
-    ?string $situation = null, ?string $biography = null, ?string $picture1 = null, ?string $picture2 = null, ?string $picture3 = null,) {
+    ?string $situation = null, ?string $biography = null, ?string $picture1 = null, ?string $picture2 = null, ?string $picture3 = null) {
     $this->id = $id;
     $this->pseudo = $pseudo;
     $this->firstname = $firstname;

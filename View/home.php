@@ -2,21 +2,12 @@
     <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
         <ol class="carousel-indicators">
             <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="10"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="11"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="12"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="13"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="14"></li>
-            <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="15"></li>
+            <?php
+            for ($i = 1; $i < 16; $i++) {?>
+                <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?=$i?>"></li>
+            <?php
+            }
+            ?>
         </ol>
         <div class="carousel-inner">
             <?php
