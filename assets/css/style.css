@@ -335,6 +335,7 @@ h1 {
     background-color: #0c0c0c;
     width: 100%;
     text-align: center;
+    margin-bottom: 0;
 }
 
 .containerHeroes{
@@ -416,8 +417,14 @@ form {
     color: #868686;
     background-color: white;
     border-bottom: 2px solid #ff0000;
-    padding: 8px;
+    padding: 4px;
     font-size: 18px;
+}
+
+textarea.form {
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    height: 200px;
 }
 
 #message {
@@ -432,7 +439,7 @@ form {
     font-size: 18px;
     background-color: #ed3535;
     border-radius: 10px;
-    padding: 8px;
+    padding: 4px;
 }
 
 .button:hover {
@@ -562,7 +569,7 @@ li{
     color: red;
 }
 
-#formConnect {
+#formConnect, .formContainer {
     border: 1px solid #A7A7A7;
     border-radius: 20px;
     padding: 40px;
@@ -573,7 +580,7 @@ label, #formConnect > input  {
     margin: 10px;
 }
 
-#formConnect > input.button{
+#formConnect > input.button, .formContainer > input[type=submit]{
     margin-top: 20px;
 }
 
@@ -778,6 +785,58 @@ footer > div > a {
     margin: 10px 0;
     border-top: 2px solid #e7e6e6;
     border-bottom: 2px solid #e7e6e6;
+}
+
+.choice {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #A7A7A7;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.black {
+    background-color: black;
+}
+
+.brown {
+    background-color: #543a3a;
+}
+
+.yellow {
+    background-color: #eed99b;
+}
+
+.gray {
+    background-color: #A7A7A7;
+}
+
+.blue {
+    background-color: #457bd3;
+}
+
+.red {
+    background-color: #ed3535;
+}
+
+.green {
+    background-color: seagreen;
+}
+
+.pink {
+    background-color: hotpink;
+}
+
+.orange {
+    background-color: orange;
+}
+
+.purple {
+    background-color: mediumpurple;
+}
+
+.yellow2 {
+    background-color: #f3f30a;
 }
 
 @media screen and (max-width: 1300px) {

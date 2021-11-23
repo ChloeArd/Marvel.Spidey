@@ -67,7 +67,7 @@
                             if (isset($var['creator'])) {
                                 foreach ($var['creator'] as $creator) { ?>
                                     <div class="flexColumn flexCenter">
-                                        <img class="imageChara" src="../assets/img/<?=$creator->getCreatorFk()->getPicture()?>" alt="<?=$creator->getCreatorFk()->getFirstname() . " " . $creator->getCreatorFk()->getLastname()?>">
+                                        <img class="imageChara" src="../assets/img/creator/<?=$creator->getCreatorFk()->getPicture()?>" alt="<?=$creator->getCreatorFk()->getFirstname() . " " . $creator->getCreatorFk()->getLastname()?>">
                                         <p><?=$creator->getCreatorFk()->getFirstname() . " " . $creator->getCreatorFk()->getLastname()?></p>
                                     </div>
                                 <?php
@@ -81,7 +81,9 @@
                         <p class="center"><?=$character->getCharacteristic()?></p>
                         <h2 class="titleDescription">POUVOIRS</h2>
                         <div class="background">
-                            <?=$character->getPowers()?>
+                            <ul class="auto width_70">
+                                <?=$character->getPowers()?>
+                            </ul>
                         </div>
                         <h2 class="titleDescription">EQUIPE</h2>
                         <div class="flexCenter">
@@ -93,9 +95,13 @@
                             ?>
                         </div>
                         <p class="center"><?=$character->getTeam()?></p>
-                        <h2 class="titleDescription">PARENT CONNUS</h2>
+                        <h2 class="titleDescription">FAMILLE</h2>
                         <p class="center background"><?=$character->getParent()?></p>
-                        <h2 class="titleDescription">EDUCATION</h2>
+                        <?php if ($character->getSituation() !== "") {?>
+                            <h2 class="titleDescription">EDUCATION</h2>
+                        <?php
+                        }
+                        ?>
                         <p class="center"><?=$character->getSituation()?></p>
                         <h2 class="titleDescription">BIOGRAPHIE</h2>
                         <div class="background">
@@ -103,24 +109,26 @@
                                 <p><?=$character->getBiography()?></p>
                             </div>
                         </div>
-
-                        <h2 class="titleDescription">ACTEURS</h2>
-                        <div class="flexRow flexCenter wrap">
+                        <?php
+                        if (isset($var['actor'])) {
+                            if ($var['actor'] !== []) {?>
+                                <h2 class="titleDescription">ACTEURS</h2>
+                                <div class="flexRow flexCenter wrap">
+                                    <?php
+                                    foreach ($var['actor'] as $actor) {?>
+                                        <a href="../index.php?controller=actor&action=view&id=<?=$actor->getId()?>" class="flexColumn flexCenter">
+                                            <img class="imageChara" src="../assets/img/<?=$actor->getActorFk()->getPicture()?>" alt="<?=$actor->getActorFk()->getFirstname() . " " . $actor->getActorFk()->getLastname()?>">
+                                            <p><?=$actor->getActorFk()->getFirstname() . " " . $actor->getActorFk()->getLastname()?></p>
+                                        </a>
+                                    <?php
+                                    } ?>
+                                </div>
                             <?php
-                            if (isset($var['actor'])) {
-                                foreach ($var['actor'] as $actor) { ?>
-                                    <a href="../index.php?controller=actor&action=view&id=<?=$actor->getId()?>" class="flexColumn flexCenter">
-                                        <img class="imageChara" src="../assets/img/<?=$actor->getActorFk()->getPicture()?>" alt="<?=$actor->getActorFk()->getFirstname() . " " . $actor->getActorFk()->getLastname()?>">
-                                        <p><?=$actor->getActorFk()->getFirstname() . " " . $actor->getActorFk()->getLastname()?></p>
-                                    </a>
-                                <?php
-                                }
                             }
-                            ?>
-                        </div>
+                        } ?>
                     </div>
                 </div>
-                <?php
+            <?php
         }
     }
     ?>

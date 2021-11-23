@@ -36,4 +36,12 @@ class CharactersController {
         $actor = $manager->getActorsCharacters($id);
         $this->return("character", $title->getPseudo() . " - " . $title->getFirstname() . " " . $title->getLastname(), ["character" => $character, "creator" => $creator, "actor" => $actor]);
     }
+
+    public function add() {
+        $manager = new ActorManager();
+        $actors = $manager->getActors();
+        $manager = new CreatorManager();
+        $creators = $manager->getCreators();
+        $this->return("create/createCharacter", "Ajouter un personnages", ["actors" => $actors, "creators" => $creators]);
+    }
 }

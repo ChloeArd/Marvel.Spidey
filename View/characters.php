@@ -22,17 +22,18 @@
                 }
             }
             ?>
-            <a href="" class="flexColumn flexCenter">
-                <img class="imageChara" src="../assets/img/morales.jpg" alt="SPIDER-MAN">
-                <p>SPIDER-MAN</p>
-                <p class="sentenceGrey">MILES MORALES</p>
-            </a>
-            <a href="" class="flexColumn flexCenter">
-                <img class="imageChara" src="../assets/img/spider-man%20black.jpg" alt="SPIDER-MAN">
-                <p>SPIDER-MAN NOIR</p>
-                <p class="sentenceGrey">PETER PARKER</p>
-            </a>
         </div>
+
+        <?php
+        if (isset($_SESSION['role_fk'])) {
+            if ($_SESSION['role_fk'] !== 2) {?>
+                <div class="flexRow flexCenter containerView">
+                    <a href="../index.php?controller=character&action=add"><i class="fas fa-plus buttonView"></i></a>
+                </div>
+                <?php
+            }
+        }
+        ?>
 
         <h2 class="titleChara">ACTEURS</h2>
         <div class="flexRow flexCenter wrap">
@@ -48,6 +49,18 @@
             }
             ?>
         </div>
+
+        <?php
+        if (isset($_SESSION['role_fk'])) {
+            if ($_SESSION['role_fk'] !== 2) {?>
+                <div class="flexRow flexCenter containerView">
+                    <a href="../index.php?controller=actor&action=add"><i class="fas fa-plus buttonView"></i></a>
+                </div>
+                <?php
+            }
+        }
+        ?>
+
 
         <h2 class="titleChara">CREATEURS</h2>
 
