@@ -144,7 +144,7 @@
             <label for="place">Son lieu d'origine</label>
             <input id="place" class="form" type="text" name="place" required>
             <label for="book">L'image et le titre du 1er comic book où il apparaît</label>
-            <input class="button" type="file" name="pictureBook" id="book" accept="image/png, image/jpeg, image/jpg" required>
+            <input class="button" type="file" name="picturesBook" id="book" accept="image/png, image/jpeg, image/jpg" required>
             <span class="sentenceGrey">(Max: 6Mo; accepte PNG, JPEG, JPG)</span>
             <input id="book" class="form" type="text" name="titleBook" required>
             <label for="activity">Ses activités</label>
@@ -168,7 +168,7 @@
             if (isset($var['actors'])) {
                 foreach ($var['actors'] as $actor) {?>
                         <div class="flexRow align">
-                            <input type="checkbox" name="eyes" id="eyes" value="<?=$actor->getId()?>" class="margR">
+                            <input type="checkbox" name="actors" id="eyes" value="<?=$actor->getId()?>" class="margR">
                             <?=$actor->getFirstname() . " " . $actor->getLastname()?>
                         </div>
                 <?php
@@ -185,7 +185,7 @@
             if (isset($var['creators'])) {
                 foreach ($var['creators'] as $creator) {?>
                     <div class="flexRow align">
-                        <input type="checkbox" name="eyes" id="eyes" value="<?=$creator->getId()?>" class="margR">
+                        <input type="checkbox" name="creators" id="eyes" value="<?=$creator->getId()?>" class="margR">
                         <?=$creator->getFirstname() . " " . $creator->getLastname()?>
                     </div>
                     <?php

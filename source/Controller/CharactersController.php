@@ -37,11 +37,19 @@ class CharactersController {
         $this->return("character", $title->getPseudo() . " - " . $title->getFirstname() . " " . $title->getLastname(), ["character" => $character, "creator" => $creator, "actor" => $actor]);
     }
 
-    public function add() {
+    public function add($character) {
         $manager = new ActorManager();
         $actors = $manager->getActors();
         $manager = new CreatorManager();
         $creators = $manager->getCreators();
+
+        if (isset($character['pseudo'], $character['firstname'], $character['lastname'], $character['picture'], $character['species'],
+        $character['sex'], $character['size'], $character['hair'], $character['eyes'], $character['origin'], $character['place'],
+        $character['picturesBook'], $character['titleBook'], $character['activity'], $character['characteristic'], $character['powers'],
+        $character['team'], $character['parent'], $character['situation'], $character['biography'], $character['picture1'], $character['picture2'],
+        $character['picture3'], $character['actors'], $character['creators'])) {
+
+        }
         $this->return("create/createCharacter", "Ajouter un personnages", ["actors" => $actors, "creators" => $creators]);
     }
 }
