@@ -111,22 +111,19 @@ class CharactersController {
                 // Non-mandatory criteria
                 if (isset($character['characteristic'])) {
                     $characteristic = htmlentities(ucfirst(trim($character['characteristic'])));
-                }
-                else {
+                } else {
                     $characteristic = "";
                 }
 
                 if (isset($character['team'])) {
                     $team = htmlentities(ucfirst(trim($character['team'])));
-                }
-                else {
+                } else {
                     $team = "";
                 }
 
                 if (isset($character['situation'])) {
                     $situation = htmlentities(ucfirst(trim($character['situation'])));
-                }
-                else {
+                } else {
                     $situation = "";
                 }
 
@@ -187,20 +184,17 @@ class CharactersController {
      * @param $files
      */
     public function update($character, $files) {
-        $manager = new ActorManager();
-        $actors = $manager->getActors();
-        $manager = new CreatorManager();
-        $creators = $manager->getCreators();
-
+        $id = $_GET['id'];
         if (isset($character['send'])) {
-            if (isset($character['pseudo'], $character['firstname'], $character['lastname'], $files['picture'], $character['species'],
+            if (isset($character['id'], $character['pseudo'], $character['firstname'], $character['lastname'], $character['picture_1'], $files['picture'], $character['species'],
                 $character['sex'], $character['size'], $character['size2'], $character['hair'], $character['eyes'], $character['origin'], $character['place'],
-                $files['picturesBook'], $character['titleBook'], $character['activity'], $character['powers'], $character['parent'], $character['biography'], $files['picture1'], $files['picture2'],
-                $files['picture3'], $character['user_fk'])) {
+                $character['picture_2'], $files['picturesBook'], $character['titleBook'], $character['activity'], $character['powers'], $character['parent'], $character['biography'],
+                $character['picture_3'], $files['picture1'], $character['picture_4'], $files['picture2'], $character['picture_5'], $files['picture3'], $character['user_fk'])) {
 
                 $characterManager = new CharactersManager();
                 $userManager = new UserManager();
 
+                $id = intval($character['id']);
                 $pseudo = htmlentities(ucfirst(trim($character['pseudo'])));
                 $firstname = htmlentities(ucfirst(trim($character['firstname'])));
                 $lastname = htmlentities(ucfirst(trim($character['lastname'])));
@@ -216,16 +210,21 @@ class CharactersController {
                 $parent = htmlentities(ucfirst(trim($character['parent'])));
                 $biography = $character['biography'];
                 $user_fk = intval($character['user_fk']);
+                $picture_1 = $character['picture_1'];
+                $picture_2 = $character['picture_2'];
+                $picture_3 = $character['picture_3'];
+                $picture_4 = $character['picture_4'];
+                $picture_5 = $character['picture_5'];
 
 
                 if (0 <= intval($size1) || intval($size1) <= 2 && 0 <= intval($size2) || intval($size2) <= 99) {
                     $size = $size1 . "m" . $size2;
                 } else {
-                    header("Location: ../index.php?controller=character&action=add&error=6");
+                    header("Location: ../index.php?controller=character&action=update&id=$id&error=6");
                 }
 
                 if ($character['sex'] === "") {
-                    header("Location: ../index.php?controller=character&action=add&error=7");
+                    header("Location: ../index.php?controller=character&action=update&id=$id&error=7");
                 }
 
                 // We recover the hair colors, which has a maximum of 3 colors
@@ -236,35 +235,32 @@ class CharactersController {
                 } elseif (count($character['hair']) === 3) {
                     $hair = $character['hair'][0] . ", " . $character['hair'][1] . " et " . $character['hair'][2];
                 } else {
-                    header("Location: ../index.php?controller=character&action=add&error=0");
+                    header("Location: ../index.php?controller=character&action=update&id=$id&error=0");
                 }
 
                 // We recover the eyes color
                 if (count($character['eyes']) === 1) {
                     $eyes = $character['eyes'][0];
                 } else {
-                    header("Location: ../index.php?controller=character&action=add&error=1");
+                    header("Location: ../index.php?controller=character&action=update&id$id&error=1");
                 }
 
                 // Non-mandatory criteria
                 if (isset($character['characteristic'])) {
                     $characteristic = htmlentities(ucfirst(trim($character['characteristic'])));
-                }
-                else {
+                } else {
                     $characteristic = "";
                 }
 
                 if (isset($character['team'])) {
                     $team = htmlentities(ucfirst(trim($character['team'])));
-                }
-                else {
+                } else {
                     $team = "";
                 }
 
                 if (isset($character['situation'])) {
                     $situation = htmlentities(ucfirst(trim($character['situation'])));
-                }
-                else {
+                } else {
                     $situation = "";
                 }
 
@@ -296,24 +292,31 @@ class CharactersController {
                             move_uploaded_file($tmpName4, "./assets/img/characters/" . $namePicture4);
                             move_uploaded_file($tmpName5, "./assets/img/characters/" . $namePicture5);
 
+                            // Removes images that are changed
+                            unlink("./assets/img/characters/" . $picture_1);
+                            unlink("./assets/img/characters/book/" . $picture_2);
+                            unlink("./assets/img/characters/" . $picture_3);
+                            unlink("./assets/img/characters/" . $picture_4);
+                            unlink("./assets/img/characters/" . $picture_5);
+
                             $user_fk = $userManager->getUser($user_fk);
                             if ($user_fk->getId()) {
-                                $c = new Characters(null, $pseudo, $firstname, $lastname, $namePicture1, $species, $sex, $size, $hair, $eyes, $origin, $place, $namePicture2, $titleBook, $activity, $characteristic, $powers, $team, $parent, $situation, $biography, $namePicture3, $namePicture4, $namePicture5, $user_fk);
-                                $characterManager->add($c);
+                                $c = new Characters($id, $pseudo, $firstname, $lastname, $namePicture1, $species, $sex, $size, $hair, $eyes, $origin, $place, $namePicture2, $titleBook, $activity, $characteristic, $powers, $team, $parent, $situation, $biography, $namePicture3, $namePicture4, $namePicture5, $user_fk);
+                                $characterManager->update($c);
 
-                                header("Location: ../index.php?controller=character&action=viewAll&success=0");
+                                header("Location: ../index.php?controller=character&action=view&id=$id&success=0");
                             }
                         } else {
-                            header("Location: ../index.php?controller=character&action=add&error=2");
+                            header("Location: ../index.php?controller=character&action=update&id=$id&error=2");
                         }
                     } else {
-                        header("Location: ../index.php?controller=character&action=add&error=3");
+                        header("Location: ../index.php?controller=character&action=update&id=$id&error=3");
                     }
                 } else {
-                    header("Location: ../index.php?controller=character&action=add&error=4");
+                    header("Location: ../index.php?controller=character&action=update&id=$id&error=4");
                 }
             } else {
-                header("Location: ../index.php?controller=character&action=add&error=5");
+                header("Location: ../index.php?controller=character&action=update&id=$id&error=5");
             }
         }
         $this->return("update/updateCharacter", "Modifier un personnage");

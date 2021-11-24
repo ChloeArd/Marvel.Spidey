@@ -28,7 +28,7 @@ foreach ($characters as $character) { ?>
                 <img class="width_20" src="../../assets/img/characters/<?=$character->getPicture()?>">
 
                 <label for="picture">Nouvelle image du personnage </label>
-                <input class="button" type="file" name="picture" id="picture" accept="image/png, image/jpeg, image/jpg">
+                <input class="button" type="file" name="picture" id="picture" accept="image/png, image/jpeg, image/jpg" value="<?=$character->getPicture()?>">
                 <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
 
                 <h2 class="marg40">Critères</h2>
@@ -158,8 +158,8 @@ foreach ($characters as $character) { ?>
                 <input id="origin" class="form" type="text" name="origin" value="<?=$character->getOrigin()?>" required>
                 <label for="place">Son lieu d'origine *</label>
                 <input id="place" class="form" type="text" name="place" value="<?=$character->getPlace()?>" required>
-                <label for="book">L'image et le titre du 1er comic book où il / elle apparaît </label>
 
+                <label for="book" class="marg40">L'image et le titre du 1er comic book où il / elle apparaît </label>
                 <label for="picture_2">Image actuelle </label>
                 <input id="picture_2" name="picture_2" type="hidden" class="<?=$character->getPicturesBook()?>">
                 <img class="width_20" src="../../assets/img/characters/book/<?=$character->getPicturesBook()?>">
@@ -202,7 +202,7 @@ foreach ($characters as $character) { ?>
                 <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
 
                 <label for="picture_5">Image actuelle du personnage </label>
-                <input id="picture_5" name="picture_3" type="hidden" class="<?=$character->getPicture3()?>">
+                <input id="picture_5" name="picture_5" type="hidden" class="<?=$character->getPicture3()?>">
                 <img class="width_10" src="../../assets/img/characters/<?=$character->getPicture3()?>">
 
                 <label for="picture3">Nouvelle image </label>
@@ -210,8 +210,10 @@ foreach ($characters as $character) { ?>
                 <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
 
                 <input type="hidden" name="user_fk" value="<?=$character->getUserFk()->getId()?>">
+                <input type="hidden" name="id" value="<?=$character->getId()?>">
 
-                <input class="button width_50 auto" type="submit" value="Ajouter" name="send">
+
+                <input class="button width_50 auto" type="submit" value="Modifier" name="send">
             </form>
         </div>
     </main>
