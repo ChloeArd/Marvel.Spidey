@@ -49,6 +49,10 @@
                     <span class="choice brown"></span>
                 </div>
                 <div class="flexColumn align">
+                    <input type="checkbox" name="hair[]" id="hair" value="Châtains">
+                    <span class="choice chestnut"></span>
+                </div>
+                <div class="flexColumn align">
                     <input type="checkbox" name="hair[]" id="hair" value="Blonds">
                     <span class="choice yellow"></span>
                 </div>
@@ -73,7 +77,7 @@
                     <span class="choice green"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair[]" id="hair" value="Rose">
+                    <input type="checkbox" name="hair[]" id="hair" value="Roses">
                     <span class="choice pink"></span>
                 </div>
                 <div class="flexColumn align">
@@ -81,11 +85,11 @@
                     <span class="choice orange"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair[]" id="hair" value="Jaune">
+                    <input type="checkbox" name="hair[]" id="hair" value="Jaunes">
                     <span class="choice yellow2"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair[]" id="hair" value="Violet">
+                    <input type="checkbox" name="hair[]" id="hair" value="Violets">
                     <span class="choice purple"></span>
                 </div>
                 <div class="flexColumn align">
@@ -102,10 +106,6 @@
                 <div class="flexColumn align">
                     <input type="checkbox" name="eyes[]" id="eyes" value="Marrons">
                     <span class="choice brown"></span>
-                </div>
-                <div class="flexColumn align">
-                    <input type="checkbox" name="eyes[]" id="eyes" value="Blonds">
-                    <span class="choice yellow"></span>
                 </div>
                 <div class="flexColumn align">
                     <input type="checkbox" name="eyes[]" id="eyes" value="Gris">
@@ -128,19 +128,19 @@
                     <span class="choice green"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes[]" id="eyes" value="Rose">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Roses">
                     <span class="choice pink"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes[]" id="eyes" value="Roux">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Orange">
                     <span class="choice orange"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes[]" id="eyes" value="Jaune">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Jaunes">
                     <span class="choice yellow2"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes[]" id="eyes" value="Violet">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Violets">
                     <span class="choice purple"></span>
                 </div>
             </div>

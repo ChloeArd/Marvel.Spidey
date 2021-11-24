@@ -10,9 +10,22 @@
                         <img class="width_100" src="../assets/img/characters/<?=$character->getPicture3()?>">
                     </div>
                     <div id="descriptionCharacter" class="width_70 flexColumn">
+
+                        <?php
+                        if (isset($_SESSION['role_fk'])) {
+                            if ($_SESSION['role_fk'] !== 2) {?>
+                                <div class="flexRow flexCenter containerView width_100">
+                                    <a href="../index.php?controller=character&action=update&id=<?=$character->getId()?>"><i class="fas fa-edit buttonView"></i></a>
+                                    <a href="../index.php?controller=character&action=delete&id=<?=$character->getId()?>"><i class="fas fa-trash-alt buttonView"></i></a>
+                                </div>
+                                <?php
+                            }
+                        }?>
+
                         <div class="flexCenter flexColumn">
                             <h1 class="marginTop"><?=strtoupper($character->getPseudo())?></h1>
                             <h2><?=$character->getFirstname() . " " . $character->getLastname()?></h2>
+
                             <div class="lineHorizontal width_90 lineTop"></div>
                                 <div id="table" class="flexRow">
                                     <div class="lineVertical"></div>
@@ -70,7 +83,13 @@
                                         <img class="imageChara" src="../assets/img/creator/<?=$creator->getCreatorFk()->getPicture()?>" alt="<?=$creator->getCreatorFk()->getFirstname() . " " . $creator->getCreatorFk()->getLastname()?>">
                                         <p><?=$creator->getCreatorFk()->getFirstname() . " " . $creator->getCreatorFk()->getLastname()?></p>
                                     </div>
-                                <?php
+                                    <?php
+                                    if (isset($_SESSION['role_fk'])) {
+                                        if ($_SESSION['role_fk'] !== 2) {?>
+                                                <a href="../index.php?controller=character&action=delete&id="><i class="fas fa-trash-alt buttonView"></i></a>
+                                            <?php
+                                        }
+                                    }
                                 }
                             }
                             ?>
@@ -138,6 +157,12 @@
                                             <p><?=$actor->getActorFk()->getFirstname() . " " . $actor->getActorFk()->getLastname()?></p>
                                         </a>
                                     <?php
+                                        if (isset($_SESSION['role_fk'])) {
+                                            if ($_SESSION['role_fk'] !== 2) {?>
+                                                <a href="../index.php?controller=character&action=delete&id="><i class="fas fa-trash-alt buttonView"></i></a>
+                                                <?php
+                                            }
+                                        }
                                     } ?>
                                 </div>
                                 <?php

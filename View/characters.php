@@ -69,11 +69,20 @@
                 <?php
                 if (isset($var['creators'])) {
                     foreach ($var['creators'] as $actor) { ?>
-                        <a href="../index.php?controller=creator&action=view&id=<?=$actor->getId()?>" class="flexColumn flexCenter">
+                        <a class="flexColumn flexCenter">
                             <img class="imageChara" src="../assets/img/creator/<?=$actor->getPicture()?>" alt="<?=$actor->getFirstname() . " " . $actor->getLastname()?>">
                             <p><?=strtoupper($actor->getFirstname()) . " " . strtoupper($actor->getLastname())?></p>
                         </a>
                         <?php
+                        if (isset($_SESSION['role_fk'])) {
+                            if ($_SESSION['role_fk'] !== 2) {?>
+                                <div class="flexColumn flexCenter">
+                                    <a href="../index.php?controller=character&action=update&id="><i class="fas fa-edit buttonView"></i></a>
+                                    <a href="../index.php?controller=character&action=delete&id="><i class="fas fa-trash-alt buttonView"></i></a>
+                                </div>
+                                <?php
+                            }
+                        }
                     }
                 }
                 ?>

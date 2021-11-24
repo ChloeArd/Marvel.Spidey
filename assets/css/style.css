@@ -772,8 +772,8 @@ footer > div > a {
 
 .buttonView {
     color: #ff0e0e;
-    font-size: 30px;
-    margin: 0 30px;
+    font-size: 25px;
+    margin: 10px 20px;
 }
 
 .buttonView:hover {
@@ -837,6 +837,10 @@ footer > div > a {
 
 .yellow2 {
     background-color: #f3f30a;
+}
+
+.chestnut {
+    background-color: #c08056;
 }
 
 .marg40 {

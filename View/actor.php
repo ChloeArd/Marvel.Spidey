@@ -11,6 +11,18 @@
                     <img class="width_100" src="<?=$actor->getPicture3()?>">
                 </div>
                 <div id="descriptionCharacter" class="width_70 flexColumn">
+
+                    <?php
+                    if (isset($_SESSION['role_fk'])) {
+                        if ($_SESSION['role_fk'] !== 2) {?>
+                            <div class="flexRow flexCenter containerView width_100">
+                                <a href="../index.php?controller=actor&action=update&id="><i class="fas fa-edit buttonView"></i></a>
+                                <a href="../index.php?controller=actor&action=delete&id="><i class="fas fa-trash-alt buttonView"></i></a>
+                            </div>
+                            <?php
+                        }
+                    }?>
+
                     <div class="flexCenter flexColumn">
                         <h1 class="marginTop"><?=strtoupper($actor->getFirstname()) . " " . strtoupper($actor->getLastname())?></h1>
                         <div class="flexColumn flexCenter">

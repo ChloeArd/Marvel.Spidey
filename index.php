@@ -72,6 +72,7 @@ if (isset($_GET['controller'])) {
                         $controller->add($_POST, $_FILES);
                         break;
                     case 'update' :
+                        $controller->update($_POST, $_FILES);
                         break;
                     case 'delete' :
                         break;
