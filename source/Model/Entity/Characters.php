@@ -28,6 +28,7 @@ class Characters {
     private ?string $picture1;
     private ?string $picture2;
     private ?string $picture3;
+    private ?User $user_fk;
 
     /**
      * @param int|null $id
@@ -54,12 +55,14 @@ class Characters {
      * @param string|null $picture1
      * @param string|null $picture2
      * @param string|null $picture3
+     * @param User|null $user_fk
      */
     public function __construct(?int $id = null, ?string $pseudo = null, ?string $firstname = null, ?string $lastname = null,
     ?string $picture = null, ?string $species = null, ?string $sex = null, ?string $size = null, ?string $hair = null,
     ?string $eyes = null, ?string $origin = null, ?string $place = null, ?string $picturesBook = null, ?string $titleBook = null,
     ?string $activity = null, ?string $characteristic = null, ?string $powers = null, ?string $team = null, ?string $parent = null,
-    ?string $situation = null, ?string $biography = null, ?string $picture1 = null, ?string $picture2 = null, ?string $picture3 = null) {
+    ?string $situation = null, ?string $biography = null, ?string $picture1 = null, ?string $picture2 = null, ?string $picture3 = null,
+    ?User $user_fk = null) {
     $this->id = $id;
     $this->pseudo = $pseudo;
     $this->firstname = $firstname;
@@ -84,6 +87,7 @@ class Characters {
     $this->picture1 = $picture1;
     $this->picture2 = $picture2;
     $this->picture3 = $picture3;
+    $this->user_fk = $user_fk;
     }
 
     /**
@@ -444,5 +448,20 @@ class Characters {
     public function setPicture3(?string $picture3): ?string {
         $this->picture3 = $picture3;
         return $picture3;
+    }
+
+    /**
+     * @return User|null
+     */
+    public function getUserFk(): ?User {
+        return $this->user_fk;
+    }
+
+    /**
+     * @param User|null $user_fk
+     */
+    public function setUserFk(?User $user_fk): ?User {
+        $this->user_fk = $user_fk;
+        return $user_fk;
     }
 }

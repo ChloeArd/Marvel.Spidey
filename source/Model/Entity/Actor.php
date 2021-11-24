@@ -18,6 +18,7 @@ class Actor {
     private ?string $picture1;
     private ?string $picture2;
     private ?string $picture3;
+    private ?User $user_fk;
 
     /**
      * @param int|null $id
@@ -34,10 +35,12 @@ class Actor {
      * @param string|null $picture1
      * @param string|null $picture2
      * @param string|null $picture3
+     * @param User|null $user_fk
      */
     public function __construct(?int $id = null, ?string $firstname = null, ?string $lastname = null, ?string $picture = null,
     ?string $birthName = null, ?string $birth = null, ?string $nationality = null, ?string $profession =null, ?string $movies = null,
-    ?string $biography = null, ?string $awards = null, ?string $picture1 = null, ?string $picture2 = null, ?string $picture3 = null){
+    ?string $biography = null, ?string $awards = null, ?string $picture1 = null, ?string $picture2 = null, ?string $picture3 = null,
+    ?User $user_fk = null){
         $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
@@ -52,6 +55,7 @@ class Actor {
         $this->picture1 = $picture1;
         $this->picture2 = $picture2;
         $this->picture3 = $picture3;
+        $this->user_fk = $user_fk;
     }
 
     /**
@@ -263,4 +267,21 @@ class Actor {
         $this->picture3 = $picture3;
         return $picture3;
     }
+
+    /**
+     * @return User|null
+     */
+    public function getUserFk(): ?User {
+        return $this->user_fk;
+    }
+
+    /**
+     * @param User|null $user_fk
+     */
+    public function setUserFk(?User $user_fk): ?User {
+        $this->user_fk = $user_fk;
+        return $user_fk;
+    }
+
+
 }

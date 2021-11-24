@@ -8,18 +8,21 @@ class Creator {
     private ?string $firstname;
     private ?string $lastname;
     private ?string $picture;
+    private ?User $user_fk;
 
     /**
      * @param int|null $id
      * @param string|null $firstname
      * @param string|null $lastname
      * @param string|null $picture
+     * @param User|null $user_fk
      */
-    public function __construct(?int $id = null, ?string $firstname = null, ?string $lastname = null, ?string $picture = null) {
+    public function __construct(?int $id = null, ?string $firstname = null, ?string $lastname = null, ?string $picture = null, ?User $user_fk = null) {
         $this->id = $id;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->picture = $picture;
+        $this->user_fk = $user_fk;
     }
 
     /**
@@ -81,4 +84,21 @@ class Creator {
         $this->picture = $picture;
         return $picture;
     }
+
+    /**
+     * @return User|null
+     */
+    public function getUserFk(): ?User {
+        return $this->user_fk;
+    }
+
+    /**
+     * @param User|null $user_fk
+     */
+    public function setUserFk(?User $user_fk): ?User {
+        $this->user_fk = $user_fk;
+        return $user_fk;
+    }
+
+
 }

@@ -12,6 +12,12 @@ class ActorManager {
 
     use ManagerTrait;
 
+    private UserManager $userManager;
+
+    public function __construct() {
+        $this->userManager = new UserManager();
+    }
+
     /**
      * Return a actor based on id.
      * @param $id
@@ -39,6 +45,8 @@ class ActorManager {
             $actor->setPicture1($info['picture1']);
             $actor->setPicture2($info['picture2']);
             $actor->setPicture3($info['picture3']);
+            $user = $this->userManager->getUser($info['user_fk']);
+            $actor->setUserFk($user);
         }
         return $actor;
     }
@@ -52,9 +60,12 @@ class ActorManager {
         $request = DB::getInstance()->prepare("SELECT * FROM actor ORDER by id DESC");
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $actor[] = new Actor($info['id'], $info['firstname'], $info['lastname'], $info['picture'], $info['birthName'], $info['birth'],
-                    $info['nationality'], $info['profession'], $info['movies'], $info['biography'], $info['awards'], $info['picture1'],
-                    $info['picture2'], $info['picture3']);
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                if ($user->getId()) {
+                    $actor[] = new Actor($info['id'], $info['firstname'], $info['lastname'], $info['picture'], $info['birthName'], $info['birth'],
+                        $info['nationality'], $info['profession'], $info['movies'], $info['biography'], $info['awards'], $info['picture1'],
+                        $info['picture2'], $info['picture3'], $user);
+                }
             }
         }
         return $actor;
@@ -71,9 +82,12 @@ class ActorManager {
         $request->bindValue(":id", $id);
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $actor[] = new Actor($info['id'], $info['firstname'], $info['lastname'], $info['picture'], $info['birthName'], $info['birth'],
-                    $info['nationality'], $info['profession'], $info['movies'], $info['biography'], $info['awards'], $info['picture1'],
-                    $info['picture2'], $info['picture3']);
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                if ($user->getId()) {
+                    $actor[] = new Actor($info['id'], $info['firstname'], $info['lastname'], $info['picture'], $info['birthName'], $info['birth'],
+                        $info['nationality'], $info['profession'], $info['movies'], $info['biography'], $info['awards'], $info['picture1'],
+                        $info['picture2'], $info['picture3'], $user);
+                }
             }
         }
         return $actor;
@@ -86,8 +100,8 @@ class ActorManager {
      */
     public function add (Actor $actor): bool {
         $request = DB::getInstance()->prepare("
-            INSERT INTO actor (firstname, lastname, picture, birthName, birth, nationality, profession, movies, biography, awards, picture1, picture2, picture3)
-                VALUES (:firstname, :lastname, :picture, :birthName, :birth, :nationality, :profession, :movies, :biography, :awards, :picture1, :picture2, :picture3) 
+            INSERT INTO actor (firstname, lastname, picture, birthName, birth, nationality, profession, movies, biography, awards, picture1, picture2, picture3, user_fk)
+                VALUES (:firstname, :lastname, :picture, :birthName, :birth, :nationality, :profession, :movies, :biography, :awards, :picture1, :picture2, :picture3, :user_fk) 
         ");
 
         $request->bindValue(':firstname', $actor->getFirstname());
@@ -103,6 +117,7 @@ class ActorManager {
         $request->bindValue(':picture1', $actor->getPicture1());
         $request->bindValue(':picture2', $actor->getPicture2());
         $request->bindValue(':picture3', $actor->getPicture3());
+        $request->bindValue(':user_fk', $actor->getUserFk());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }
@@ -141,6 +156,9 @@ class ActorManager {
      * @return bool
      */
     public function delete (int $id): bool {
+        $request = DB::getInstance()->prepare("DELETE FROM actor_characters WHERE actor_fk = :actor_fk");
+        $request->bindValue(":actor_fk", $id);
+        $request->execute();
         $request = DB::getInstance()->prepare("DELETE FROM actor WHERE id = :id");
         $request->bindValue(":id", $id);
         return $request->execute();

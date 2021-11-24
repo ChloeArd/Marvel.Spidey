@@ -12,6 +12,12 @@ class CreatorManager {
 
     use ManagerTrait;
 
+    private UserManager $userManager;
+
+    public function __construct() {
+        $this->userManager = new UserManager();
+    }
+
     /**
      * Return a creator based on id.
      * @param $id
@@ -29,6 +35,8 @@ class CreatorManager {
             $creator->setFirstname($info['firstname']);
             $creator->setLastname($info['lastname']);
             $creator->setPicture($info['picture']);
+            $user = $this->userManager->getUser($info['user_fk']);
+            $creator->setUserFk($user);
         }
         return $creator;
     }
@@ -42,7 +50,10 @@ class CreatorManager {
         $request = DB::getInstance()->prepare("SELECT * FROM creator");
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $creator[] = new Creator($info['id'], $info['firstname'], $info['lastname'], $info['picture']);
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                if ($user->getId()) {
+                    $creator[] = new Creator($info['id'], $info['firstname'], $info['lastname'], $info['picture'], $user);
+                }
             }
         }
         return $creator;
@@ -59,7 +70,10 @@ class CreatorManager {
         $request->bindValue(":id", $id);
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $creator[] = new Creator($info['id'], $info['firstname'], $info['lastname'], $info['picture']);
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                if ($user->getId()) {
+                    $creator[] = new Creator($info['id'], $info['firstname'], $info['lastname'], $info['picture'], $user);
+                }
             }
         }
         return $creator;
@@ -72,13 +86,14 @@ class CreatorManager {
      */
     public function add (Creator $creator): bool {
         $request = DB::getInstance()->prepare("
-            INSERT INTO creator (firstname, lastname, picture)
-                VALUES (:firstname, :lastname, :picture) 
+            INSERT INTO creator (firstname, lastname, picture, user_fk)
+                VALUES (:firstname, :lastname, :picture, :user_fk) 
         ");
 
         $request->bindValue(':firstname', $creator->getFirstname());
         $request->bindValue(':lastname', $creator->getLastname());
         $request->bindValue(':picture', $creator->getPicture());
+        $request->bindValue(':user_fk', $creator->getUserFk());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }

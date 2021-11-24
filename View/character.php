@@ -5,9 +5,9 @@
             <h1 class="title"><?=strtoupper($character->getPseudo()) . " (" . $character->getFirstname() . " " . $character->getLastname() . ")"?></h1>
                 <div class="width_100 flexRow">
                     <div id="photoCharacter" class="width_30 flexColumn">
-                        <img class="width_100" src="<?=$character->getPicture1()?>">
-                        <img class="width_100" src="<?=$character->getPicture2()?>">
-                        <img class="width_100" src="<?=$character->getPicture3()?>">
+                        <img class="width_100" src="../assets/img/characters/<?=$character->getPicture1()?>">
+                        <img class="width_100" src="../assets/img/characters/<?=$character->getPicture2()?>">
+                        <img class="width_100" src="../assets/img/characters/<?=$character->getPicture3()?>">
                     </div>
                     <div id="descriptionCharacter" class="width_70 flexColumn">
                         <div class="flexCenter flexColumn">
@@ -57,7 +57,7 @@
 
                         <h2 class="titleDescription">1ERE APPARITION</h2>
                         <div class="flexCenter flexColumn background">
-                            <img class="width_20 picturesBook" src="<?=$character->getPicturesBook()?>" alt="<?=$character->getTitleBook()?>">
+                            <img class="width_20 picturesBook" src="../assets/img/characters/book/<?=$character->getPicturesBook()?>" alt="<?=$character->getTitleBook()?>">
                             <p><?=$character->getTitleBook()?></p>
                         </div>
 
@@ -77,32 +77,40 @@
                         </div>
                         <h2 class="titleDescription">ACTIVITES</h2>
                         <p class="center background"><?=$character->getActivity()?></p>
-                        <h2 class="titleDescription">CARACTERISTIQUES</h2>
-                        <p class="center"><?=$character->getCharacteristic()?></p>
+                        <?php
+                        if ($character->getCharacteristic() !== "") {?>
+                            <h2 class="titleDescription">CARACTERISTIQUES</h2>
+                            <p class="center"><?=$character->getCharacteristic()?></p>
+                            <?php
+                        } ?>
                         <h2 class="titleDescription">POUVOIRS</h2>
                         <div class="background">
                             <ul class="auto width_70">
                                 <?=$character->getPowers()?>
                             </ul>
                         </div>
-                        <h2 class="titleDescription">EQUIPE</h2>
-                        <div class="flexCenter">
-                            <?php
-                            if ($character->getTeam() === "Avengers") {?>
-                                <img class="width_20 team" src="https://clipground.com/images/avengers-a-logo-4.png" alt="<?=$character->getTeam()?>">
+                        <?php
+                        if ($character->getTeam() !== "") { ?>
+                            <h2 class="titleDescription">EQUIPE</h2>
+                            <div class="flexCenter">
                                 <?php
-                            }
+                                if ($character->getTeam() === "Avengers") {?>
+                                    <img class="width_20 team" src="https://clipground.com/images/avengers-a-logo-4.png" alt="<?=$character->getTeam()?>">
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                            <p class="center"><?=$character->getTeam()?></p>
+                            <?php
+                        }
                             ?>
-                        </div>
-                        <p class="center"><?=$character->getTeam()?></p>
                         <h2 class="titleDescription">FAMILLE</h2>
                         <p class="center background"><?=$character->getParent()?></p>
                         <?php if ($character->getSituation() !== "") {?>
                             <h2 class="titleDescription">EDUCATION</h2>
-                        <?php
-                        }
-                        ?>
-                        <p class="center"><?=$character->getSituation()?></p>
+                            <p class="center"><?=$character->getSituation()?></p>
+                            <?php
+                        } ?>
                         <h2 class="titleDescription">BIOGRAPHIE</h2>
                         <div class="background">
                             <div class="width_70 auto">

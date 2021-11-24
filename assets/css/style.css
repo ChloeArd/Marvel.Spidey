@@ -811,11 +811,11 @@ footer > div > a {
     background-color: #A7A7A7;
 }
 
-.blue {
+.blue2 {
     background-color: #457bd3;
 }
 
-.red {
+.red2 {
     background-color: #ed3535;
 }
 
@@ -837,6 +837,10 @@ footer > div > a {
 
 .yellow2 {
     background-color: #f3f30a;
+}
+
+.marg40 {
+    margin: 40px auto;
 }
 
 @media screen and (max-width: 1300px) {

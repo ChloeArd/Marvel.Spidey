@@ -69,7 +69,7 @@ if (isset($_GET['controller'])) {
                         $controller->character($_GET['id']);
                         break;
                     case 'add' :
-                        $controller->add($_POST);
+                        $controller->add($_POST, $_FILES);
                         break;
                     case 'update' :
                         break;

@@ -2,204 +2,219 @@
     <h1 class="title">Ajouter un personnage</h1>
     <div  class="width_80 auto">
         <form method="post" action="" class="flexColumn width_60 formContainer" enctype="multipart/form-data">
-            <h2 class="marginTop">Identitée</h2>
+            <h2 class="marg40">Identitée</h2>
 
-            <label for="pseudo">Son surnom</label>
+            <label for="pseudo">Son surnom *</label>
             <input class="form" type="text" name="pseudo" id="pseudo" required>
             <div class="flexRow align">
                 <div class="flexColumn width_50 margR">
-                    <label for="firstname">Son prénom</label>
+                    <label for="firstname">Son prénom *</label>
                     <input class="form" type="text" name="firstname" id="firstname" required>
                 </div>
                 <div class="flexColumn width_50">
-                    <label for="lastname">Son nom</label>
+                    <label for="lastname">Son nom *</label>
                     <input class="form" type="text" name="lastname" id="lastname" required>
                 </div>
             </div>
 
-            <label for="picture">Photo du personnage </label>
+            <label for="picture">Photo du personnage *</label>
             <input class="button" type="file" name="picture" id="picture" accept="image/png, image/jpeg, image/jpg" required>
-            <span class="sentenceGrey">(Max: 6Mo; accepte PNG, JPEG, JPG)</span>
+            <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
 
-            <h2 class="marginTop">Critères</h2>
+            <h2 class="marg40">Critères</h2>
 
-            <label for="species">Son espèces</label>
+            <label for="species">Son espèces *</label>
             <input id="species" class="form" type="text" name="species" required>
-            <label for="sex">Son sexe</label>
+            <label for="sex">Son sexe *</label>
             <select id="sex" name="sex" class="button" required>
                 <option>-- Choisissez --</option>
                 <option value="Homme">Homme</option>
                 <option value="Femme">Femme</option>
             </select>
-            <label for="size">Sa taille</label>
-            <input id="size" class="form" type="text" name="size" placeholder="ex : 1m70" required>
-            <label for="hair">Sa couleur des cheveux</label>
+            <label for="size">Sa taille *</label>
+            <div class="flexRow align width_40">
+                <input type="number" id="size" class="form width_20 margR" name="size" max="2" min="0" required>
+                <span>m</span>
+                <input type="number" id="size" class="form width_20 margR" max="99" min="0" name="size2" required>
+                <span>cm</span>
+            </div>
+            <label for="hair">Sa couleur des cheveux * <span class="sentenceGrey">(max 3)</span></label>
             <div class="flexRow align wrap">
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Noirs">
+                    <input type="checkbox" name="hair[]" id="hair" value="Noirs">
                     <span class="choice black"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Bruns">
+                    <input type="checkbox" name="hair[]" id="hair" value="Bruns">
                     <span class="choice brown"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Blonds">
+                    <input type="checkbox" name="hair[]" id="hair" value="Blonds">
                     <span class="choice yellow"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Gris">
+                    <input type="checkbox" name="hair[]" id="hair" value="Gris">
                     <span class="choice gray"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Blancs">
+                    <input type="checkbox" name="hair[]" id="hair" value="Blancs">
                     <span class="choice"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Bleus">
-                    <span class="choice blue"></span>
+                    <input type="checkbox" name="hair[]" id="hair" value="Bleus">
+                    <span class="choice blue2"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Rouges">
-                    <span class="choice red"></span>
+                    <input type="checkbox" name="hair[]" id="hair" value="Rouges">
+                    <span class="choice red2"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Verts">
+                    <input type="checkbox" name="hair[]" id="hair" value="Verts">
                     <span class="choice green"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Rose">
+                    <input type="checkbox" name="hair[]" id="hair" value="Rose">
                     <span class="choice pink"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Roux">
+                    <input type="checkbox" name="hair[]" id="hair" value="Roux">
                     <span class="choice orange"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Jaune">
+                    <input type="checkbox" name="hair[]" id="hair" value="Jaune">
                     <span class="choice yellow2"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Violet">
+                    <input type="checkbox" name="hair[]" id="hair" value="Violet">
                     <span class="choice purple"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="hair" id="hair" value="Chauve">
+                    <input type="checkbox" name="hair[]" id="hair" value="Chauve">
                     <span class="choice center grey">X</span>
                 </div>
             </div>
-            <label for="eyes">Sa couleur des yeux</label>
+            <label for="eyes">Sa couleur des yeux * <span class="sentenceGrey">(max 1)</span></label>
             <div class="flexRow align wrap">
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Noirs">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Noirs">
                     <span class="choice black"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Marrons">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Marrons">
                     <span class="choice brown"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Blonds">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Blonds">
                     <span class="choice yellow"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Gris">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Gris">
                     <span class="choice gray"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Blancs">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Blancs">
                     <span class="choice"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Bleus">
-                    <span class="choice blue"></span>
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Bleus">
+                    <span class="choice blue2"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Rouges">
-                    <span class="choice red"></span>
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Rouges">
+                    <span class="choice red2"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Verts">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Verts">
                     <span class="choice green"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Rose">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Rose">
                     <span class="choice pink"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Roux">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Roux">
                     <span class="choice orange"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Jaune">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Jaune">
                     <span class="choice yellow2"></span>
                 </div>
                 <div class="flexColumn align">
-                    <input type="checkbox" name="eyes" id="eyes" value="Violet">
+                    <input type="checkbox" name="eyes[]" id="eyes" value="Violet">
                     <span class="choice purple"></span>
                 </div>
             </div>
-            <label for="origin">Son origine</label>
+            <label for="origin">Son pays d'origine *</label>
             <input id="origin" class="form" type="text" name="origin" required>
-            <label for="place">Son lieu d'origine</label>
+            <label for="place">Son lieu d'origine *</label>
             <input id="place" class="form" type="text" name="place" required>
-            <label for="book">L'image et le titre du 1er comic book où il apparaît</label>
+            <label for="book">L'image et le titre du 1er comic book où il / elle apparaît *</label>
             <input class="button" type="file" name="picturesBook" id="book" accept="image/png, image/jpeg, image/jpg" required>
             <span class="sentenceGrey">(Max: 6Mo; accepte PNG, JPEG, JPG)</span>
             <input id="book" class="form" type="text" name="titleBook" required>
-            <label for="activity">Ses activités</label>
+            <label for="activity">Ses activités *</label>
             <input id="activity" class="form" type="text" name="activity" required>
             <label for="characteristic">Ses charactéristiques</label>
-            <input id="characteristic" class="form" type="text" name="characteristic" required>
-            <label for="powers">Ses pouvoirs</label>
+            <input id="characteristic" class="form" type="text" name="characteristic">
+            <label for="powers">Ses pouvoirs *</label>
             <textarea id="powers" name="powers" class="form" required></textarea>
-            <label for="team">Ses équipes</label>
+            <label for="team">Ses / son équipe(s)</label>
             <input id="team" class="form" type="text" name="team">
-            <label for="parent">Sa famille</label>
+            <label for="parent">Sa famille *</label>
             <input id="parent" class="form" type="text" name="parent" required>
-            <label for="situation">Ses études</label>
-            <input id="situation" class="form" type="text" name="situation" required>
-            <label for="biography">Sa biographie</label>
+            <label for="situation">Ses études </label>
+            <input id="situation" class="form" type="text" name="situation">
+            <label for="biography">Sa biographie *</label>
             <textarea id="biography" name="biography" class="form" required></textarea>
 
-            <h2 class="marginTop">Acteurs qui ont incarné le personnage</h2>
+            <h2 class="marg40">Acteurs qui ont incarné le personnage</h2>
 
             <?php
             if (isset($var['actors'])) {
                 foreach ($var['actors'] as $actor) {?>
                         <div class="flexRow align">
-                            <input type="checkbox" name="actors" id="eyes" value="<?=$actor->getId()?>" class="margR">
+                            <input type="checkbox" name="actors[]" value="<?=$actor->getId()?>" class="margR">
                             <?=$actor->getFirstname() . " " . $actor->getLastname()?>
                         </div>
                 <?php
                 }
             } ?>
             <div class="flexRow align">
-                <input type="checkbox" name="eyes" id="eyes" value="" class="margR"> Personne
+                <input type="checkbox" name="actors[]" value="" class="margR"> Personne
             </div>
 
-            <h2 class="marginTop">Créateurs du personnage</h2>
+            <p class="sentenceGrey">S'il(s) /elle(s) n'est / ne sont pas dans la liste proposé, coché "Personne" et aller ensuite créer un(e) nouveau/elle acteur/rice</p>
+
+            <h2 class="marg40">Créateurs du personnage</h2>
 
 
             <?php
             if (isset($var['creators'])) {
                 foreach ($var['creators'] as $creator) {?>
                     <div class="flexRow align">
-                        <input type="checkbox" name="creators" id="eyes" value="<?=$creator->getId()?>" class="margR">
+                        <input type="checkbox" name="creators[]" value="<?=$creator->getId()?>" class="margR">
                         <?=$creator->getFirstname() . " " . $creator->getLastname()?>
                     </div>
                     <?php
                 }
             } ?>
+            <div class="flexRow align">
+                <input type="checkbox" name="creators[]" value="" class="margR"> Personne
+            </div>
 
-            <h2 class="marginTop">Insérer 3 photos du personnage</h2>
+            <p class="sentenceGrey">S'il(s) /elle(s) n'est / ne sont pas dans la liste proposé, coché "Personne" et aller ensuite créer un(e) nouveau/elle créateur/rice</p>
+
+
+            <h2 class="marg40">Insérer 3 photos du personnage *</h2>
 
             <input class="button marginTop" type="file" name="picture1" id="picture1" accept="image/png, image/jpeg, image/jpg" required>
-            <span class="sentenceGrey">(Max: 6Mo; accepte PNG, JPEG, JPG)</span>
+            <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
             <input class="button" type="file" name="picture2" id="picture2" accept="image/png, image/jpeg, image/jpg" required>
-            <span class="sentenceGrey">(Max: 6Mo; accepte PNG, JPEG, JPG)</span>
+            <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
             <input class="button" type="file" name="picture3" id="picture3" accept="image/png, image/jpeg, image/jpg" required>
-            <span class="sentenceGrey">(Max: 6Mo; accepte PNG, JPEG, JPG)</span>
+            <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
+
+            <input type="hidden" name="user_fk" value="<?=$_SESSION['id']?>">
 
             <input class="button width_50 auto" type="submit" value="Ajouter" name="send">
         </form>

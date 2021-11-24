@@ -11,6 +11,12 @@ class CharactersManager {
 
     use ManagerTrait;
 
+    private UserManager $userManager;
+
+    public function __construct() {
+        $this->userManager = new UserManager();
+    }
+
     /**
      * Return a character.
      * @param $id
@@ -48,6 +54,8 @@ class CharactersManager {
             $character->setPicture1($info['picture1']);
             $character->setPicture2($info['picture2']);
             $character->setPicture3($info['picture3']);
+            $user = $this->userManager->getUser($info['user_fk']);
+            $character->setUserFk($user);
         }
         return $character;
     }
@@ -61,10 +69,13 @@ class CharactersManager {
         $request = DB::getInstance()->prepare("SELECT * FROM characters");
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $character[] = new Characters($info['id'], $info['pseudo'], $info['firstname'], $info['lastname'], $info['picture'],
-                $info['species'], $info['sex'], $info['size'], $info['hair'], $info['eyes'], $info['origin'], $info['place'],
-                $info['picturesBook'], $info['titleBook'], $info['activity'], $info['characteristic'], $info['powers'], $info['team'],
-                $info['parent'], $info['situation'], $info['biography'], $info['picture1'], $info['picture2'], $info['picture3']);
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                if($user->getId()) {
+                    $character[] = new Characters($info['id'], $info['pseudo'], $info['firstname'], $info['lastname'], $info['picture'],
+                        $info['species'], $info['sex'], $info['size'], $info['hair'], $info['eyes'], $info['origin'], $info['place'],
+                        $info['picturesBook'], $info['titleBook'], $info['activity'], $info['characteristic'], $info['powers'], $info['team'],
+                        $info['parent'], $info['situation'], $info['biography'], $info['picture1'], $info['picture2'], $info['picture3'], $user);
+                }
             }
         }
         return $character;
@@ -81,10 +92,13 @@ class CharactersManager {
         $request->bindValue(':id', $id);
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
-                $character[] = new Characters($info['id'], $info['pseudo'], $info['firstname'], $info['lastname'], $info['picture'],
-                    $info['species'], $info['sex'], $info['size'], $info['hair'], $info['eyes'], $info['origin'], $info['place'],
-                    $info['picturesBook'], $info['titleBook'], $info['activity'], $info['characteristic'], $info['powers'], $info['team'],
-                    $info['parent'], $info['situation'], $info['biography'], $info['picture1'], $info['picture2'], $info['picture3']);
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                if ($user->getId()) {
+                    $character[] = new Characters($info['id'], $info['pseudo'], $info['firstname'], $info['lastname'], $info['picture'],
+                        $info['species'], $info['sex'], $info['size'], $info['hair'], $info['eyes'], $info['origin'], $info['place'],
+                        $info['picturesBook'], $info['titleBook'], $info['activity'], $info['characteristic'], $info['powers'], $info['team'],
+                        $info['parent'], $info['situation'], $info['biography'], $info['picture1'], $info['picture2'], $info['picture3'], $user);
+                }
             }
         }
         return $character;
@@ -97,8 +111,8 @@ class CharactersManager {
      */
     public function add (Characters $character): bool {
         $request = DB::getInstance()->prepare("
-            INSERT INTO characters (pseudo, firstname, lastname, picture, species, sex, size, hair, eyes, origin, place, picturesBook, titleBook, activity, characteristic, powers, team, parent, situation, biography, picture1, picture2, picture3)
-                VALUES (:pseudo, :firstname, :lastname, :picture, :species, :sex, :size, :hair, :eyes, :origin, :place, :picturesBook, :titleBook, :activity, :characteristic, :powers, :team, :parent, :situation, :biography, :picture1, :picture2, :picture3) 
+            INSERT INTO characters (pseudo, firstname, lastname, picture, species, sex, size, hair, eyes, origin, place, picturesBook, titleBook, activity, characteristic, powers, team, parent, situation, biography, picture1, picture2, picture3, user_fk)
+                VALUES (:pseudo, :firstname, :lastname, :picture, :species, :sex, :size, :hair, :eyes, :origin, :place, :picturesBook, :titleBook, :activity, :characteristic, :powers, :team, :parent, :situation, :biography, :picture1, :picture2, :picture3, :user_fk) 
         ");
 
         $request->bindValue(':pseudo', $character->getPseudo());
@@ -124,6 +138,7 @@ class CharactersManager {
         $request->bindValue(':picture1', $character->getPicture1());
         $request->bindValue(':picture2', $character->getPicture2());
         $request->bindValue(':picture3', $character->getPicture3());
+        $request->bindValue(':user_fk', $character->getUserFk()->getId());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }
