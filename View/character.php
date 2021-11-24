@@ -75,6 +75,15 @@
                             }
                             ?>
                         </div>
+                        <?php
+                        if (isset($_SESSION['role_fk'])) {
+                            if ($_SESSION['role_fk'] !== 2) {?>
+                                <div class="flexRow flexCenter containerView">
+                                    <a href="../index.php?controller=character&action=add"><i class="fas fa-plus buttonView"></i></a>
+                                </div>
+                                <?php
+                            }
+                        } ?>
                         <h2 class="titleDescription">ACTIVITES</h2>
                         <p class="center background"><?=$character->getActivity()?></p>
                         <?php
@@ -131,8 +140,28 @@
                                     <?php
                                     } ?>
                                 </div>
-                            <?php
+                                <?php
+                                if (isset($_SESSION['role_fk'])) {
+                                    if ($_SESSION['role_fk'] !== 2) {?>
+                                        <div class="flexRow flexCenter containerView">
+                                            <a href="../index.php?controller=character&action=add"><i class="fas fa-plus buttonView"></i></a>
+                                        </div>
+                                        <?php
+                                    }
+                                }
                             }
+                            else {
+                                if (isset($_SESSION['role_fk'])) {
+                                    if ($_SESSION['role_fk'] !== 2) {?>
+                                        <h2 class="titleDescription">ACTEURS</h2>
+                                        <div class="flexRow flexCenter containerView">
+                                            <a href="../index.php?controller=character&action=add"><i class="fas fa-plus buttonView"></i></a>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                            }
+
                         } ?>
                     </div>
                 </div>

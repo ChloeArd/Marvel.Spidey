@@ -76,8 +76,13 @@ class CharactersController {
 
                 if (0 <= intval($size1) || intval($size1) <= 2 && 0 <= intval($size2) || intval($size2) <= 99) {
                     $size = $size1 . "m" . $size2;
-                } else {
+                }
+                else {
                     header("Location: ../index.php?controller=character&action=add&error=6");
+                }
+
+                if ($character['sex'] === "") {
+                    header("Location: ../index.php?controller=character&action=add&error=7");
                 }
 
                 // We recover the hair colors, which has a maximum of 3 colors

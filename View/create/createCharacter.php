@@ -27,7 +27,7 @@
             <input id="species" class="form" type="text" name="species" required>
             <label for="sex">Son sexe *</label>
             <select id="sex" name="sex" class="button" required>
-                <option>-- Choisissez --</option>
+                <option value="">-- Choisissez --</option>
                 <option value="Homme">Homme</option>
                 <option value="Femme">Femme</option>
             </select>

@@ -32,8 +32,7 @@
                 </div>
                 <?php
             }
-        }
-        ?>
+        } ?>
 
         <h2 class="titleChara">ACTEURS</h2>
         <div class="flexRow flexCenter wrap">
@@ -62,6 +61,28 @@
         ?>
 
 
-        <h2 class="titleChara">CREATEURS</h2>
-
+        <?php
+        if (isset($_SESSION['role_fk'])) {
+            if ($_SESSION['role_fk'] !== 2) {?>
+            <h2 class="titleChara">CREATEURS</h2>
+            <div class="flexRow flexCenter wrap">
+                <?php
+                if (isset($var['creators'])) {
+                    foreach ($var['creators'] as $actor) { ?>
+                        <a href="../index.php?controller=creator&action=view&id=<?=$actor->getId()?>" class="flexColumn flexCenter">
+                            <img class="imageChara" src="../assets/img/creator/<?=$actor->getPicture()?>" alt="<?=$actor->getFirstname() . " " . $actor->getLastname()?>">
+                            <p><?=strtoupper($actor->getFirstname()) . " " . strtoupper($actor->getLastname())?></p>
+                        </a>
+                        <?php
+                    }
+                }
+                ?>
+            </div>
+            <div class="flexRow flexCenter containerView">
+                <a href="../index.php?controller=creator&action=add"><i class="fas fa-plus buttonView"></i></a>
+            </div>
+            <?php
+            }
+        }
+        ?>
     </main>
