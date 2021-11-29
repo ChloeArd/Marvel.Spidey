@@ -117,7 +117,7 @@ class ActorManager {
         $request->bindValue(':picture1', $actor->getPicture1());
         $request->bindValue(':picture2', $actor->getPicture2());
         $request->bindValue(':picture3', $actor->getPicture3());
-        $request->bindValue(':user_fk', $actor->getUserFk());
+        $request->bindValue(':user_fk', $actor->getUserFk()->getId());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }

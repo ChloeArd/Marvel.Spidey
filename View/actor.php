@@ -6,9 +6,9 @@
 
             <div class="width_100 flexRow">
                 <div id="photoCharacter" class="width_30 flexColumn">
-                    <img class="width_100" src="<?=$actor->getPicture1()?>">
-                    <img class="width_100" src="<?=$actor->getPicture2()?>">
-                    <img class="width_100" src="<?=$actor->getPicture3()?>">
+                    <img class="width_100" src="../assets/img/actor/<?=$actor->getPicture1()?>">
+                    <img class="width_100" src="../assets/img/actor/<?=$actor->getPicture2()?>">
+                    <img class="width_100" src="../assets/img/actor/<?=$actor->getPicture3()?>">
                 </div>
                 <div id="descriptionCharacter" class="width_70 flexColumn">
 
@@ -16,8 +16,8 @@
                     if (isset($_SESSION['role_fk'])) {
                         if ($_SESSION['role_fk'] !== 2) {?>
                             <div class="flexRow flexCenter containerView width_100">
-                                <a href="../index.php?controller=actor&action=update&id="><i class="fas fa-edit buttonView"></i></a>
-                                <a href="../index.php?controller=actor&action=delete&id="><i class="fas fa-trash-alt buttonView"></i></a>
+                                <a href="../index.php?controller=actor&action=update&id=<?=$actor->getId()?>"><i class="fas fa-edit buttonView"></i></a>
+                                <a href="../index.php?controller=actor&action=delete&id=<?=$actor->getId()?>"><i class="fas fa-trash-alt buttonView"></i></a>
                             </div>
                             <?php
                         }
@@ -26,7 +26,7 @@
                     <div class="flexCenter flexColumn">
                         <h1 class="marginTop"><?=strtoupper($actor->getFirstname()) . " " . strtoupper($actor->getLastname())?></h1>
                         <div class="flexColumn flexCenter">
-                            <img class="imageChara" src="../assets/img/<?=$actor->getPicture()?>" alt="Tom Holland">
+                            <img class="imageChara" src="../assets/img/actor/<?=$actor->getPicture()?>" alt="<?=$actor->getFirstname() . " " . $actor->getLastname()?>">
                         </div>
                         <div class="lineHorizontal width_90 lineTop"></div>
                         <div id="table" class="flexRow">

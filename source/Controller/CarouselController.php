@@ -4,7 +4,7 @@ namespace Chloe\Marvel\Controller;
 use Chloe\Marvel\Controller\Traits\ReturnViewTrait;
 use Chloe\Marvel\Model\Entity\Carousel;
 use Chloe\Marvel\Model\Manager\CarouselManager;
-use function Chloe\Marvel\Model\getRandomName;
+use Exception;
 
 class CarouselController {
 
@@ -62,19 +62,27 @@ class CarouselController {
      */
     public function delete($carousel) {
         if (isset($_SESSION["id"])) {
-            if ($_SESSION['role_fk'] === "1") {
-                if (isset($carousel['id'], $carousel['picture'])) {
-                    $id = intval($carousel['id']);
-                    $picture = htmlentities($carousel['picture']);
+            if (isset($carousel['id'])) {
+                $carouselManager = new CarouselManager();
 
-                    unlink("../../assets/img/carousel/$picture");
-                    $carouselManager = new CarouselManager();
-                    $carouselManager->delete($id);
-                    header("Location: ../index.php?&success=4");
-                }
-                $this->return('delete/deleteCarousel', "Forum : Supprimer une image de carousel");
+                $id = intval($carousel['id']);
+
+                $carouselManager->delete($id);
+                header("Location: ../?success=1");
             }
+            $this->return("delete/deleteCarousel", "Supprimer une image du carousel");
         }
     }
+}
+
+function getRandomName(string $regularName): string {
+    $infos = pathinfo($regularName);
+    try {
+        $bytes = random_bytes(15) ;
+    }
+    catch (Exception $e) {
+        $bytes = openssl_random_pseudo_bytes(15);
+    }
+    return bin2hex($bytes) . "." . $infos['extension'];
 }
 

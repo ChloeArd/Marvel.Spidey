@@ -40,7 +40,7 @@
             if (isset($var['actors'])) {
                 foreach ($var['actors'] as $actor) { ?>
                     <a href="../index.php?controller=actor&action=view&id=<?=$actor->getId()?>" class="flexColumn flexCenter">
-                        <img class="imageChara" src="../assets/img/<?=$actor->getPicture()?>" alt="<?=$actor->getFirstname() . " " . $actor->getLastname()?>">
+                        <img class="imageChara" src="../assets/img/actor/<?=$actor->getPicture()?>" alt="<?=$actor->getFirstname() . " " . $actor->getLastname()?>">
                         <p><?=strtoupper($actor->getFirstname()) . " " . strtoupper($actor->getLastname())?></p>
                     </a>
                     <?php
@@ -95,3 +95,6 @@
         }
         ?>
     </main>
+
+    <?php
+    echo \Chloe\Marvel\Model\getRandomName("manger.jpg");

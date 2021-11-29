@@ -10,7 +10,7 @@ use Chloe\Marvel\Model\Manager\CharactersManager;
 use Chloe\Marvel\Model\Manager\CreatorCharactersManager;
 use Chloe\Marvel\Model\Manager\CreatorManager;
 use Chloe\Marvel\Model\Manager\UserManager;
-use function Chloe\Marvel\Model\getRandomName;
+use Exception;
 
 
 class CharactersController {
@@ -321,4 +321,49 @@ class CharactersController {
         }
         $this->return("update/updateCharacter", "Modifier un personnage");
     }
+
+    /**
+     * delete a character
+     * @param $character
+     */
+    public function delete ($character) {
+        if (isset($_SESSION["id"])) {
+            if (isset($character['id'], $character['picture'], $character['picturesBook'], $character['picture1'], $character['picture2'], $character['picture3'])) {
+                $charactersManager = new CharactersManager();
+
+                $id = intval($character['id']);
+                $picture = htmlentities($character['picture']);
+                $picturesBook = htmlentities($character['picturesBook']);
+                $picture1 = htmlentities($character['picture1']);
+                $picture2 = htmlentities($character['picture2']);
+                $picture3 = htmlentities($character['picture3']);
+
+                unlink("./assets/img/characters/" . $picture);
+                unlink("./assets/img/characters/book/" . $picturesBook);
+                unlink("./assets/img/characters/" . $picture1);
+                unlink("./assets/img/characters/" . $picture2);
+                unlink("./assets/img/characters/" . $picture3);
+
+                $charactersManager->delete($id);
+                header("Location: ../index.php?controller=character&action=viewAll&success=3");
+            }
+            $this->return("delete/deleteCharacter", "Supprimer un personnage");
+        }
+    }
+}
+
+/**
+ * @param string $regularName
+ * @return string
+ * @throws \Exception
+ */
+function getRandomName(string $regularName): string {
+    $infos = pathinfo($regularName);
+    try {
+        $bytes = random_bytes(15) ;
+    }
+    catch (Exception $e) {
+        $bytes = openssl_random_pseudo_bytes(15);
+    }
+    return bin2hex($bytes) . "." . $infos['extension'];
 }

@@ -194,9 +194,6 @@ class CharactersManager {
         $request = DB::getInstance()->prepare("DELETE FROM actor_characters WHERE characters_fk = :characters_fk");
         $request->bindValue(":characters_fk", $id);
         $request->execute();
-        $request = DB::getInstance()->prepare("DELETE FROM creator WHERE characters_fk = :characters_fk");
-        $request->bindValue(":characters_fk", $id);
-        $request->execute();
         $request = DB::getInstance()->prepare("DELETE FROM characters WHERE id = :id");
         $request->bindValue(":id", $id);
         return $request->execute();

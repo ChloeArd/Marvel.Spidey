@@ -75,6 +75,7 @@ if (isset($_GET['controller'])) {
                         $controller->update($_POST, $_FILES);
                         break;
                     case 'delete' :
+                        $controller->delete($_POST);
                         break;
                 }
             }
@@ -86,10 +87,13 @@ if (isset($_GET['controller'])) {
                         $controller->actor($_GET['id']);
                         break;
                     case 'add' :
+                        $controller->add($_POST, $_FILES);
                         break;
                     case 'update' :
+                        $controller->update($_POST, $_FILES);
                         break;
                     case 'delete' :
+                        $controller->delete($_POST);
                         break;
                 }
             }
