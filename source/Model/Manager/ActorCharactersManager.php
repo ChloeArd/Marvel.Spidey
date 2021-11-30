@@ -64,6 +64,26 @@ class ActorCharactersManager {
         return $a_c;
     }
 
+    public function getActorsCharacters2(int $actor_fk, int $characters_fk): array {
+        $a_c = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM actor_characters WHERE characters_fk = :characters_fk AND actor_fk = :actor_fk ORDER by id DESC");
+        $request->bindValue(':characters_fk', $characters_fk);
+        $request->bindValue(':actor_fk', $actor_fk);
+
+        if($request->execute()) {
+            foreach ($request->fetchAll() as $info) {
+                $actor = ActorManager::getManager()->getActor($actor_fk);
+                $character = CharactersManager::getManager()->getCharacter($characters_fk);
+                if ($actor->getId()) {
+                    if ($character->getId()) {
+                        $a_c[] = new ActorCharacters($info['id'], $actor, $character);
+                    }
+                }
+            }
+        }
+        return $a_c;
+    }
+
     /**
      * add a actor of a character
      * @param ActorCharacters $a_c
@@ -75,8 +95,8 @@ class ActorCharactersManager {
                 VALUES (:actor_fk, :characters_fk) 
         ");
 
-        $request->bindValue(':actor_fk', $a_c->getActorFk());
-        $request->bindValue(':characters_fk', $a_c->getCharactersFk());
+        $request->bindValue(':actor_fk', $a_c->getActorFk()->getId());
+        $request->bindValue(':characters_fk', $a_c->getCharactersFk()->getId());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }

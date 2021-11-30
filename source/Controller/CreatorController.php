@@ -118,10 +118,10 @@ class CreatorController {
                         $c = new Creator($id, $firstname, $lastname, $picture_1);
                         $creatorManager->update($c);
 
-                        header("Location: ../index.php?controller=creator&action=view&id=$id&success=2");
+                        header("Location: ../index.php?controller=character&action=viewAll&success=2");
                 }
             } else {
-                header("Location: ../index.php?controller=character&action=viewAll&error=3");
+                header("Location: ../index.php?controller=creator&action=update&id=$id&error=2");
             }
         }
         $this->return("update/updateCreator", "Modifier un(e) créateur/rice");

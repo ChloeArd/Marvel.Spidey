@@ -5,6 +5,7 @@ require 'vendor/autoload.php';
 
 require_once 'source/Controller/Traits/ReturnViewTrait.php';
 
+use Chloe\Marvel\Controller\ActorCharactersController;
 use Chloe\Marvel\Controller\ActorController;
 use Chloe\Marvel\Controller\CarouselController;
 use Chloe\Marvel\Controller\CharactersController;
@@ -116,6 +117,18 @@ if (isset($_GET['controller'])) {
             }
         case "creatorCharacter" :
             $controller = new CreatorCharactersController();
+            if (isset($_GET['action'])) {
+                switch ($_GET['action']) {
+                    case 'add' :
+                        $controller->add($_POST);
+                        break;
+                    case 'delete' :
+                        $controller->delete($_POST);
+                        break;
+                }
+            }
+        case "actorCharacter" :
+            $controller = new ActorCharactersController();
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
                     case 'add' :
