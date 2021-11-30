@@ -24,7 +24,7 @@ foreach ($characters as $character) { ?>
                 </div>
 
                 <label for="picture_1">Image actuelle du personnage </label>
-                <input id="picture_1" name="picture_1" type="hidden" class="<?=$character->getPicture()?>">
+                <input id="picture_1" name="picture_1" type="hidden" value="<?=$character->getPicture()?>">
                 <img class="width_20" src="../../assets/img/characters/<?=$character->getPicture()?>">
 
                 <label for="picture">Nouvelle image du personnage </label>
@@ -161,10 +161,10 @@ foreach ($characters as $character) { ?>
 
                 <label for="book" class="marg40">L'image et le titre du 1er comic book où il / elle apparaît </label>
                 <label for="picture_2">Image actuelle </label>
-                <input id="picture_2" name="picture_2" type="hidden" class="<?=$character->getPicturesBook()?>">
+                <input id="picture_2" name="picture_2" type="hidden" value="<?=$character->getPicturesBook()?>">
                 <img class="width_20" src="../../assets/img/characters/book/<?=$character->getPicturesBook()?>">
                 <label for="picturesBook">Nouvelle image </label>
-                <input class="button" type="file" name="picturesBook" id="book" accept="image/png, image/jpeg, image/jpg" required>
+                <input class="button" type="file" name="picturesBook" id="book" accept="image/png, image/jpeg, image/jpg">
                 <span class="sentenceGrey">(Max: 6Mo; accepte PNG, JPEG, JPG)</span>
                 <input id="book" class="form" type="text" name="titleBook" value="<?=$character->getTitleBook()?>" required>
 
@@ -186,27 +186,27 @@ foreach ($characters as $character) { ?>
                 <h2 class="marg40">Insérer 3 photos du personnage *</h2>
 
                 <label for="picture_3">Image actuelle </label>
-                <input id="picture_3" name="picture_3" type="hidden" class="<?=$character->getPicture1()?>">
+                <input id="picture_3" name="picture_3" type="hidden" value="<?=$character->getPicture1()?>">
                 <img class="width_10" src="../../assets/img/characters/<?=$character->getPicture1()?>">
 
                 <label for="picture1">Nouvelle image  </label>
-                <input class="button marginTop" type="file" name="picture1" id="picture1" accept="image/png, image/jpeg, image/jpg" required>
+                <input class="button marginTop" type="file" name="picture1" id="picture1" accept="image/png, image/jpeg, image/jpg" >
                 <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
 
                 <label for="picture_4">Image actuelle </label>
-                <input id="picture_4" name="picture_4" type="hidden" class="<?=$character->getPicture2()?>">
+                <input id="picture_4" name="picture_4" type="hidden" value="<?=$character->getPicture2()?>">
                 <img class="width_10" src="../../assets/img/characters/<?=$character->getPicture2()?>">
 
                 <label for="picture2">Nouvelle image </label>
-                <input class="button" type="file" name="picture2" id="picture2" accept="image/png, image/jpeg, image/jpg" required>
+                <input class="button" type="file" name="picture2" id="picture2" accept="image/png, image/jpeg, image/jpg">
                 <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
 
                 <label for="picture_5">Image actuelle du personnage </label>
-                <input id="picture_5" name="picture_5" type="hidden" class="<?=$character->getPicture3()?>">
+                <input id="picture_5" name="picture_5" type="hidden" value="<?=$character->getPicture3()?>">
                 <img class="width_10" src="../../assets/img/characters/<?=$character->getPicture3()?>">
 
                 <label for="picture3">Nouvelle image </label>
-                <input class="button" type="file" name="picture3" id="picture3" accept="image/png, image/jpeg, image/jpg" required>
+                <input class="button" type="file" name="picture3" id="picture3" accept="image/png, image/jpeg, image/jpg">
                 <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
 
                 <input type="hidden" name="user_fk" value="<?=$character->getUserFk()->getId()?>">

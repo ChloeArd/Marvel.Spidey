@@ -153,7 +153,7 @@
                                     <?php
                                     foreach ($var['actor'] as $actor) {?>
                                         <a href="../index.php?controller=actor&action=view&id=<?=$actor->getId()?>" class="flexColumn flexCenter">
-                                            <img class="imageChara" src="../assets/img/<?=$actor->getActorFk()->getPicture()?>" alt="<?=$actor->getActorFk()->getFirstname() . " " . $actor->getActorFk()->getLastname()?>">
+                                            <img class="imageChara" src="../assets/img/actor/<?=$actor->getActorFk()->getPicture()?>" alt="<?=$actor->getActorFk()->getFirstname() . " " . $actor->getActorFk()->getLastname()?>">
                                             <p><?=$actor->getActorFk()->getFirstname() . " " . $actor->getActorFk()->getLastname()?></p>
                                         </a>
                                     <?php

@@ -25,7 +25,7 @@ foreach ($actors as $actor) { ?>
                 <img class="width_20" src="../../assets/img/actor/<?=$actor->getPicture()?>">
 
                 <label for="picture">Nouvelle image de l'acteur/rice </label>
-                <input class="button" type="file" name="picture" id="picture" accept="image/png, image/jpeg, image/jpg" required>
+                <input class="button" type="file" name="picture" id="picture" accept="image/png, image/jpeg, image/jpg">
                 <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
 
                 <label for="birthName">Son nom de naissance *</label>
@@ -58,7 +58,7 @@ foreach ($actors as $actor) { ?>
                 <img class="width_10" src="../../assets/img/actor/<?=$actor->getPicture1()?>">
 
                 <label for="pictur1">Nouvelle image </label>
-                <input class="button marginTop" type="file" name="picture1" id="picture1" accept="image/png, image/jpeg, image/jpg" required>
+                <input class="button marginTop" type="file" name="picture1" id="picture1" accept="image/png, image/jpeg, image/jpg">
                 <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
 
                 <label for="picture_3">Image actuelle</label>
@@ -66,7 +66,7 @@ foreach ($actors as $actor) { ?>
                 <img class="width_10" src="../../assets/img/actor/<?=$actor->getPicture2()?>">
 
                 <label for="picture2">Nouvelle image</label>
-                <input class="button" type="file" name="picture2" id="picture2" accept="image/png, image/jpeg, image/jpg" required>
+                <input class="button" type="file" name="picture2" id="picture2" accept="image/png, image/jpeg, image/jpg">
                 <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
 
                 <label for="picture_4">Image actuelle </label>
@@ -74,7 +74,7 @@ foreach ($actors as $actor) { ?>
                 <img class="width_10" src="../../assets/img/actor/<?=$actor->getPicture3()?>">
 
                 <label for="picture3">Nouvelle image </label>
-                <input class="button" type="file" name="picture3" id="picture3" accept="image/png, image/jpeg, image/jpg" required>
+                <input class="button" type="file" name="picture3" id="picture3" accept="image/png, image/jpeg, image/jpg">
                 <span class="sentenceGrey">(Max: 10Mo; accepte PNG, JPEG, JPG)</span>
 
                 <input type="hidden" name="id" value="<?=$actor->getId()?>">

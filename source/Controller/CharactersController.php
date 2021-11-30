@@ -10,8 +10,7 @@ use Chloe\Marvel\Model\Manager\CharactersManager;
 use Chloe\Marvel\Model\Manager\CreatorCharactersManager;
 use Chloe\Marvel\Model\Manager\CreatorManager;
 use Chloe\Marvel\Model\Manager\UserManager;
-use Exception;
-
+use function Chloe\Marvel\Controller\Traits\getRandomName;
 
 class CharactersController {
 
@@ -46,11 +45,6 @@ class CharactersController {
      * @param $files
      */
     public function add($character, $files) {
-        $manager = new ActorManager();
-        $actors = $manager->getActors();
-        $manager = new CreatorManager();
-        $creators = $manager->getCreators();
-
         if (isset($character['send'])) {
             if (isset($character['pseudo'], $character['firstname'], $character['lastname'], $files['picture'], $character['species'],
                 $character['sex'], $character['size'], $character['size2'], $character['hair'], $character['eyes'], $character['origin'], $character['place'],
@@ -175,7 +169,7 @@ class CharactersController {
                 header("Location: ../index.php?controller=character&action=add&error=5");
             }
         }
-        $this->return("create/createCharacter", "Ajouter un personnage", ["actors" => $actors, "creators" => $creators]);
+        $this->return("create/createCharacter", "Ajouter un personnage");
     }
 
     /**
@@ -313,7 +307,13 @@ class CharactersController {
                         header("Location: ../index.php?controller=character&action=update&id=$id&error=3");
                     }
                 } else {
-                    header("Location: ../index.php?controller=character&action=update&id=$id&error=4");
+                    $user_fk = $userManager->getUser($user_fk);
+                    if ($user_fk->getId()) {
+                        $c = new Characters($id, $pseudo, $firstname, $lastname, $picture_1, $species, $sex, $size, $hair, $eyes, $origin, $place, $picture_2, $titleBook, $activity, $characteristic, $powers, $team, $parent, $situation, $biography, $picture_3, $picture_4, $picture_5, $user_fk);
+                        $characterManager->update($c);
+
+                        header("Location: ../index.php?controller=character&action=view&id=$id&success=0");
+                    }
                 }
             } else {
                 header("Location: ../index.php?controller=character&action=update&id=$id&error=5");
@@ -352,18 +352,3 @@ class CharactersController {
     }
 }
 
-/**
- * @param string $regularName
- * @return string
- * @throws \Exception
- */
-function getRandomName(string $regularName): string {
-    $infos = pathinfo($regularName);
-    try {
-        $bytes = random_bytes(15) ;
-    }
-    catch (Exception $e) {
-        $bytes = openssl_random_pseudo_bytes(15);
-    }
-    return bin2hex($bytes) . "." . $infos['extension'];
-}

@@ -2,6 +2,8 @@
 
 namespace Chloe\Marvel\Controller\Traits;
 
+use Exception;
+
 trait ReturnViewTrait {
 
     /**
@@ -17,4 +19,20 @@ trait ReturnViewTrait {
         $html = ob_get_clean();
         require_once $_SERVER['DOCUMENT_ROOT'] . '/View/_Partials/structureView.php';
     }
+}
+
+/**
+ * Allows you to give a random name to an image.
+ * @param string $regularName
+ * @return string
+ */
+function getRandomName(string $regularName): string {
+    $infos = pathinfo($regularName);
+    try {
+        $bytes = random_bytes(15) ;
+    }
+    catch (Exception $e) {
+        $bytes = openssl_random_pseudo_bytes(15);
+    }
+    return bin2hex($bytes) . "." . $infos['extension'];
 }

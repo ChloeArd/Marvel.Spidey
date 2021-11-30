@@ -8,6 +8,7 @@ require_once 'source/Controller/Traits/ReturnViewTrait.php';
 use Chloe\Marvel\Controller\ActorController;
 use Chloe\Marvel\Controller\CarouselController;
 use Chloe\Marvel\Controller\CharactersController;
+use Chloe\Marvel\Controller\CreatorController;
 use Chloe\Marvel\Controller\HomeController;
 use Chloe\Marvel\Controller\UserController;
 
@@ -86,6 +87,21 @@ if (isset($_GET['controller'])) {
                     case 'view' :
                         $controller->actor($_GET['id']);
                         break;
+                    case 'add' :
+                        $controller->add($_POST, $_FILES);
+                        break;
+                    case 'update' :
+                        $controller->update($_POST, $_FILES);
+                        break;
+                    case 'delete' :
+                        $controller->delete($_POST);
+                        break;
+                }
+            }
+        case "creator" :
+            $controller = new CreatorController();
+            if (isset($_GET['action'])) {
+                switch ($_GET['action']) {
                     case 'add' :
                         $controller->add($_POST, $_FILES);
                         break;

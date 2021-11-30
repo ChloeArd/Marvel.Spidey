@@ -57,7 +57,7 @@ class ActorManager {
      */
     public function getActors(): array {
         $actor = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM actor ORDER by id DESC");
+        $request = DB::getInstance()->prepare("SELECT * FROM actor");
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
                 $user = UserManager::getManager()->getUser($info['user_fk']);

@@ -93,7 +93,7 @@ class CreatorManager {
         $request->bindValue(':firstname', $creator->getFirstname());
         $request->bindValue(':lastname', $creator->getLastname());
         $request->bindValue(':picture', $creator->getPicture());
-        $request->bindValue(':user_fk', $creator->getUserFk());
+        $request->bindValue(':user_fk', $creator->getUserFk()->getId());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }

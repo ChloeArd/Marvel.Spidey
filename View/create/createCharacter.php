@@ -167,44 +167,6 @@
             <label for="biography">Sa biographie *</label>
             <textarea id="biography" name="biography" class="form" required></textarea>
 
-            <h2 class="marg40">Acteurs qui ont incarné le personnage</h2>
-
-            <?php
-            if (isset($var['actors'])) {
-                foreach ($var['actors'] as $actor) {?>
-                        <div class="flexRow align">
-                            <input type="checkbox" name="actors[]" value="<?=$actor->getId()?>" class="margR">
-                            <?=$actor->getFirstname() . " " . $actor->getLastname()?>
-                        </div>
-                <?php
-                }
-            } ?>
-            <div class="flexRow align">
-                <input type="checkbox" name="actors[]" value="" class="margR"> Personne
-            </div>
-
-            <p class="sentenceGrey">S'il(s) /elle(s) n'est / ne sont pas dans la liste proposé, coché "Personne" et aller ensuite créer un(e) nouveau/elle acteur/rice</p>
-
-            <h2 class="marg40">Créateurs du personnage</h2>
-
-
-            <?php
-            if (isset($var['creators'])) {
-                foreach ($var['creators'] as $creator) {?>
-                    <div class="flexRow align">
-                        <input type="checkbox" name="creators[]" value="<?=$creator->getId()?>" class="margR">
-                        <?=$creator->getFirstname() . " " . $creator->getLastname()?>
-                    </div>
-                    <?php
-                }
-            } ?>
-            <div class="flexRow align">
-                <input type="checkbox" name="creators[]" value="" class="margR"> Personne
-            </div>
-
-            <p class="sentenceGrey">S'il(s) /elle(s) n'est / ne sont pas dans la liste proposé, coché "Personne" et aller ensuite créer un(e) nouveau/elle créateur/rice</p>
-
-
             <h2 class="marg40">Insérer 3 photos du personnage *</h2>
 
             <input class="button marginTop" type="file" name="picture1" id="picture1" accept="image/png, image/jpeg, image/jpg" required>

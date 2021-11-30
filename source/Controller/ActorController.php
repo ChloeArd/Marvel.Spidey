@@ -7,7 +7,7 @@ use Chloe\Marvel\Model\Entity\Actor;
 use Chloe\Marvel\Model\Manager\ActorManager;
 use Chloe\Marvel\Model\Manager\PictureActorManager;
 use Chloe\Marvel\Model\Manager\UserManager;
-use Exception;
+use function Chloe\Marvel\Controller\Traits\getRandomName;
 
 class ActorController {
 
@@ -96,7 +96,7 @@ class ActorController {
                 header("Location: ../index.php?controller=actor&action=add&error=3");
             }
         }
-        $this->return("create/createActor", "Ajouter un acteur");
+        $this->return("create/createActor", "Ajouter un(e) acteur/rice");
     }
 
     public function update($actor, $files) {
@@ -158,7 +158,7 @@ class ActorController {
                             $a = new Actor($id, $firstname, $lastname, $namePicture1, $birthName, $birth, $nationality, $profession, $movies, $biography, $awards, $namePicture2, $namePicture3, $namePicture4);
                             $actorManager->update($a);
 
-                            header("Location: ../index.php?controller=update&action=view&id=$id&success=0");
+                            header("Location: ../index.php?controller=actor&action=view&id=$id&success=0");
                         } else {
                             header("Location: ../index.php?controller=actor&action=update&id=$id&error=0");
                         }
@@ -166,13 +166,16 @@ class ActorController {
                         header("Location: ../index.php?controller=actor&action=update&id=$id&error=1");
                     }
                 } else {
-                    header("Location: ../index.php?controller=actor&action=update&id=$id&error=2");
+                    $a = new Actor($id, $firstname, $lastname, $picture_1, $birthName, $birth, $nationality, $profession, $movies, $biography, $awards, $picture_2, $picture_3, $picture_4);
+                    $actorManager->update($a);
+
+                    header("Location: ../index.php?controller=actor&action=view&id=$id&success=0");
                 }
             } else {
                 header("Location: ../index.php?controller=actor&action=update&id=$id&error=3");
             }
         }
-        $this->return("update/updateActor", "Modifier un acteur");
+        $this->return("update/updateActor", "Modifier un(e) acteur/rice");
     }
 
     /**
@@ -201,19 +204,4 @@ class ActorController {
             $this->return("delete/deleteActor", "Supprimer un(e) acteur/rice");
         }
     }
-}
-
-/**
- * @param string $regularName
- * @return string
- */
-function getRandomName(string $regularName): string {
-    $infos = pathinfo($regularName);
-    try {
-        $bytes = random_bytes(15) ;
-    }
-    catch (Exception $e) {
-        $bytes = openssl_random_pseudo_bytes(15);
-    }
-    return bin2hex($bytes) . "." . $infos['extension'];
 }

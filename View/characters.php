@@ -68,17 +68,17 @@
             <div class="flexRow flexCenter wrap">
                 <?php
                 if (isset($var['creators'])) {
-                    foreach ($var['creators'] as $actor) { ?>
+                    foreach ($var['creators'] as $creator) { ?>
                         <a class="flexColumn flexCenter">
-                            <img class="imageChara" src="../assets/img/creator/<?=$actor->getPicture()?>" alt="<?=$actor->getFirstname() . " " . $actor->getLastname()?>">
-                            <p><?=strtoupper($actor->getFirstname()) . " " . strtoupper($actor->getLastname())?></p>
+                            <img class="imageChara" src="../assets/img/creator/<?=$creator->getPicture()?>" alt="<?=$creator->getFirstname() . " " . $creator->getLastname()?>">
+                            <p><?=strtoupper($creator->getFirstname()) . " " . strtoupper($creator->getLastname())?></p>
                         </a>
                         <?php
                         if (isset($_SESSION['role_fk'])) {
                             if ($_SESSION['role_fk'] !== 2) {?>
                                 <div class="flexColumn flexCenter">
-                                    <a href="../index.php?controller=character&action=update&id="><i class="fas fa-edit buttonView"></i></a>
-                                    <a href="../index.php?controller=character&action=delete&id="><i class="fas fa-trash-alt buttonView"></i></a>
+                                    <a href="../index.php?controller=creator&action=update&id=<?=$creator->getId()?>"><i class="fas fa-edit buttonView"></i></a>
+                                    <a href="../index.php?controller=creator&action=delete&id=<?=$creator->getId()?>"><i class="fas fa-trash-alt buttonView"></i></a>
                                 </div>
                                 <?php
                             }
@@ -95,6 +95,3 @@
         }
         ?>
     </main>
-
-    <?php
-    echo \Chloe\Marvel\Model\getRandomName("manger.jpg");
