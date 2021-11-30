@@ -86,7 +86,7 @@
                                     <?php
                                     if (isset($_SESSION['role_fk'])) {
                                         if ($_SESSION['role_fk'] !== 2) {?>
-                                                <a href="../index.php?controller=character&action=delete&id="><i class="fas fa-trash-alt buttonView"></i></a>
+                                                <a href="../index.php?controller=creatorCharacter&action=delete&id=<?=$character->getId()?>&id2=<?=$creator->getCreatorFk()->getId()?>"><i class="fas fa-trash-alt buttonView"></i></a>
                                             <?php
                                         }
                                     }
@@ -98,7 +98,7 @@
                         if (isset($_SESSION['role_fk'])) {
                             if ($_SESSION['role_fk'] !== 2) {?>
                                 <div class="flexRow flexCenter containerView">
-                                    <a href="../index.php?controller=character&action=add"><i class="fas fa-plus buttonView"></i></a>
+                                    <a href="../index.php?controller=creatorCharacter&action=add&id=<?=$character->getId()?>"><i class="fas fa-plus buttonView"></i></a>
                                 </div>
                                 <?php
                             }

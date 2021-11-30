@@ -78,6 +78,8 @@
                             if ($_SESSION['role_fk'] !== 2) {?>
                                 <div class="flexColumn flexCenter">
                                     <a href="../index.php?controller=creator&action=update&id=<?=$creator->getId()?>"><i class="fas fa-edit buttonView"></i></a>
+
+
                                     <a href="../index.php?controller=creator&action=delete&id=<?=$creator->getId()?>"><i class="fas fa-trash-alt buttonView"></i></a>
                                 </div>
                                 <?php

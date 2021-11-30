@@ -66,6 +66,32 @@ class CreatorCharactersManager {
     }
 
     /**
+     * return all creators of a character
+     * @param int $characters_fk
+     * @param int $creator_fk
+     * @return array
+     */
+    public function getCreatorsCharacter2(int $creator_fk, int $characters_fk): array {
+        $creatorCharacter = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM creator_characters WHERE characters_fk = :characters_fk AND creator_fk = :creator_fk");
+        $request->bindValue(":characters_fk", $characters_fk);
+        $request->bindValue(":creator_fk", $creator_fk);
+
+        if($request->execute()) {
+            foreach ($request->fetchAll() as $info) {
+                $creator = CreatorManager::getManager()->getCreator($creator_fk);
+                $character = CharactersManager::getManager()->getCharacter($characters_fk);
+                if ($creator->getId()) {
+                    if ($character->getId()) {
+                        $creatorCharacter[] = new CreatorCharacters($info['id'], $creator, $character);
+                    }
+                }
+            }
+        }
+        return $creatorCharacter;
+    }
+
+    /**
      * add a creator with a character
      * @param CreatorCharacters $c_c
      * @return bool
@@ -76,25 +102,10 @@ class CreatorCharactersManager {
                 VALUES (:creator_fk, :characters_fk) 
         ");
 
-        $request->bindValue(':creator_fk', $c_c->getCreatorFk());
-        $request->bindValue(':characters_fk', $c_c->getCharactersFk());
+        $request->bindValue(':creator_fk', $c_c->getCreatorFk()->getId());
+        $request->bindValue(':characters_fk', $c_c->getCharactersFk()->getId());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
-    }
-
-    /**
-     * update a creator and a character
-     * @param CreatorCharacters $c_c
-     * @return bool
-     */
-    public function update (CreatorCharacters $c_c): bool {
-        $request = DB::getInstance()->prepare("UPDATE creator_characters SET creator_fk = :creator_fk, characters_fk = :characters_fk WHERE id = :id");
-
-        $request->bindValue(':id', $c_c->getId());
-        $request->bindValue(':creator_fk', $c_c->getCreatorFk());
-        $request->bindValue(':characters_fk', $c_c->getCharactersFk());
-
-        return $request->execute();
     }
 
     /**
