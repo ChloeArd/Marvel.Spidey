@@ -8,7 +8,7 @@ class User {
     private ?string $email;
     private ?string $password;
     private ?Role $role_fk;
-    private ?Picture $picture_fk;
+    private ?string $picture;
     private ?string $confirmkey;
     private ?int $confirme;
 
@@ -22,14 +22,14 @@ class User {
      * @param string|null $confirmkey
      * @param int|null $confirme
      */
-    public function __construct(?int $id = null, ?string $pseudo = null, ?string $email = null, ?string $password = null,
-                                ?Role $role_fk = null, ?Picture $picture_fk = null, ?string $confirmkey = null, ?int $confirme = null) {
+    public function __construct(?int $id = null, ?string $pseudo = null, ?string $email = null, ?string $picture = null, ?string $password = null,
+                                ?Role $role_fk = null, ?string $confirmkey = null, ?int $confirme = null) {
         $this->id = $id;
         $this->pseudo = $pseudo;
         $this->email = $email;
         $this->password = $password;
         $this->role_fk = $role_fk;
-        $this->picture_fk = $picture_fk;
+        $this->picture = $picture;
         $this->confirmkey = $confirmkey;
         $this->confirme = $confirme;
     }
@@ -82,6 +82,21 @@ class User {
     /**
      * @return string|null
      */
+    public function getPicture(): ?string {
+        return $this->picture;
+    }
+
+    /**
+     * @param string|null $picture
+     */
+    public function setPicture(?string $picture): ?string {
+        $this->picture = $picture;
+        return $picture;
+    }
+
+    /**
+     * @return string|null
+     */
     public function getPassword(): ?string {
         return $this->password;
     }
@@ -107,21 +122,6 @@ class User {
     public function setRoleFk(?Role $role_fk): ?Role {
         $this->role_fk = $role_fk;
         return $role_fk;
-    }
-
-    /**
-     * @return Picture|null
-     */
-    public function getPictureFk(): ?Picture {
-        return $this->picture_fk;
-    }
-
-    /**
-     * @param Picture|null $picture_fk
-     */
-    public function setPictureFk(?Picture $picture_fk): ?Picture {
-        $this->picture_fk = $picture_fk;
-        return $picture_fk;
     }
 
     /**

@@ -32,13 +32,53 @@ class UserManager {
             $user->setId($info['id']);
             $user->setPseudo($info['pseudo']);
             $user->setEmail($info['email']);
-            $user->setPassword(''); // We do not display the password
+            $user->setPicture($info['picture']);
+            $user->setPassword($info['password']); // We do not display the password
             $role = $this->roleManager->getRole($info['role_fk']);
             $user->setRoleFk($role);
             $user->setConfirmkey($info['confirmKey']);
             $user->setConfirme($info['confirme']);
         }
         return $user;
+    }
+
+    /**
+     * Display a user based on id.
+     * @param int $id
+     * @return array
+     */
+    public function getUserID(int $id): array {
+        $user = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM user WHERE id = :id");
+        $request->bindParam(":id", $id);
+        if($request->execute()) {
+            foreach($request->fetchAll() as $info) {
+                $role = RoleManager::getManager()->getRole($info['role_fk']);
+                if ($role->getId()) {
+                    $user[] = new User($info['id'], $info['pseudo'], $info['email'] ,$info['picture'], $info['password'], $role);
+                }
+            }
+        }
+        return $user;
+    }
+
+    /**
+     * Return all users.
+     * @return array
+     */
+    public function getUsers(): array {
+        $users = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM user");
+        $result = $request->execute();
+        if($result) {
+            foreach($request->fetchAll() as $info) {
+                $role = RoleManager::getManager()->getRole($info['role_fk']);
+                if ($role->getId()) {
+                    $users[] = new User($info['id'], $info['pseudo'], $info['email'], $info['picture'], $info['password'], $role);
+                }
+            }
+        }
+        return $users;
     }
 
     /**
@@ -65,11 +105,11 @@ class UserManager {
      */
     public function updateUser(User $user): bool {
         $id = $_SESSION['id'];
-        $requete = DB::getInstance()->prepare("SELECT * FROM user WHERE NOT id = :id");
-        $requete->bindValue(':id', $user->getId());
-        $requete->execute();
+        $request = DB::getInstance()->prepare("SELECT * FROM user WHERE NOT id = :id");
+        $request->bindValue(':id', $user->getId());
+        $request->execute();
 
-        $user1 = $requete->fetchAll();
+        $user1 = $request->fetchAll();
         $count = count($user1);
 
         for ($i = 0; $i < $count; $i++) {
@@ -78,12 +118,14 @@ class UserManager {
                 header("Location: ../index.php?controller=user&action=updateAccount&id=$id&error=2");
             }
             else {
-                $request = DB::getInstance()->prepare("UPDATE user SET pseudo = :pseudo, email = :email WHERE id = :id");
+                $request = DB::getInstance()->prepare("UPDATE user SET pseudo = :pseudo, email = :email, picture = :picture WHERE id = :id");
                 $request->bindValue(':id', $user->getId());
                 $_SESSION['pseudo'] = $user->setPseudo($user->getPseudo());
                 $request->bindValue(':pseudo', $user->setPseudo($user->getPseudo()));
                 $_SESSION['email'] = $user->setEmail($user->getEmail());
                 $request->bindValue(':email', $user->setEmail($user->getEmail()));
+                $_SESSION['picture'] = $user->setPicture($user->getPicture());
+                $request->bindValue(':picture', $user->setPicture($user->getPicture()));
             }
         }
         return $request->execute();

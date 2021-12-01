@@ -16,12 +16,23 @@
 
         <div  class="width_80 auto">
             <div class="flexCenter">
-                <img class="imageChara" src="https://tse2.mm.bing.net/th?id=OIP.QV-PHx-CKWn3BZsxpDFsmgHaHa&pid=Api&P=0&w=300&h=300" alt="Prénom Nom">
+                <?php
+                if (isset($_SESSION['id'])) {
+                    if ($_SESSION['picture'] !== '' && $_SESSION['picture'] !== null) {?>
+                        <img class="imageChara" src="../assets/img/user/<?=$_SESSION['picture']?>" alt="<?=$_SESSION['pseudo']?>">
+                    <?php
+                    }
+                    else { ?>
+                        <img class="imageChara" src="https://tse2.mm.bing.net/th?id=OIP.QV-PHx-CKWn3BZsxpDFsmgHaHa&pid=Api&P=0&w=300&h=300" alt="Prénom Nom">
+                    <?php
+                    }
+                }
+                ?>
             </div>
             <div id="accountPage" class="flexRow">
                 <div id="menuAccount" class="menuAccount width_20 flexColumn">
                     <a href="account.php">Mon profil</a>
-                    <a href="accountPicture.php">Mes photos</a>
+                    <a href="../index.php?controller=picture&action=myPicture&id=<?=$_SESSION['id']?>">Mes photos</a>
                     <a href="accountFavorites.php">Mes favoris</a>
                     <?php
                     if ($_SESSION['role_fk'] == 1) { ?>
@@ -60,7 +71,7 @@
                 <div class="menuAccount contentAccount width_80 flexCenter flexColumn">
                     <p class="red info width_100">Pseudo : <span class="colorWhite"><?=$_SESSION['pseudo']?></span></p>
                     <p class="red info width_100">Email : <span class="colorWhite"><?=$_SESSION['email']?></span></p>
-                    <a href="update/updateAccount.php" class="width_40 flexCenter edit1">Modifier <i class="far fa-edit"></i></a>
+                    <a href="../index.php?controller=user&action=updateAccount&id=<?=$_SESSION['id']?>" class="width_40 flexCenter edit1">Modifier <i class="far fa-edit"></i></a>
                     <a href="update/updatePassword.php" class="width_40 flexCenter edit2 center">Changer mon mot de passe<i class="far fa-edit"></i></a>
                     <a href="delete/deleteAccount.php" class="width_40 flexCenter disconnection center deleteButton">Supprimer mon compte</a>
                 </div>

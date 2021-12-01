@@ -42,10 +42,6 @@ footer {
     <!--margin-bottom: -200px;-->
 }
 
-.backgroundBlack {
-    background-color: #131313;
-}
-
  header a, footer > div > a{
     color: white;
     text-decoration: none;
@@ -753,6 +749,12 @@ footer > div > a {
     margin-left: 20px;
 }
 
+.starPosition3 {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
 #menuAccountMobile2 {
     width: 100px;
     text-align: center;
@@ -845,6 +847,10 @@ footer > div > a {
 
 .marg40 {
     margin: 40px auto;
+}
+
+.backgroundBlack {
+    background-color: #131313;
 }
 
 @media screen and (max-width: 1300px) {

@@ -35,6 +35,7 @@ class PictureManager {
             $picture->setPicture($info['picture']);
             $picture->setTitle($info['title']);
             $picture->setDescription($info['description']);
+            $picture->setDate($info['date']);
             $user = $this->userManager->getUser($info['user_fk']);
             $picture->setUserFk($user);
         }
@@ -52,7 +53,7 @@ class PictureManager {
             foreach ($request->fetchAll() as $info) {
                 $user = UserManager::getManager()->getUser($info['user_fk']);
                 if ($user->getId()) {
-                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $user);
+                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $info['date'], $user);
                 }
             }
         }
@@ -72,7 +73,7 @@ class PictureManager {
             foreach ($request->fetchAll() as $info) {
                 $user = UserManager::getManager()->getUser($info['user_fk']);
                 if ($user->getId()) {
-                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $user);
+                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $info['date'], $user);
                 }
             }
         }
@@ -84,7 +85,7 @@ class PictureManager {
      * @param int $user_fk
      * @return array
      */
-    public function getPictureUser(int $user_fk): array {
+    public function getPicturesUser(int $user_fk): array {
         $picture = [];
         $request = DB::getInstance()->prepare("SELECT * FROM picture WHERE user_fk = :user_fk ORDER by id DESC");
         $request->bindValue(":user_fk", $user_fk);
@@ -92,8 +93,9 @@ class PictureManager {
             foreach ($request->fetchAll() as $info) {
                 $user = UserManager::getManager()->getUser($info['user_fk']);
                 if ($user->getId()) {
-                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $user);
-                }            }
+                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $info['date'], $user);
+                }
+            }
         }
         return $picture;
     }
@@ -105,13 +107,16 @@ class PictureManager {
      */
     public function add (Picture $picture): bool {
         $request = DB::getInstance()->prepare("
-            INSERT INTO picture (picture, title, description, user_fk)
-                VALUES (:picture, :title, :description, :user_fk) 
+            INSERT INTO picture (picture, title, description, date, user_fk)
+                VALUES (:picture, :title, :description, :date, :user_fk) 
         ");
 
         $request->bindValue(':picture', $picture->getPicture());
         $request->bindValue(':title', $picture->getTitle());
         $request->bindValue(':description', $picture->getDescription());
+        $request->bindValue(':date', $picture->getDate());
+        $request->bindValue(':user_fk', $picture->getUserFk()->getId());
+
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }

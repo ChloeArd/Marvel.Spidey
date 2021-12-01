@@ -17,14 +17,14 @@
             <a href="../../">Accueil</a>
             <a href="../../index.php?controller=character&action=viewAll">Personnages</a>
             <a href="../movies.php">Films</a>
-            <a href="../pictures.php">Photos</a>
+            <a href="../../index.php?controller=picture&action=viewAll">Photos</a>
             <a href="">Quiz</a>
             <a href="../memory.php">Memory</a>
         </div>
         <div class="account">
             <?php
             if (isset($_SESSION['id'])) { ?>
-                <a href="../../index.php?controller=user&action=view"><i class="fas fa-user-circle colorWhite margR"></i><?=$_SESSION['pseudo']?></a>
+                <a href="../../index.php?controller=user&action=view&id=<?=$_SESSION['id']?>"><i class="fas fa-user-circle colorWhite margR"></i><?=$_SESSION['pseudo']?></a>
             <?php
             }
             else { ?>

@@ -12,6 +12,7 @@ use Chloe\Marvel\Controller\CharactersController;
 use Chloe\Marvel\Controller\CreatorCharactersController;
 use Chloe\Marvel\Controller\CreatorController;
 use Chloe\Marvel\Controller\HomeController;
+use Chloe\Marvel\Controller\PictureController;
 use Chloe\Marvel\Controller\UserController;
 
 if (isset($_GET['controller'])) {
@@ -39,7 +40,7 @@ if (isset($_GET['controller'])) {
                         $controller->account();
                         break;
                     case 'updateAccount' :
-                        $controller->updateInfo($_POST);
+                        $controller->update($_POST, $_FILES);
                         break;
                     case 'updatePass' :
                         $controller->updatePass($_POST);
@@ -131,6 +132,27 @@ if (isset($_GET['controller'])) {
             $controller = new ActorCharactersController();
             if (isset($_GET['action'])) {
                 switch ($_GET['action']) {
+                    case 'add' :
+                        $controller->add($_POST);
+                        break;
+                    case 'delete' :
+                        $controller->delete($_POST);
+                        break;
+                }
+            }
+        case "picture":
+            $controller = new PictureController();
+            if (isset($_GET['action'])) {
+                switch ($_GET['action']) {
+                    case 'viewAll' :
+                        $controller->pictures();
+                        break;
+                    case 'view' :
+                        $controller->picture($_GET['id']);
+                        break;
+                    case 'myPicture' :
+                        $controller->picturesUser($_GET['id']);
+                        break;
                     case 'add' :
                         $controller->add($_POST);
                         break;
