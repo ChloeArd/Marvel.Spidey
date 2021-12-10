@@ -13,6 +13,7 @@ use Chloe\Marvel\Controller\CommentPictureController;
 use Chloe\Marvel\Controller\CreatorCharactersController;
 use Chloe\Marvel\Controller\CreatorController;
 use Chloe\Marvel\Controller\HomeController;
+use Chloe\Marvel\Controller\MovieController;
 use Chloe\Marvel\Controller\PictureController;
 use Chloe\Marvel\Controller\UserController;
 
@@ -192,7 +193,27 @@ if (isset($_GET['controller'])) {
                         break;
                 }
             }
-
+        case "movie":
+            $controller = new MovieController();
+            if (isset($_GET['action'])) {
+                switch ($_GET['action']) {
+                    case 'viewAll' :
+                        $controller->movies();
+                        break;
+                    case 'view' :
+                        $controller->picture($_GET['id']);
+                        break;
+                    case 'add' :
+                        $controller->add($_POST, $_FILES);
+                        break;
+                    case 'update' :
+                        $controller->update($_POST);
+                        break;
+                    case 'delete' :
+                        $controller->delete($_POST);
+                        break;
+                }
+            }
     }
 }
 else {

@@ -212,6 +212,9 @@ class CharactersController {
 
 
                 if (0 <= intval($size1) || intval($size1) <= 2 && 0 <= intval($size2) || intval($size2) <= 99) {
+                    if (intval($size2) < 10) {
+                        $size2 = "0" . $size2;
+                    }
                     $size = $size1 . "m" . $size2;
                 } else {
                     header("Location: ../index.php?controller=character&action=update&id=$id&error=6");

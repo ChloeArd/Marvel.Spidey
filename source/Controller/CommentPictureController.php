@@ -57,6 +57,10 @@ class CommentPictureController {
         $this->return("create/createCommentPicture", "Ajouter un commentaire");
     }
 
+    /**
+     * update a comment
+     * @param $comment
+     */
     public function update($comment) {
         $id = $_GET['id2'];
         $id1 = $_GET['id'];
@@ -92,6 +96,10 @@ class CommentPictureController {
         $this->return("update/updateCommentPicture", "Modifier un commentaire");
     }
 
+    /**
+     * report a comment
+     * @param $comment
+     */
     public function report($comment) {
         if (isset($_SESSION["id"])) {
             if (isset($comment['id'], $comment['picture_fk'], $comment['user_fk'], $comment['why'], $comment['date_report'])) {
@@ -122,6 +130,10 @@ class CommentPictureController {
         }
     }
 
+    /**
+     * remove the report from a comment report
+     * @param $comment
+     */
     public function reportRemove($comment) {
         if (isset($_SESSION["id"])) {
             if (isset($comment['id'], $comment['picture_fk'], $comment['user_fk'])) {

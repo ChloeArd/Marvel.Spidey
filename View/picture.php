@@ -19,7 +19,12 @@
                         <img class="pictures picture" src="../assets/img/picture/<?=$picture->getPicture()?>" alt="<?=$picture->getTitle()?>">
                     </div>
                     <div class="width_10">
-                        <a href="#"><i class="far fa-star logoStar starPosition2"></i></a>
+                        <form method="post" action="">
+                            <input type="hidden" name="id" value="">
+                            <input type="hidden" name="picture_fk" value="">
+                            <input type="hidden" name="user_fk" value="">
+                            <button type="submit" name="send"><i class='far fa-star logoStar starPosition2'></i></button>
+                        </form>
                         <a href=""><i class="fas fa-exclamation-triangle logoStar starPosition3"></i></a>
                     </div>
                 </div>

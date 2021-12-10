@@ -1,27 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Personnages MARVEL</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://kit.fontawesome.com/351e9300a0.js" crossorigin="anonymous"></script>
-</head>
-<body>
-
-<div id="wrap">
-    <header>
-        <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
-        <a id="acceuil" href="../index.php">Accueil</a>
-        <a href="characters.php">Personnages</a>
-        <a href="movies.php">Films</a>
-        <a href="pictures.php">Photos</a>
-        <a href="">Quiz</a>
-        <a href="memory.php">Mémory</a>
-    </header>
-
-    <main>
+ <main>
         <h1 class="title">Films</h1>
+
+     <?php
+     if (isset($_SESSION['id'])) {?>
+         <div class="flexRow flexCenter containerView">
+             <a href="../index.php?controller=movie&action=add"><i class="fas fa-plus buttonView"></i></a>
+         </div>
+         <?php
+     }
+     ?>
 
         <h2 class="titleChara">SPIDER-MAN : TOM HOLLAND</h2>
         <div id="containerMovies" class="width_80 flexRow wrap auto flexCenter">
@@ -91,15 +78,3 @@
         </div>
 
     </main>
-
-    <footer class="flexRow">
-        <div class="flexColumn flexCenter">
-            <img class="width_70" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
-        </div>
-    </footer>
-</div>
-
-<script src="/assets/js/app2.js"></script>
-
-</body>
-</html>

@@ -17,7 +17,7 @@
             <img id="logoMarvel" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png" alt="MARVEL.Spidey">
             <a href="../../">Accueil</a>
             <a href="../../index.php?controller=character&action=viewAll">Personnages</a>
-            <a href="../movies.php">Films</a>
+            <a href="../../index.php?controller=movie&action=viewAll">Films</a>
             <a href="../../index.php?controller=picture&action=viewAll">Photos</a>
             <a href="">Quiz</a>
             <a href="../memory.php">Memory</a>

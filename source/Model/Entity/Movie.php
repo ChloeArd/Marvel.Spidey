@@ -9,6 +9,7 @@ class Movie {
     private ?string $picture;
     private ?string $date;
     private ?string $time;
+    private ?string $genre;
     private ?string $director;
     private ?string $actors;
     private ?string $synopsis;
@@ -21,6 +22,7 @@ class Movie {
      * @param string|null $picture
      * @param string|null $date
      * @param string|null $time
+     * @param string|null $genre
      * @param string|null $director
      * @param string|null $actors
      * @param string|null $synopsis
@@ -28,12 +30,13 @@ class Movie {
      * @param Actor|null $actor_fk
      */
     public function __construct(?int $id = null, ?string $title = null, ?string $picture = null, ?string $date = null, ?string $time = null,
-    ?string $director = null, ?string $actors = null, ?string $synopsis = null, ?string $video = null, ?Actor $actor_fk = null) {
+    ?string $genre = null, ?string $director = null, ?string $actors = null, ?string $synopsis = null, ?string $video = null, ?Actor $actor_fk = null) {
         $this->id = $id;
         $this->title = $title;
         $this->picture = $picture;
         $this->date = $date;
         $this->time = $time;
+        $time->genre = $genre;
         $this->director = $director;
         $this->actors = $actors;
         $this->synopsis = $synopsis;
@@ -114,6 +117,21 @@ class Movie {
     public function setTime(?string $time): ?string {
         $this->time = $time;
         return $time;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getGenre(): ?string {
+        return $this->genre;
+    }
+
+    /**
+     * @param string|null $genre
+     */
+    public function setGenre(?string $genre): ?string {
+        $this->genre = $genre;
+        return $genre;
     }
 
     /**

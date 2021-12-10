@@ -38,6 +38,7 @@ class MovieManager {
             $movie->setPicture($info['picture']);
             $movie->setDate($info['date']);
             $movie->setTime($info['time']);
+            $movie->setGenre($info['genre']);
             $movie->setDirector($info['director']);
             $movie->setActors($info['actors']);
             $movie->setSynopsis($info['synopsis']);
@@ -60,7 +61,7 @@ class MovieManager {
             foreach ($request->fetchAll() as $info) {
                 $actor = ActorManager::getManager()->getActor($info['actor_fk']);
                 if($actor->getId()) {
-                    $movie[] = new Movie($info['id'], $info['title'], $info['picture'], $info['date'], $info['time'], $info['director'],
+                    $movie[] = new Movie($info['id'], $info['title'], $info['picture'], $info['date'], $info['time'], $info['genre'], $info['director'],
                         $info['actors'], $info['synopsis'], $info['video'], $actor);
                 }
             }
@@ -81,7 +82,7 @@ class MovieManager {
             foreach ($request->fetchAll() as $info) {
                 $actor = ActorManager::getManager()->getActor($info['actor_fk']);
                 if($actor->getId()) {
-                    $movie[] = new Movie($info['id'], $info['title'], $info['picture'], $info['date'], $info['time'], $info['director'],
+                    $movie[] = new Movie($info['id'], $info['title'], $info['picture'], $info['date'], $info['time'], $info['genre'], $info['director'],
                         $info['actors'], $info['synopsis'], $info['video'], $actor);
                 }
             }
@@ -96,14 +97,15 @@ class MovieManager {
      */
     public function add (Movie $movie): bool {
         $request = DB::getInstance()->prepare("
-            INSERT INTO movie (title, picture, date, time, director, actors, synopsis, video, actor_fk)
-                VALUES (:title, :picture, :date, :time, :director, :actors, :synopsis, :video, :actor_fk) 
+            INSERT INTO movie (title, picture, date, time, genre, director, actors, synopsis, video, actor_fk)
+                VALUES (:title, :picture, :date, :time, :genre, :director, :actors, :synopsis, :video, :actor_fk) 
         ");
 
         $request->bindValue(':title', $movie->getTitle());
         $request->bindValue(':picture', $movie->getPicture());
         $request->bindValue(':date', $movie->getDate());
         $request->bindValue(':time', $movie->getTime());
+        $request->bindValue(':genre', $movie->getGenre());
         $request->bindValue(':director', $movie->getDirector());
         $request->bindValue(':actors', $movie->getActors());
         $request->bindValue(':synopsis', $movie->getSynopsis());
@@ -119,7 +121,7 @@ class MovieManager {
      * @return bool
      */
     public function update (Movie $movie): bool {
-        $request = DB::getInstance()->prepare("UPDATE movie SET title = :title, picture = :picture, date = :date, time = :time,
+        $request = DB::getInstance()->prepare("UPDATE movie SET title = :title, picture = :picture, date = :date, time = :time, genre = :genre,
                  director = :director, actors = :actors, synopsis = :synopsis, video = :video, actor_fk = :actor_fk WHERE id = :id");
 
         $request->bindValue(':id', $movie->getId());
@@ -127,6 +129,7 @@ class MovieManager {
         $request->bindValue(':picture', $movie->setPicture($movie->getPicture()));
         $request->bindValue(':date', $movie->setDate($movie->getDate()));
         $request->bindValue(':time', $movie->setTime($movie->getTime()));
+        $request->bindValue(':genre', $movie->setGenre($movie->getGenre()));
         $request->bindValue(':director', $movie->setDirector($movie->getDirector()));
         $request->bindValue(':actors', $movie->setActors($movie->getActors()));
         $request->bindValue(':synopsis', $movie->setSynopsis($movie->getSynopsis()));

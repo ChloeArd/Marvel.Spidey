@@ -189,7 +189,6 @@ class CommentPictureManager {
         return $request->execute();
     }
 
-
     /**
      * Delete a comment to a picture
      * @param int $id
