@@ -9,6 +9,7 @@ use Chloe\Marvel\Controller\ActorCharactersController;
 use Chloe\Marvel\Controller\ActorController;
 use Chloe\Marvel\Controller\CarouselController;
 use Chloe\Marvel\Controller\CharactersController;
+use Chloe\Marvel\Controller\CommentPictureController;
 use Chloe\Marvel\Controller\CreatorCharactersController;
 use Chloe\Marvel\Controller\CreatorController;
 use Chloe\Marvel\Controller\HomeController;
@@ -154,14 +155,43 @@ if (isset($_GET['controller'])) {
                         $controller->picturesUser($_GET['id']);
                         break;
                     case 'add' :
-                        $controller->add($_POST);
+                        $controller->add($_POST, $_FILES);
+                        break;
+                    case 'update' :
+                        $controller->update($_POST);
+                        break;
+                    case 'report' :
+                        $controller->report($_POST);
                         break;
                     case 'delete' :
                         $controller->delete($_POST);
                         break;
                 }
             }
-
+        case "commentPicture" :
+            $controller = new CommentPictureController();
+            if (isset($_GET['action'])) {
+                switch ($_GET['action']) {
+                    case 'add' :
+                        $controller->add($_POST);
+                        break;
+                    case 'update' :
+                        $controller->update($_POST);
+                        break;
+                    case 'report' :
+                        $controller->report($_POST);
+                        break;
+                    case 'reportView' :
+                        $controller->reportView();
+                        break;
+                    case 'reportRemove' :
+                        $controller->reportRemove($_POST);
+                        break;
+                    case 'delete' :
+                        $controller->delete($_POST);
+                        break;
+                }
+            }
 
     }
 }

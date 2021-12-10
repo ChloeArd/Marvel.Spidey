@@ -55,8 +55,9 @@ class CommentPictureManager {
      */
     public function getCommentsPicture(int $picture_fk): array {
         $commentPicture = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM comment_picture WHERE picture_fk = :picture_fk ORDER BY date DESC");
+        $request = DB::getInstance()->prepare("SELECT * FROM comment_picture WHERE picture_fk = :picture_fk AND report = :report ORDER BY id DESC");
         $request->bindValue(":picture_fk", $picture_fk);
+        $request->bindValue(':report', 0);
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
                 $user = UserManager::getManager()->getUser($info['user_fk']);
@@ -71,6 +72,8 @@ class CommentPictureManager {
         return $commentPicture;
     }
 
+
+
     /**
      * return one comment of a picture
      * @param int $picture_fk
@@ -79,7 +82,7 @@ class CommentPictureManager {
      */
     public function getCommentPictureId(int $picture_fk, int $id): array {
         $commentPicture = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM comment_picture WHERE picture_fk = :picture_fk, id =:id");
+        $request = DB::getInstance()->prepare("SELECT * FROM comment_picture WHERE picture_fk = :picture_fk AND id = :id");
         $request->bindValue(":picture_fk", $picture_fk);
         $request->bindValue(":id", $id);
         if($request->execute()) {
@@ -88,7 +91,7 @@ class CommentPictureManager {
                 $picture = PictureManager::getManager()->getPicture($info['picture_fk']);
                 if ($user->getId()) {
                     if ($picture->getId()) {
-                        $commentPicture[] = new CommentPicture($info['id'], $info['comment'], $info['date'], $user, $picture);
+                        $commentPicture[] = new CommentPicture($info['id'], $info['comment'], $info['date'], $user, $picture, $info['report']);
                     }
                 }
             }
@@ -110,7 +113,7 @@ class CommentPictureManager {
                 $picture = PictureManager::getManager()->getPicture($info['picture_fk']);
                 if ($user->getId()) {
                     if ($picture->getId()) {
-                        $commentPicture[] = new CommentPicture($info['id'], $info['comment'], $info['date'], $user, $picture);
+                        $commentPicture[] = new CommentPicture($info['id'], $info['comment'], $info['date'], $user, $picture, $info['report'], $info['why'], $info['date_report']);
                     }
                 }
             }
@@ -131,8 +134,8 @@ class CommentPictureManager {
 
         $request->bindValue(':comment', $commentPicture->getComment());
         $request->bindValue(":date", $commentPicture->getDate());
-        $request->bindValue(":user_fk", $commentPicture->getUserFk());
-        $request->bindValue(":picture_fk", $commentPicture->getPictureFk());
+        $request->bindValue(":user_fk", $commentPicture->getUserFk()->getId());
+        $request->bindValue(":picture_fk", $commentPicture->getPictureFk()->getId());
         $request->bindValue(":report", $commentPicture->getReport());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
@@ -144,11 +147,10 @@ class CommentPictureManager {
      * @return bool
      */
     public function update (CommentPicture $commentPicture): bool {
-        $request = DB::getInstance()->prepare("UPDATE comment_picture SET comment = :comment, date = :date WHERE id = :id");
+        $request = DB::getInstance()->prepare("UPDATE comment_picture SET comment = :comment WHERE id = :id");
 
         $request->bindValue(':id', $commentPicture->getId());
-        $request->bindValue(':title', $commentPicture->setComment($commentPicture->getComment()));
-        $request->bindValue(':picture', $commentPicture->setDate($commentPicture->getDate()));
+        $request->bindValue(':comment', $commentPicture->setComment($commentPicture->getComment()));
 
         return $request->execute();
     }
@@ -159,13 +161,34 @@ class CommentPictureManager {
      * @return bool
      */
     public function report (CommentPicture $commentPicture): bool {
-        $request = DB::getInstance()->prepare("UPDATE comment_picture SET report = :report WHERE id = :id");
+        $request = DB::getInstance()->prepare("UPDATE comment_picture SET report = :report, why = :why, date_report = :date_report WHERE id = :id");
 
         $request->bindValue(':id', $commentPicture->getId());
         $request->bindValue(':report', 1);
+        $request->bindValue(':why', $commentPicture->setWhy($commentPicture->getWhy()));
+        $request->bindValue(':date_report', $commentPicture->setDateReport($commentPicture->getDateReport()));
+
 
         return $request->execute();
     }
+
+    /**
+     * report a comment
+     * @param CommentPicture $commentPicture
+     * @return bool
+     */
+    public function reportRemove (CommentPicture $commentPicture): bool {
+        $request = DB::getInstance()->prepare("UPDATE comment_picture SET report = :report, why = :why, date_report = :date_report WHERE id = :id");
+
+        $request->bindValue(':id', $commentPicture->getId());
+        $request->bindValue(':report', 0);
+        $request->bindValue(':why', null);
+        $request->bindValue(':date_report', null);
+
+
+        return $request->execute();
+    }
+
 
     /**
      * Delete a comment to a picture

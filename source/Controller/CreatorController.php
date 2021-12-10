@@ -147,5 +147,4 @@ class CreatorController {
             $this->return("delete/deleteCreator", "Supprimer un(e) créateur/rice");
         }
     }
-
 }

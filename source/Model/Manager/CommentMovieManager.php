@@ -54,7 +54,7 @@ class CommentMovieManager {
      */
     public function getCommentsMovie(int $movie_fk): array {
         $commentMovie = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM comment_movie WHERE movie_fk = :movie_fk ORDER BY date DESC");
+        $request = DB::getInstance()->prepare("SELECT * FROM comment_movie WHERE movie_fk = :movie_fk ORDER BY id DESC");
         $request->bindValue(":movie_fk", $movie_fk);
         if($request->execute()) {
             foreach ($request->fetchAll() as $info) {
@@ -78,7 +78,7 @@ class CommentMovieManager {
      */
     public function getCommentMovieId(int $movie_fk, int $id): array {
         $commentMovie = [];
-        $request = DB::getInstance()->prepare("SELECT * FROM comment_movie WHERE movie_fk = :movie_fk, id =:id");
+        $request = DB::getInstance()->prepare("SELECT * FROM comment_movie WHERE movie_fk = :movie_fk AND id = :id");
         $request->bindValue(":movie_fk", $movie_fk);
         $request->bindValue(":id", $id);
         if($request->execute()) {

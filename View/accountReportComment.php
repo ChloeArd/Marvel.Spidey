@@ -1,5 +1,5 @@
- <main class="backgroundBlack">
-    <h1 class="title">Mes photos</h1>
+<main class="backgroundBlack">
+    <h1 class="title">Gestion des commentaires signalés</h1>
 
     <div id="accountWidth" class="width_80 auto">
         <div id="accountPage" class="flexRow">
@@ -7,7 +7,7 @@
                 <a href="../index.php?controller=user&action=view&id=<?=$_SESSION['id']?>">Mon profil</a>
                 <a href="../index.php?controller=picture&action=myPicture&id=<?=$_SESSION['id']?>">Mes photos</a>
                 <a href="accountFavorites.php">Mes favoris</a>
-                <a href="#">Gestion des utilisateurs</a>
+                <a href="#">Gestion des utilisateurs
                 <a href="../index.php?controller=commentPicture&action=reportView">Gestions des commentaires signalés</a>
                 <a href="#">Gestion des personnages</a>
                 <a href="#">Gestion des films</a>
@@ -33,28 +33,29 @@
                 </div>
             </div>
 
-            <div class="menuAccount contentAccount width_80 flexCenter flexColumn">
-                <p class="sentenceGrey">* Survolez la photo que vous voulez modifier ou supprimer *</p>
-                <div class="flexRow wrap picturesAll width_100">
+            <div class="menuAccount contentAccount width_80 flexColumn">
+                <div class="flexColumn wrap width_100">
                     <?php
-                    if (isset($var['pictures'])) {
-                        foreach ($var['pictures'] as $pictures) {?>
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img class="pictures" src="../assets/img/picture/<?=$pictures->getPicture()?>" alt="<?=$pictures->getTitle()?>">
+                    if (isset($var['comment'])) {
+                        if ($var['comment'] != []) {
+                            foreach ($var['comment'] as $comment) {?>
+                                <p class="colorWhite size15">Signalé le : <?=$comment->getDateReport()?></p>
+                                <p class="grey size15">Raison : <?=$comment->getWhy()?></p>
+                                <div class="comment bgWhiteComment">
+                                    <h4><?=$comment->getUserFk()->getPseudo()?></h4>
+                                    <p class="marginTop"><?=$comment->getComment()?></p>
                                 </div>
-                                <div class="flip-card-back">
-                                    <h1 class="red"><?=$pictures->getTitle()?></h1>
-                                    <p class="datePubli">Publiée le : <?=$pictures->getDate()?></p>
-                                    <div class="marginTop">
-                                        <a href="../index.php?controller=picture&action=update&id=<?=$pictures->getId()?>" class="linkMenuMobile logoEdit"><i class="far fa-edit"></i></a>
-                                        <a href="#" class="linkMenuMobile logoDelete"><i class="far fa-trash-alt"></i></a>
-                                    </div>
+                                <div class="flexRow flexCenter containerView">
+                                    <a href="../index.php?controller=commentPicture&action=reportRemove&id=<?=$comment->getPictureFk()->getId()?>&id2=<?=$comment->getId()?>"><i class="fas fa-eye buttonComment"></i></a>
+                                    <a href="../index.php?controller=commentPicture&action=update&id=<?=$comment->getPictureFk()->getId()?>&id2=<?=$comment->getId()?>"><i class="fas fa-edit buttonComment"></i></a>
+                                    <a href="../index.php?controller=commentPicture&action=delete&id=<?=$comment->getPictureFk()->getId()?>&id2=<?=$comment->getId()?>"><i class="fas fa-trash-alt buttonComment"></i></a>
                                 </div>
-                            </div>
-                        </div>
-                    <?php
+                                <?php
+                            }
+                        }
+                        else {?>
+                            <p class="sentenceGrey center">Pour l'instant, aucun signalement !</p>
+                            <?php
                         }
                     }
                     ?>

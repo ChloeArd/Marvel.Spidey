@@ -31,12 +31,13 @@
             </div>
             <div id="accountPage" class="flexRow">
                 <div id="menuAccount" class="menuAccount width_20 flexColumn">
-                    <a href="account.php">Mon profil</a>
+                    <a href="../index.php?controller=user&action=view&id=<?=$_SESSION['id']?>">Mon profil</a>
                     <a href="../index.php?controller=picture&action=myPicture&id=<?=$_SESSION['id']?>">Mes photos</a>
                     <a href="accountFavorites.php">Mes favoris</a>
                     <?php
                     if ($_SESSION['role_fk'] == 1) { ?>
                         <a href="#">Gestion des utilisateurs</a>
+                        <a href="../index.php?controller=commentPicture&action=reportView">Gestions des commentaires signalés</a>
                         <a href="#">Gestion des personnages</a>
                         <a href="#">Gestion des films</a>
                         <a href="#">Gestion des photos</a>
