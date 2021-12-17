@@ -1,5 +1,5 @@
 <main id="accountMain">
-    <h1 class="title">Ajouter un Film</h1>
+    <h1 class="title">Modifier un Film</h1>
     <div  class="width_80 auto">
         <form method="post" action="" class="flexColumn width_60 formContainer" enctype="multipart/form-data">
 

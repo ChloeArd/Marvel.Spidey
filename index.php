@@ -201,13 +201,13 @@ if (isset($_GET['controller'])) {
                         $controller->movies();
                         break;
                     case 'view' :
-                        $controller->picture($_GET['id']);
+                        $controller->movie($_GET['id']);
                         break;
                     case 'add' :
                         $controller->add($_POST, $_FILES);
                         break;
                     case 'update' :
-                        $controller->update($_POST);
+                        $controller->update($_POST, $_FILES);
                         break;
                     case 'delete' :
                         $controller->delete($_POST);

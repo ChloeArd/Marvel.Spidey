@@ -8,73 +8,51 @@
          </div>
          <?php
      }
+
+     if (isset($var['movies_TH'])) { ?>
+         <h2 class="titleChara">SPIDER-MAN : TOM HOLLAND</h2>
+         <div id="containerMovies" class="width_80 flexRow wrap auto flexCenter">
+         <?php
+        foreach ($var['movies_TH'] as $movie) {?>
+            <a href="../index.php?controller=movie&action=view&id=<?=$movie->getId()?>" class="width_px center">
+                <img class="imgMovies" src="../assets/img/movie/<?=$movie->getPicture()?>" alt="<?=$movie->getTitle()?>">
+                <p class="titleMovies"><?=$movie->getTitle()?></p>
+            </a>
+        <?php
+         } ?>
+         </div>
+    <?php
+     }
+
+     if (isset($var['movies_AG'])) { ?>
+     <h2 class="titleChara">SPIDER-MAN : ANDREW GARFIELD</h2>
+     <div id="containerMovies" class="width_80 flexRow wrap auto flexCenter">
+         <?php
+         foreach ($var['movies_AG'] as $movie) {?>
+             <a href="../index.php?controller=movie&action=view&id=<?=$movie->getId()?>" class="width_px center">
+                 <img class="imgMovies" src="../assets/img/movie/<?=$movie->getPicture()?>" alt="<?=$movie->getTitle()?>">
+                 <p class="titleMovies"><?=$movie->getTitle()?></p>
+             </a>
+             <?php
+         } ?>
+     </div>
+     <?php
+     }
+
+     if (isset($var['movies_TM'])) { ?>
+         <h2 class="titleChara">SPIDER-MAN : TOBEY MAGUIRE</h2>
+         <div id="containerMovies" class="width_80 flexRow wrap auto flexCenter">
+             <?php
+             foreach ($var['movies_TM'] as $movie) {?>
+                 <a href="../index.php?controller=movie&action=view&id=<?=$movie->getId()?>" class="width_px center">
+                     <img class="imgMovies" src="../assets/img/movie/<?=$movie->getPicture()?>" alt="<?=$movie->getTitle()?>">
+                     <p class="titleMovies"><?=$movie->getTitle()?></p>
+                 </a>
+                 <?php
+             } ?>
+         </div>
+         <?php
+     }
      ?>
-
-        <h2 class="titleChara">SPIDER-MAN : TOM HOLLAND</h2>
-        <div id="containerMovies" class="width_80 flexRow wrap auto flexCenter">
-            <a href="movie.php" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-                <p class="titleMovies">Captain America : Civil War</p>
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-        </div>
-
-        <h2 class="titleChara">SPIDER-MAN : ANDREW GARFIELD</h2>
-        <div class="width_80 flexRow wrap auto flexCenter">
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-        </div>
-
-        <h2 class="titleChara">SPIDER-MAN : TOBEY MAGUIRE</h2>
-        <div class="width_80 flexRow wrap auto flexCenter">
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-            <a href="" class="width_px center">
-                <img class="imgMovies" src="https://fr.web.img3.acsta.net/c_310_420/pictures/16/03/11/09/46/182814.jpg">
-            </a>
-        </div>
 
     </main>

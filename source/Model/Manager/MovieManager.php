@@ -43,7 +43,8 @@ class MovieManager {
             $movie->setActors($info['actors']);
             $movie->setSynopsis($info['synopsis']);
             $movie->setVideo($info['video']);
-            $movie->setActorFk($info['actor_fk']);
+            $actor = $this->actorManager->getActor($info['actor_fk']);
+            $movie->setActorFk($actor);
         }
         return $movie;
     }
@@ -110,7 +111,7 @@ class MovieManager {
         $request->bindValue(':actors', $movie->getActors());
         $request->bindValue(':synopsis', $movie->getSynopsis());
         $request->bindValue(':video', $movie->getVideo());
-        $request->bindValue(':actor_fk', $movie->getActorFk());
+        $request->bindValue(':actor_fk', $movie->getActorFk()->getId());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }

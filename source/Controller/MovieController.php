@@ -17,8 +17,10 @@ class MovieController {
      */
     public function movies() {
         $manager = new MovieManager();
-        $movies = $manager->getMovies(1);
-        $this->return("movies", "Films", ['movies' => $movies]);
+        $movies_TH = $manager->getMovies(1);
+        $movies_AG = $manager->getMovies(2);
+        $movies_TM = $manager->getMovies(3);
+        $this->return("movies", "Films", ['movies_TH' => $movies_TH, 'movies_AG' => $movies_AG, 'movies_TM' => $movies_TM]);
     }
 
     /**
@@ -43,7 +45,6 @@ class MovieController {
         if (isset($movie['send'])) {
             if (isset($movie['title'], $movie['time'], $movie['time2'], $movie['genre'], $movie['date'], $files['picture'], $movie['director'], $movie['actors'], $movie['synopsis'], $movie['video'], $movie['actor_fk'])) {
                 $movieManager = new MovieManager();
-                $actorManager = new ActorManager();
 
                 $title = htmlentities(ucfirst(trim($movie['title'])));
                 $date = $movie['date'];
@@ -53,7 +54,7 @@ class MovieController {
                 $director = htmlentities(ucfirst(trim($movie['director'])));
                 $actors = htmlentities(ucfirst(trim($movie['actors'])));
                 $synopsis = htmlentities(ucfirst(trim($movie['synopsis'])));
-                $video = htmlentities(ucfirst(trim($movie['video'])));
+                $video = trim($movie['video']);
                 $actor_fk = intval($movie['actor_fk']);
 
                 if (0 <= intval($time1) || intval($time1) <= 5 && 0 <= intval($time2) || intval($time2) <= 59) {
@@ -81,7 +82,7 @@ class MovieController {
                             // The image is added to a folder.
                             move_uploaded_file($tmpName, "./assets/img/movie/" . $namePicture);
 
-                            $actor_fk = $actorManager->getActor($actor_fk);
+                            $actor_fk = $manager->getActor($actor_fk);
                             if ($actor_fk->getId()) {
                                 $a = new Movie(null, $title, $namePicture, $date, $time, $genre, $director, $actors, $synopsis, $video, $actor_fk);
                                 $movieManager->add($a);
@@ -101,43 +102,86 @@ class MovieController {
                 header("Location: ../index.php?controller=movie&action=add&error=3");
             }
         }
-        $this->return("create/createMovie", "Poster une photo", ['actors' => $actor]);
+        $this->return("create/createMovie", "Ajouter un film", ['actors' => $actor]);
     }
 
     /**
-     * update a picture
-     * @param $picture
+     * update a movie
+     * @param $movie
      */
-    public function update ($picture) {
-        $id = $_GET['id'];
-        if (isset($picture['send'])) {
-            if (isset($picture['id'], $picture['title'], $picture['description'], $picture['date'], $picture['picture'], $picture['user_fk'])) {
+    public function update ($movie, $files) {
+        $manager = new ActorManager();
+        $movieManager = new MovieManager();
+        $movieId = $movieManager->getMovie($_GET['id']);
+        if (isset($movie['send'])) {
+            if (isset($movie['id'], $movie['title'], $movie['time'], $movie['time2'], $movie['genre'], $movie['date'], $movie['picture'], $files['picture'], $movie['director'], $movie['actors'], $movie['synopsis'], $movie['video'], $movie['actor_fk'])) {
 
-                $pictureManager = new PictureManager();
-                $userManager = new UserManager();
+                $title = htmlentities(ucfirst(trim($movie['title'])));
+                $date = $movie['date'];
+                $time1 = htmlentities(trim($movie['time']));
+                $time2 = htmlentities(trim($movie['time2']));
+                $genre = htmlentities(ucfirst(trim($movie['genre'])));
+                $director = htmlentities(ucfirst(trim($movie['director'])));
+                $actors = htmlentities(ucfirst(trim($movie['actors'])));
+                $synopsis = htmlentities(ucfirst(trim($movie['synopsis'])));
+                $picture = $movie['picture'];
+                $video = trim($movie['video']);
+                $actor_fk = intval($movie['actor_fk']);
 
-                $id = intval($picture['id']);
-                $title = htmlentities(ucfirst(trim($picture['title'])));
-                $description = htmlentities(ucfirst(trim($picture['description'])));
-                $picture1 = $picture['picture'];
-                $date = $picture['date'];
-                $user_fk = intval($picture['user_fk']);
-
-                $user_fk = $userManager->getUser($user_fk);
-
-                if ($user_fk->getId()) {
-                    $p = new Picture($id, $picture1, $title, $description, $date, $user_fk);
-                    $pictureManager->update($p);
-
-                    header("Location: ../index.php?controller=picture&action=view&id=$id&success=1");
+                if (0 <= intval($time1) || intval($time1) <= 5 && 0 <= intval($time2) || intval($time2) <= 59) {
+                    if (intval($time2) < 10) {
+                        $time2 = "0" . $time2;
+                    }
+                    $time = $time1 . "h " . $time2 . "min";
                 } else {
-                    header("Location: ../index.php?controller=picture&action=update&id=$id&error=0");
+                    header("Location: ../index.php?controller=movie&action=add&error=4");
+                }
+
+                // I check if all the photos are not empty
+                if (!empty($files['picture']['name'])) {
+                    // Check if the image is of the correct type
+                    if (in_array($files['picture']['type'], ['image/jpg', 'image/jpeg', 'image/png', ".jpg"])) {
+                        $maxSize = 10 * 1024 * 1024; // = 10 Mo
+
+                        // Check if the image is below 10Mo.
+                        if ($files['picture']['size'] <= $maxSize) {
+                            $tmpName = $files['picture']['tmp_name'];
+
+                            // Give a random name to the image.
+                            $namePicture = getRandomName($files['picture']['name']);
+
+                            unlink("./assets/img/movie/" . $picture);
+
+                            // The image is added to a folder.
+                            move_uploaded_file($tmpName, "./assets/img/movie/" . $namePicture);
+
+                            $actor_fk = $manager->getActor($actor_fk);
+                            if ($actor_fk->getId()) {
+                                $a = new Movie(null, $title, $namePicture, $date, $time, $genre, $director, $actors, $synopsis, $video, $actor_fk);
+                                $movieManager->add($a);
+
+                                header("Location: ../index.php?controller=movie&action=viewAll&success=0");
+                            }
+                        } else {
+                            header("Location: ../index.php?controller=movie&action=add&error=0");
+                        }
+                    } else {
+                        header("Location: ../index.php?controller=movie&action=add&error=1");
+                    }
+                } else {
+                    $actor_fk = $manager->getActor($actor_fk);
+                    if ($actor_fk->getId()) {
+                        $a = new Movie(null, $title, $picture, $date, $time, $genre, $director, $actors, $synopsis, $video, $actor_fk);
+                        $movieManager->add($a);
+
+                        header("Location: ../index.php?controller=movie&action=viewAll&success=0");
+                    }
                 }
             } else {
-                header("Location: ../index.php?controller=picture&action=update&id=$id&error=1");
+                header("Location: ../index.php?controller=movie&action=add&error=3");
             }
         }
-        $this->return("update/updatePicture", "Modifier une photo");
+        $this->return("update/updateMovie", "Modifier un film", ['movie' => $movieId]);
     }
 
     /**

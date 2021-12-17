@@ -36,7 +36,7 @@ class Movie {
         $this->picture = $picture;
         $this->date = $date;
         $this->time = $time;
-        $time->genre = $genre;
+        $this->genre = $genre;
         $this->director = $director;
         $this->actors = $actors;
         $this->synopsis = $synopsis;
