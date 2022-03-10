@@ -288,7 +288,6 @@ h1 {
     margin: auto;
     width: 100%;
     overflow: hidden;
-    margin-bottom: 10px;
 }
 
 .imagesCarousel {
@@ -378,7 +377,7 @@ h2{
 }
 
 .titleIndex {
-    font-size: 30px;
+    font-size: 35px;
     margin: 10px auto;
 }
 
@@ -885,10 +884,48 @@ footer > div > a {
     font-size: 15px;
 }
 
+.bigTitle {
+    font-size: 45px;
+    font-weight: bold;
+    color: black;
+}
+
+.buttonNewsLetter {
+    padding: 15px;
+    margin: 15px;
+    border: 1px solid #ed3535;
+    border-radius: 20px;
+    font-size: 25px;
+}
+
+.buttonNewsLetter:hover {
+    text-decoration: none;
+    background-color: #ed3535;
+    color: white;
+}
+
+.pt {
+    padding-top: 150px;
+}
+
+.p-150 {
+    padding: 150px;
+}
+
+.borderRed {
+    width: 70%;
+    margin: 80px auto;
+    padding: 60px;
+    font-size: 25px;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
 #flexPicture {
     margin: 20px auto;
     border-radius: 20px;
-    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;}
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
 
 @media screen and (max-width: 1300px) {
     .flip-card-front > .pictures, .flip-card {

@@ -38,6 +38,7 @@
             <span class="visually-hidden">Suivant</span>
         </a>
     </div>
+
     <?php
     if (isset($_SESSION['role_fk'])) {
         if ($_SESSION['role_fk'] !== 2) {?>
@@ -49,9 +50,23 @@
         }
     }
     ?>
-    <h1 class="titleIndex"><span class="marvelWord">MARVEL.Spidey</span>, un site pour les <strong>fans de Marvel</strong> en particulier de <strong>Spider-Man</strong>.</h1> <br>
-    <p class="subtitle">Vous pouvez y trouver la biographie de Spider-Man, les acteurs qui ont interpéter ce héros, les films qu'ils jouent, les créateurs de l'homme arraignée
-        et enfin un quiz pour tester vos connaissances en tant que fan de Spidey ! </p>
 
-    <img class="width_30" src="../assets/img/Personnages-celebres-Comics-Spiderman-300509.png">
+    <h1 class="titleIndex"><span class="marvelWord">MARVEL.Spidey</span>, un site pour les <strong>fans de Marvel</strong> en particulier de <strong>Spider-Man</strong>.</h1> <br>
+    <div class="borderRed">
+        <p>Vous pouvez y trouver la biographie de Spider-Man, les acteurs qui ont interpéter ce héros, les films qu'ils jouent, les créateurs de l'homme arraignée
+            et enfin un quiz pour tester vos connaissances en tant que fan de Spidey ! </p>
+    </div>
+
+
+    <img class="width_100" src="../assets/img/other/fond-spidey.PNG">
+
+    <div class="width_100 flexRow m-top">
+        <div class="width_30 pt">
+            <img class="width_100" src="../assets/img/other/spider-th.PNG">
+        </div>
+        <div class="flexCenter width_70 flexColumn p-150">
+            <h2 class="bigTitle">Inscris toi à la news-letter ! </h2>
+            <a href="#" class="buttonNewsLetter">News-letter</a>
+        </div>
+    </div>
 </main>
