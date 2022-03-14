@@ -21,7 +21,7 @@
                 <h3 class="colorWhite de">Mes photos favorites</h3>
                 <div class="flexRow wrap picturesAll width_100">
                     <?php if (isset($var['favoritesUser'])) {
-                        if ($var['comment'] != []) {
+                        if ($var['favoritesUser'] != []) {
                             foreach ($var['favoritesUser'] as $favoritePicture) {   ?>
                                 <img class="pictures" src="../assets/img/picture/<?=$favoritePicture->getPictureFk()->getPicture()?>">
                                 <div class="width_10">
