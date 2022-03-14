@@ -30,44 +30,7 @@
                 ?>
             </div>
             <div id="accountPage" class="flexRow">
-                <div id="menuAccount" class="menuAccount width_20 flexColumn">
-                    <a href="../index.php?controller=user&action=view&id=<?=$_SESSION['id']?>">Mon profil</a>
-                    <a href="../index.php?controller=picture&action=myPicture&id=<?=$_SESSION['id']?>">Mes photos</a>
-                    <a href="accountFavorites.php">Mes favoris</a>
-                    <?php
-                    if ($_SESSION['role_fk'] == 1) { ?>
-                        <a href="#">Gestion des utilisateurs</a>
-                        <a href="../index.php?controller=commentPicture&action=reportView">Gestions des commentaires signalés</a>
-                        <a href="#">Gestion des personnages</a>
-                        <a href="#">Gestion des films</a>
-                        <a href="#">Gestion des photos</a>
-                        <a href="#">Gestion des quiz</a>
-                    <?php
-                    }
-                    ?>
-                    <a class="disconnection" href="../assets/php/disconnection.php">Me déconnecter</a>
-                </div>
-                <div class="flexColumn align">
-                    <div class="auto">
-                        <i id="menuAccountMobile" class="fas fa-caret-down colorWhite"></i>
-                    </div>
-                    <div id="subMenuAccount" class="width_20 flexColumn">
-                        <a href="account.php">Mon profil</a>
-                        <a href="accountPicture.php">Mes photos</a>
-                        <a href="accountFavorites.php">Mes favoris</a>
-                        <?php
-                        if ($_SESSION['role_fk'] == 1) { ?>
-                            <a href="#">Gestion des utilisateurs</a>
-                            <a href="#">Gestion des personnages</a>
-                            <a href="#">Gestion des films</a>
-                            <a href="#">Gestion des photos</a>
-                            <a href="#">Gestion des quiz</a>
-                            <?php
-                        }
-                        ?>
-                        <a class="disconnection" href="../assets/php/disconnection.php">Me déconnecter</a>
-                    </div>
-                </div>
+                <?php include "_Partials/menuAccount.php" ?>
 
                 <div class="menuAccount contentAccount width_80 flexCenter flexColumn">
                     <p class="red info width_100">Pseudo : <span class="colorWhite"><?=$_SESSION['pseudo']?></span></p>

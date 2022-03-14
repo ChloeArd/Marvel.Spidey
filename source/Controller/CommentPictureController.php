@@ -157,7 +157,7 @@ class CommentPictureController {
                     }
                 }
             }
-            $this->return("report/reportRemoveCommentPicture", "Retirer un Signalement d'un commentaire");
+            $this->return("report/reportRemoveCommentPicture", "Retirer un signalement d'un commentaire");
         }
     }
 

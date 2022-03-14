@@ -46,36 +46,9 @@
         <h1 class="title">Mes Favoris</h1>
 
         <div id="accountWidth" class="width_80 auto">
-            <div id="accountPage" class="flexRow">
-                <div id="menuAccount" class="menuAccount width_20 flexColumn">
-                    <a href="account.php">Mon profil</a>
-                    <a href="accountPicture.php">Mes photos</a>
-                    <a href="accountFavorites.php">Mes favoris</a>
-                    <a href="#">Gestion des utilisateurs</a>
-                    <a href="#">Gestion des personnages</a>
-                    <a href="#">Gestion des films</a>
-                    <a href="#">Gestion des photos</a>
-                    <a href="#">Gestion des quiz</a>
-                    <a class="disconnection" href="#">Me déconnecter</a>
-                </div>
-                <div class="flexColumn align">
-                    <div class="auto">
-                        <i id="menuAccountMobile" class="fas fa-caret-down colorWhite"></i>
-                    </div>
-                    <div id="subMenuAccount" class="width_20 flexColumn">
-                        <a href="account.php">Mon profil</a>
-                        <a href="accountPicture.php">Mes photos</a>
-                        <a href="accountFavorites.php">Mes favoris</a>
-                        <a href="#">Gestion des utilisateurs</a>
-                        <a href="#">Gestion des personnages</a>
-                        <a href="#">Gestion des films</a>
-                        <a href="#">Gestion des photos</a>
-                        <a href="#">Gestion des quiz</a>
-                        <a class="disconnection" href="#">Me déconnecter</a>
-                    </div>
-                </div>
+            <?php include "_Partials/menuAccount.php" ?>
 
-                <div class="menuAccount contentAccount width_80 flexColumn">
+            <div class="menuAccount contentAccount width_80 flexColumn">
                     <h3 class="colorWhite de">Mes photos favorites</h3>
                     <div class="flexRow wrap picturesAll width_100">
                         <img class="pictures" src="../assets/img/carousel/tom1.jpg">

@@ -44,6 +44,15 @@ class PictureController {
         $this->return("accountPicture", "Mes photos", ['pictures' => $pictures]);
     }
 
+    /*
+     * display all reports
+     */
+    public function reportView() {
+        $manager = new PictureManager();
+        $picture = $manager->getPicturesReport();
+        $this->return("accountReportPicture", "Les photos signalées", ['picture' => $picture]);
+    }
+
     /**
      * add a picture
      * @param $picture
@@ -134,6 +143,61 @@ class PictureController {
             }
         }
         $this->return("update/updatePicture", "Modifier une photo");
+    }
+
+    /**
+     * report a picture
+     * @param $picture
+     */
+    public function report($picture) {
+        if (isset($_SESSION["id"])) {
+            if (isset($picture['id'], $picture['user_fk'], $picture['why'], $picture['date_report'])) {
+                $pictureManager = new PictureManager();
+                $userManager = new UserManager();
+
+
+                $id = intval($picture['id']);
+                $user_fk = $picture['user_fk'];
+                $why = htmlentities(ucfirst(trim($picture['why'])));
+                $date_report = $picture['date_report'];
+
+                $user_fk = $userManager->getUser($user_fk);
+                if ($user_fk->getId()) {
+                    $picture2 = new Picture($id, "", "","", "", $user_fk, null, $why, $date_report);
+                    $pictureManager->report($picture2);
+
+                    $id = $picture['id'];
+                    header("Location: ../index.php?controller=picture&action=view&id=$id&success=4");
+                }
+            }
+            $this->return("report/reportPicture", "Signaler une photo");
+        }
+    }
+
+    /**
+     * remove the report from a picture report
+     * @param $comment
+     */
+    public function reportRemove($comment) {
+        if (isset($_SESSION["id"])) {
+            if (isset($comment['id'], $comment['user_fk'])) {
+                $pictureManager = new PictureManager();
+                $userManager = new UserManager();
+
+
+                $id = intval($comment['id']);
+                $user_fk = $comment['user_fk'];
+
+                $user_fk = $userManager->getUser($user_fk);
+                if ($user_fk->getId()) {
+                    $picture2 = new Picture($id, "", "", "", "", $user_fk,);
+                    $pictureManager->reportRemove($picture2);
+
+                    header("Location: ../index.php?controller=picture&action=reportView&success=0");
+                }
+            }
+            $this->return("report/reportRemovePicture", "Retirer un signalement d'une photo");
+        }
     }
 
     /**

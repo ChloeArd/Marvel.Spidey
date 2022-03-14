@@ -164,6 +164,12 @@ if (isset($_GET['controller'])) {
                     case 'report' :
                         $controller->report($_POST);
                         break;
+                    case 'reportView' :
+                        $controller->reportView();
+                        break;
+                    case 'reportRemove' :
+                        $controller->reportRemove($_POST);
+                        break;
                     case 'delete' :
                         $controller->delete($_POST);
                         break;

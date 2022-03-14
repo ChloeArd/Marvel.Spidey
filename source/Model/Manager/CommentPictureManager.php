@@ -156,7 +156,7 @@ class CommentPictureManager {
     }
 
     /**
-     * report a comment
+     * report remove a comment
      * @param CommentPicture $commentPicture
      * @return bool
      */
@@ -184,7 +184,6 @@ class CommentPictureManager {
         $request->bindValue(':report', 0);
         $request->bindValue(':why', null);
         $request->bindValue(':date_report', null);
-
 
         return $request->execute();
     }

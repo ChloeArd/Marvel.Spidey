@@ -38,6 +38,9 @@ class PictureManager {
             $picture->setDate($info['date']);
             $user = $this->userManager->getUser($info['user_fk']);
             $picture->setUserFk($user);
+            $picture->setReport($info['report']);
+            $picture->setWhy($info['why']);
+            $picture->setDateReport($info['date_report']);
         }
         return $picture;
     }
@@ -73,7 +76,26 @@ class PictureManager {
             foreach ($request->fetchAll() as $info) {
                 $user = UserManager::getManager()->getUser($info['user_fk']);
                 if ($user->getId()) {
-                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $info['date'], $user);
+                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $info['date'], $user, $info['report']);
+                }
+            }
+        }
+        return $picture;
+    }
+
+    /**
+     * all pictures report
+     * @return array
+     */
+    public function getPicturesReport(): array {
+        $picture = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM picture WHERE report = :report ORDER BY date_report DESC");
+        $request->bindValue(":report", 1);
+        if($request->execute()) {
+            foreach ($request->fetchAll() as $info) {
+                $user = UserManager::getManager()->getUser($info['user_fk']);
+                if ($user->getId()) {
+                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $info['date'], $user, $info['report'], $info['why'], $info['date_report']);
                 }
             }
         }
@@ -93,7 +115,7 @@ class PictureManager {
             foreach ($request->fetchAll() as $info) {
                 $user = UserManager::getManager()->getUser($info['user_fk']);
                 if ($user->getId()) {
-                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $info['date'], $user);
+                    $picture[] = new Picture($info['id'], $info['picture'], $info['title'], $info['description'], $info['date'], $user, $info['report']);
                 }
             }
         }
@@ -107,8 +129,8 @@ class PictureManager {
      */
     public function add (Picture $picture): bool {
         $request = DB::getInstance()->prepare("
-            INSERT INTO picture (picture, title, description, date, user_fk)
-                VALUES (:picture, :title, :description, :date, :user_fk) 
+            INSERT INTO picture (picture, title, description, date, user_fk, report)
+                VALUES (:picture, :title, :description, :date, :user_fk, :report) 
         ");
 
         $request->bindValue(':picture', $picture->getPicture());
@@ -116,6 +138,7 @@ class PictureManager {
         $request->bindValue(':description', $picture->getDescription());
         $request->bindValue(':date', $picture->getDate());
         $request->bindValue(':user_fk', $picture->getUserFk()->getId());
+        $request->bindValue(":report", $picture->getReport());
 
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
@@ -133,6 +156,39 @@ class PictureManager {
         $request->bindValue(':picture', $picture->getPicture());
         $request->bindValue(':title', $picture->getTitle());
         $request->bindValue(':description', $picture->setDescription($picture->getDescription()));
+
+        return $request->execute();
+    }
+
+    /**
+     * report a picture
+     * @param Picture $picture
+     * @return bool
+     */
+    public function report (Picture $picture): bool {
+        $request = DB::getInstance()->prepare("UPDATE picture SET report = :report, why = :why, date_report = :date_report WHERE id = :id");
+
+        $request->bindValue(':id', $picture->getId());
+        $request->bindValue(':report', 1);
+        $request->bindValue(':why', $picture->setWhy($picture->getWhy()));
+        $request->bindValue(':date_report', $picture->setDateReport($picture->getDateReport()));
+
+
+        return $request->execute();
+    }
+
+    /**
+     * report remove a picture
+     * @param Picture $picture
+     * @return bool
+     */
+    public function reportRemove (Picture $picture): bool {
+        $request = DB::getInstance()->prepare("UPDATE picture SET report = :report, why = :why, date_report = :date_report WHERE id = :id");
+
+        $request->bindValue(':id', $picture->getId());
+        $request->bindValue(':report', 0);
+        $request->bindValue(':why', null);
+        $request->bindValue(':date_report', null);
 
         return $request->execute();
     }

@@ -40,20 +40,23 @@ if (isset($var['movie'])) {
         <div class="width_70 auto">
             <h3 class="red">COMMENTAIRES</h3>
 
-            <div class="comment">
-                <h4>Pseudo</h4>
-                <p class="marginTop">Contenuuuuuuuu...</p>
-            </div>
-            <div class="comment">
-                <h4>Pseudo</h4>
-                <p class="marginTop">Contenuuuuuuuu...</p>
-            </div>
+            <?php
+            if (isset($_SESSION['id'])) {?>
+                <a class="button" href="../index.php?controller=commentMovie&action=add&id=<?=$movie->getId()?>">Ajouter un commentaire</a>
+                <?php
+            }
+            else { ?>
+                <p class="sentenceGrey">Tu dois te connecter pour ajouter un commentaire.</p>
+                <a class="button" href="../index.php?controller=home&page=connection">Me connecter</a>
+                <?php
+            }
+            ?>
+
             <div class="comment">
                 <h4>Pseudo</h4>
                 <p class="marginTop">Contenuuuuuuuu...</p>
             </div>
         </div>
-
     </main>
 <?php
     }

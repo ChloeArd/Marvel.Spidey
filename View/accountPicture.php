@@ -3,35 +3,8 @@
 
     <div id="accountWidth" class="width_80 auto">
         <div id="accountPage" class="flexRow">
-            <div id="menuAccount" class="menuAccount width_20 flexColumn">
-                <a href="../index.php?controller=user&action=view&id=<?=$_SESSION['id']?>">Mon profil</a>
-                <a href="../index.php?controller=picture&action=myPicture&id=<?=$_SESSION['id']?>">Mes photos</a>
-                <a href="accountFavorites.php">Mes favoris</a>
-                <a href="#">Gestion des utilisateurs</a>
-                <a href="../index.php?controller=commentPicture&action=reportView">Gestions des commentaires signalés</a>
-                <a href="#">Gestion des personnages</a>
-                <a href="#">Gestion des films</a>
-                <a href="#">Gestion des photos</a>
-                <a href="#">Gestion des quiz</a>
-                <a class="disconnection" href="#">Me déconnecter</a>
-            </div>
-            <div class="flexColumn align">
-                <div class="auto">
-                    <i id="menuAccountMobile" class="fas fa-caret-down colorWhite"></i>
-                </div>
-                <div id="subMenuAccount" class="width_20 flexColumn">
-                    <a href="../index.php?controller=user&action=view&id=<?=$_SESSION['id']?>">Mon profil</a>
-                    <a href="../index.php?controller=picture&action=myPicture&id=<?=$_SESSION['id']?>">Mes photos</a>
-                    <a href="accountFavorites.php">Mes favoris</a>
-                    <a href="#">Gestion des utilisateurs</a>
-                    <a href="../index.php?controller=commentPicture&action=reportView">Gestions des commentaires signalés</a>
-                    <a href="#">Gestion des personnages</a>
-                    <a href="#">Gestion des films</a>
-                    <a href="#">Gestion des photos</a>
-                    <a href="#">Gestion des quiz</a>
-                    <a class="disconnection" href="#">Me déconnecter</a>
-                </div>
-            </div>
+
+            <?php include "_Partials/menuAccount.php" ?>
 
             <div class="menuAccount contentAccount width_80 flexCenter flexColumn">
                 <p class="sentenceGrey">* Survolez la photo que vous voulez modifier ou supprimer *</p>

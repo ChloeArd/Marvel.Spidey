@@ -10,6 +10,9 @@ class Picture {
     private ?string $description;
     private ?string $date;
     private ?User $user_fk;
+    private ?int $report;
+    private ?string $why;
+    private ?string $date_report;
 
     /**
      * @param int|null $id
@@ -19,13 +22,17 @@ class Picture {
      * @param string|null $date
      * @param User|null $user_fk
      */
-    public function __construct(?int $id = null, ?string $picture = null, ?string $title = null, ?string $description = null, ?string $date = null, ?User $user_fk = null) {
+    public function __construct(?int $id = null, ?string $picture = null, ?string $title = null, ?string $description = null, ?string $date = null,
+                                ?User $user_fk = null, ?int $report = null, ?string $why = null, ?string $date_report = null) {
         $this->id = $id;
         $this->picture = $picture;
         $this->title = $title;
         $this->description = $description;
         $this->date = $date;
         $this->user_fk = $user_fk;
+        $this->report = $report;
+        $this->why = $why;
+        $this->date_report = $date_report;
     }
 
     /**
@@ -116,5 +123,50 @@ class Picture {
     public function setUserFk(?User $user_fk): ?User {
         $this->user_fk = $user_fk;
         return $user_fk;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getReport(): ?int {
+        return $this->report;
+    }
+
+    /**
+     * @param int|null $report
+     */
+    public function setReport(?int $report): ?int {
+        $this->report = $report;
+        return $report;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getWhy(): ?string {
+        return $this->why;
+    }
+
+    /**
+     * @param string|null $why
+     */
+    public function setWhy(?string $why): ?string {
+        $this->why = $why;
+        return $why;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getDateReport(): ?string {
+        return $this->date_report;
+    }
+
+    /**
+     * @param string|null $date_report
+     */
+    public function setDateReport(?string $date_report): ?string {
+        $this->date_report = $date_report;
+        return $date_report;
     }
 }

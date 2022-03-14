@@ -25,7 +25,7 @@
                             <input type="hidden" name="user_fk" value="">
                             <button type="submit" name="send"><i class='far fa-star logoStar starPosition2'></i></button>
                         </form>
-                        <a href=""><i class="fas fa-exclamation-triangle logoStar starPosition3"></i></a>
+                        <a href="../?controller=picture&action=report&id=<?=$picture->getId()?>"><i class="fas fa-exclamation-triangle logoStar starPosition3"></i></a>
                     </div>
                 </div>
                 <div id="commentPicture" class="width_40 flexColumn">
@@ -40,12 +40,12 @@
                         <div class="center marg40">
                             <?php
                             if (isset($_SESSION['id'])) {?>
-                                <a class="button" href="../index.php?controller=commentPicture&action=add&id=<?=$picture->getId()?>">Ajouter un commentaire</a>
+                                <a class="button" href="../?controller=commentPicture&action=add&id=<?=$picture->getId()?>">Ajouter un commentaire</a>
                                 <?php
                                 }
                             else { ?>
                                     <p class="sentenceGrey">Tu dois te connecter pour ajouter un commentaire.</p>
-                                <a class="button" href="../index.php?controller=home&page=connection">Me connecter</a>
+                                <a class="button" href="../?controller=home&page=connection">Me connecter</a>
                             <?php
                             }
                             ?>
@@ -61,9 +61,9 @@
                                     if (isset($_SESSION['id'])) {
                                         if ($_SESSION['role_fk'] !== 2 || $comment->getUserFk()->getId() === $_SESSION['id']) {?>
                                             <div class="flexRow flexCenter end">
-                                                <a href="../index.php?controller=commentPicture&action=update&id=<?=$comment->getPictureFk()->getId()?>&id2=<?=$comment->getId()?>"><i class="fas fa-edit buttonComment"></i></a>
-                                                <a href="../index.php?controller=commentPicture&action=delete&id=<?=$comment->getPictureFk()->getId()?>&id2=<?=$comment->getId()?>"><i class="fas fa-trash-alt buttonComment"></i></a>
-                                                <a href="../index.php?controller=commentPicture&action=report&id=<?=$comment->getPictureFk()->getId()?>&id2=<?=$comment->getId()?>"><i class="fas fa-exclamation-triangle logoStar"></i></a>
+                                                <a href="../?controller=commentPicture&action=update&id=<?=$comment->getPictureFk()->getId()?>&id2=<?=$comment->getId()?>"><i class="fas fa-edit buttonComment"></i></a>
+                                                <a href="../?controller=commentPicture&action=delete&id=<?=$comment->getPictureFk()->getId()?>&id2=<?=$comment->getId()?>"><i class="fas fa-trash-alt buttonComment"></i></a>
+                                                <a href="../?controller=commentPicture&action=report&id=<?=$comment->getPictureFk()->getId()?>&id2=<?=$comment->getId()?>"><i class="fas fa-exclamation-triangle logoStar"></i></a>
                                             </div>
                                             <?php
                                         }
