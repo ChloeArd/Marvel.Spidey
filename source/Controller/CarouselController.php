@@ -12,7 +12,9 @@ class CarouselController {
 
     /**
      * add a picture of a carousel
-     * @param $comment
+     * @param $carousel
+     * @param $files
+     * @return void
      */
     public function add($carousel, $files) {
         if (isset($_SESSION["id"])) {
@@ -33,7 +35,7 @@ class CarouselController {
                             $namePicture = getRandomName($files['picture']['name']);
 
                             // The image is added to a folder.
-                            move_uploaded_file($tmpName, "../../assets/img/carousel/" . $namePicture);
+                            move_uploaded_file($tmpName, "./assets/img/carousel/" . $namePicture);
 
 
                             $carousel = new Carousel(null, $namePicture, $title);
@@ -56,9 +58,11 @@ class CarouselController {
         }
     }
 
+
     /**
      * delete a image of a carousel
-     * @param int $id
+     * @param $carousel
+     * @return void
      */
     public function delete($carousel) {
         if (isset($_SESSION["id"])) {

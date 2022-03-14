@@ -10,7 +10,7 @@ $carousel = $manager->getCarousels();
             <select>
                 <?php
                 foreach ($carousel as $value) {?>
-                        <option value="<?=$value->getId()?>" name="id"><?=$value->getTitle()?> - image <?=$value->getId()?></option>
+                    <option value="<?=$value->getId()?>" name="id" id="id"><?=$value->getTitle()?> - image <?=$value->getId()?></option>
                 <?php
                 }  ?>
             </select>

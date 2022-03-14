@@ -12,6 +12,7 @@ use Chloe\Marvel\Controller\CharactersController;
 use Chloe\Marvel\Controller\CommentPictureController;
 use Chloe\Marvel\Controller\CreatorCharactersController;
 use Chloe\Marvel\Controller\CreatorController;
+use Chloe\Marvel\Controller\FavoritePictureController;
 use Chloe\Marvel\Controller\HomeController;
 use Chloe\Marvel\Controller\MovieController;
 use Chloe\Marvel\Controller\PictureController;
@@ -172,6 +173,33 @@ if (isset($_GET['controller'])) {
                         break;
                     case 'delete' :
                         $controller->delete($_POST);
+                        break;
+                }
+            }
+            if (isset($_GET['favorite'], $_SESSION['id'])) {
+                $controllerFavorite = new FavoritePictureController();
+                switch ($_GET['favorite']) {
+                    case 'add' :
+                        $controllerFavorite->addFavorite($_GET['id'], $_SESSION['id']);
+                        break;
+                    case 'delete' :
+                        $controllerFavorite->delete($_POST);
+                        break;
+                    case 'view' :
+                        $controllerFavorite->favoritesUser($_SESSION['id']);
+                        if (isset($_GET['delete'])) {
+                            switch ($_GET['delete']) {
+                                case 'ok' :
+                                    $controllerFavorite->deleteFavorite($_POST);
+                                    break;
+                                case 'ad' :
+                                    $controllerFavorite->deleteFavorite($_POST);
+                                    break;
+                            }
+                        }
+                        break;
+                    case 'delete' :
+                        $controllerFavorite->deleteFavorite($_POST);
                         break;
                 }
             }

@@ -65,6 +65,26 @@ class FavoritePictureManager {
         return $favPicture;
     }
 
+    public function getFavoritePictureId(int $picture_fk, int $user_fk): array {
+        $favorites = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM favorite_picture WHERE user_fk = :user_fk AND picture_fk = :picture_fk ");
+        $request->bindParam(":user_fk", $user_fk);
+        $request->bindParam(":picture_fk", $picture_fk);
+        $result = $request->execute();
+        if($result) {
+            foreach ($request->fetchAll() as $info) {
+                $user = UserManager::getManager()->getUser($user_fk);
+                $picture = PictureManager::getManager()->getPicture($picture_fk);
+                if($user->getId()) {
+                    if ($picture->getId()) {
+                        $favorites[] = new FavoritePicture($info['id'], $user, $picture);
+                    }
+                }
+            }
+        }
+        return $favorites;
+    }
+
     /**
      * add a favorite picture
      * @param FavoritePicture $favoritePicture
@@ -76,8 +96,8 @@ class FavoritePictureManager {
                 VALUES (:user_fk, :picture_fk) 
         ");
 
-        $request->bindValue(':user_fk', $favoritePicture->getUserFk());
-        $request->bindValue(':picture_fk', $favoritePicture->getPictureFk());
+        $request->bindValue(':user_fk', $favoritePicture->getUserFk()->getId());
+        $request->bindValue(':picture_fk', $favoritePicture->getPictureFk()->getId());
 
         return $request->execute() && DB::getInstance()->lastInsertId() != 0;
     }

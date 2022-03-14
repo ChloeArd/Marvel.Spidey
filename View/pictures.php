@@ -9,7 +9,7 @@
     <?php
     if (isset($_SESSION['id'])) {?>
         <div class="flexRow flexCenter containerView">
-            <a href="../index.php?controller=movie&action=add"><i class="fas fa-plus buttonView"></i></a>
+            <a href="../index.php?controller=picture&action=add"><i class="fas fa-plus buttonView"></i></a>
         </div>
         <?php
     }

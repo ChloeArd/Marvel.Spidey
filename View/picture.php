@@ -19,12 +19,30 @@
                         <img class="pictures picture" src="../assets/img/picture/<?=$picture->getPicture()?>" alt="<?=$picture->getTitle()?>">
                     </div>
                     <div class="width_10">
-                        <form method="post" action="">
-                            <input type="hidden" name="id" value="">
-                            <input type="hidden" name="picture_fk" value="">
-                            <input type="hidden" name="user_fk" value="">
-                            <button type="submit" name="send"><i class='far fa-star logoStar starPosition2'></i></button>
-                        </form>
+                        <?php
+                        if (isset($_SESSION["id"])) {
+                            $favoriteManager = new \Chloe\Marvel\Model\Manager\FavoritePictureManager();
+                            $favorite = $favoriteManager->getFavoritePictureId($_GET['id'], $_SESSION['id']);
+                            if ($favorite) {
+                                foreach ($favorite as $fav) { ?>
+                                    <form method="post" action="../?controller=picture&favorite=delete&id=<?=$picture->getId() ?>&user=<?=$_SESSION['id'] ?>">
+                                        <input type="hidden" name="id" value="<?=$fav->getId() ?>">
+                                        <input type="hidden" name="picture_fk" value="<?=$fav->getPictureFk()->getId() ?>">
+                                        <button type="submit" name="send"><i class='fas fa-star logoStar starPosition2'></i></button>
+                                    </form>
+                                    <?php
+                                }
+                            }
+                            else { ?>
+                                <form method="post" action="../?controller=picture&favorite=add&id=<?=$picture->getId() ?>&user=<?=$_SESSION['id'] ?>">
+                                    <input type="hidden" name="picture_fk" value="<?=$picture->getId()?>">
+                                    <input type="hidden" name="user_fk" value="<?=$_SESSION['id'] ?>">
+                                    <button type="submit" name="send"><i class='far fa-star logoStar starPosition2'></i></button>
+                                </form>
+                            <?php
+                            }
+                        }
+                        ?>
                         <a href="../?controller=picture&action=report&id=<?=$picture->getId()?>"><i class="fas fa-exclamation-triangle logoStar starPosition3"></i></a>
                     </div>
                 </div>

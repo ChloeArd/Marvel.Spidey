@@ -30,6 +30,7 @@
                 ?>
             </div>
             <div id="accountPage" class="flexRow">
+
                 <?php include "_Partials/menuAccount.php" ?>
 
                 <div class="menuAccount contentAccount width_80 flexCenter flexColumn">

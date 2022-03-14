@@ -91,19 +91,19 @@ class PictureController {
                                 $p = new Picture(null, $namePicture, $title, $description, $date, $user_fk);
                                 $pictureManager->add($p);
 
-                                header("Location: ../index.php?controller=picture&action=viewAll&success=0");
+                                header("Location: ../?controller=picture&action=viewAll&success=0");
                             }
                         } else {
-                            header("Location: ../index.php?controller=picture&action=add&error=0");
+                            header("Location: ../?controller=picture&action=add&error=0");
                         }
                     } else {
-                        header("Location: ../index.php?controller=picture&action=add&error=1");
+                        header("Location: ../?controller=picture&action=add&error=1");
                     }
                 } else {
-                    header("Location: ../index.php?controller=picture&action=add&error=2");
+                    header("Location: ../?controller=picture&action=add&error=2");
                 }
             } else {
-                header("Location: ../index.php?controller=picture&action=add&error=3");
+                header("Location: ../?controller=picture&action=add&error=3");
             }
         }
         $this->return("create/createPicture", "Poster une photo");
@@ -134,12 +134,12 @@ class PictureController {
                     $p = new Picture($id, $picture1, $title, $description, $date, $user_fk);
                     $pictureManager->update($p);
 
-                    header("Location: ../index.php?controller=picture&action=view&id=$id&success=1");
+                    header("Location: ../?controller=picture&action=view&id=$id&success=1");
                 } else {
-                    header("Location: ../index.php?controller=picture&action=update&id=$id&error=0");
+                    header("Location: ../?controller=picture&action=update&id=$id&error=0");
                 }
             } else {
-                header("Location: ../index.php?controller=picture&action=update&id=$id&error=1");
+                header("Location: ../?controller=picture&action=update&id=$id&error=1");
             }
         }
         $this->return("update/updatePicture", "Modifier une photo");
@@ -167,7 +167,7 @@ class PictureController {
                     $pictureManager->report($picture2);
 
                     $id = $picture['id'];
-                    header("Location: ../index.php?controller=picture&action=view&id=$id&success=4");
+                    header("Location: ../?controller=picture&action=view&id=$id&success=4");
                 }
             }
             $this->return("report/reportPicture", "Signaler une photo");
@@ -193,7 +193,7 @@ class PictureController {
                     $picture2 = new Picture($id, "", "", "", "", $user_fk,);
                     $pictureManager->reportRemove($picture2);
 
-                    header("Location: ../index.php?controller=picture&action=reportView&success=0");
+                    header("Location: ../?controller=picture&action=reportView&success=0");
                 }
             }
             $this->return("report/reportRemovePicture", "Retirer un signalement d'une photo");
@@ -215,7 +215,7 @@ class PictureController {
                 unlink("./assets/img/picture/" . $picture);
 
                 $pictureManager->delete($id);
-                header("Location: ../index.php?controller=picture&action=viewAll&success=3");
+                header("Location: ../?controller=picture&action=viewAll&success=3");
             }
             $this->return("delete/deletePicture", "Supprimer une photo");
         }
