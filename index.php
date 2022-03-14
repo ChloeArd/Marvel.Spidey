@@ -190,16 +190,10 @@ if (isset($_GET['controller'])) {
                         if (isset($_GET['delete'])) {
                             switch ($_GET['delete']) {
                                 case 'ok' :
-                                    $controllerFavorite->deleteFavorite($_POST);
-                                    break;
-                                case 'ad' :
-                                    $controllerFavorite->deleteFavorite($_POST);
+                                    $controllerFavorite->deleteView($_POST);
                                     break;
                             }
                         }
-                        break;
-                    case 'delete' :
-                        $controllerFavorite->deleteFavorite($_POST);
                         break;
                 }
             }

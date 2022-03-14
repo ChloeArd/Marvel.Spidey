@@ -1,7 +1,7 @@
     <div id="menuAccount" class="menuAccount width_20 flexColumn">
         <a href="../?controller=user&action=view&id=<?=$_SESSION['id']?>">Mon profil</a>
         <a href="../?controller=picture&action=myPicture&id=<?=$_SESSION['id']?>">Mes photos</a>
-        <a href="accountFavorites.php">Mes favoris</a>
+        <a href="../?controller=picture&favorite=view">Mes favoris</a>
         <a href="#">Gestion des utilisateurs
             <a href="../?controller=commentPicture&action=reportView">Gestions des commentaires signalés</a>
             <a href="../?controller=picture&action=reportView">Gestions des photos signalés</a>
@@ -18,7 +18,7 @@
         <div id="subMenuAccount" class="width_20 flexColumn">
             <a href="../?controller=user&action=view&id=<?=$_SESSION['id']?>">Mon profil</a>
             <a href="../?controller=picture&action=myPicture&id=<?=$_SESSION['id']?>">Mes photos</a>
-            <a href="accountFavorites.php">Mes favoris</a>
+            <a href="../?controller=picture&favorite=view">Mes favoris</a>
             <a href="#">Gestion des utilisateurs</a>
             <a href="../?controller=commentPicture&action=reportView">Gestions des commentaires signalés</a>
             <a href="../?controller=picture&action=reportView">Gestions des photos signalés</a>

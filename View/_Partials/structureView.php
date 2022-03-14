@@ -12,7 +12,8 @@
 <!-- add the class 'backgroundBlack' if we are on the profile -->
 <body class="<?php if (isset($_GET['controller']) && $_GET['controller'] === 'user'
                         || isset($_GET['action']) && $_GET['action'] === "myPicture"
-                        || isset($_GET['action']) && $_GET['action'] === "reportView") {
+                        || isset($_GET['action']) && $_GET['action'] === "reportView"
+                        || isset($_GET['favorite']) && $_GET['favorite'] === "view") {
     echo "backgroundBlack";
 } ?>">
 

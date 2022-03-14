@@ -19,7 +19,7 @@ class FavoritePictureController {
      */
     public function favoritesUser(int $user_fk) {
         $manager = new FavoritePictureManager();
-        $this->return("favoritesAccountView", "Mes favoris", ['favoritesUserFind' => $manager->favoritesByUser($user_fk)]);
+        $this->return("accountFavorites", "Mes favoris", ['favoritesUser' => $manager->getFavoritesPictures($user_fk)]);
     }
 
     /**
@@ -58,27 +58,16 @@ class FavoritePictureController {
 
     /**
      * Delete a favorite picture using its id.
-     * @param $favoriteFind
+     * @param $favorite
      * @return void
      */
-    public function deleteFavorite($favoriteFind) {
-        if (isset($favoriteFind['id'], $favoriteFind['adFind_fk'], $favoriteFind['user_fk'])) {
-            $userManager = new UserManager();
-            $adFindManager = new AdFindManager();
-            $favoriteManager = new FavoriteFindManager();
+    public function deleteView($favorite) {
+        if (isset($favorite['id'], $favorite['picture_fk'])) {
+            $favoriteManager = new FavoritePictureManager();
 
-            $id = intval($favoriteFind['id']);
-            $adFind_fk = intval($favoriteFind['adFind_fk']);
-            $user_fk = intval($favoriteFind['user_fk']);
-
-            $user_fk = $userManager->getUser($user_fk);
-            $adFind_fk = $adFindManager->getAd($adFind_fk);
-            if ($user_fk->getId()) {
-                if ($adFind_fk->getId()) {
-                    $favorite = new FavoriteFind($id);
-                    $favoriteManager->delete($favorite);
-                }
-            }
+            $id = intval($favorite['id']);
+            $favoriteManager->delete($id);
+            header("Location: ../?controller=picture&favorite=view&success=0");
         }
         $this->return("accountFavorites", "Mes favoris");
     }
