@@ -71,9 +71,9 @@
     <?= $html ?>
 
     <footer class="flexRow">
-        <div class="flexRow flexCenter">
+        <a href="../" class="flexRow flexCenter">
             <img class="width_70" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png" alt="MARVEL.Spidey">
-        </div>
+        </a>
         <div class="flexRow flexCenter content">
             <a class="colorWhite" href="#">Mentions légales</a>
             <a class="colorWhite" href="../../index.php?controller=home&page=contact">Contact</a>

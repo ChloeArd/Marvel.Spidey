@@ -33,8 +33,11 @@ if (isset($_GET['controller'])) {
                     case 'contact' :
                         $controller->contact();
                         break;
+                    default:
+                        break;
                 }
             }
+            break;
         case 'user' :
             $controller = new UserController();
             if (isset($_GET['action'])) {
@@ -51,8 +54,11 @@ if (isset($_GET['controller'])) {
                     case 'delete' :
                         $controller->delete($_POST);
                         break;
+                    default:
+                        break;
                 }
             }
+            break;
         case 'carousel' :
             $controller = new CarouselController();
                 if (isset($_GET['action'])) {
@@ -63,8 +69,11 @@ if (isset($_GET['controller'])) {
                         case 'delete' :
                             $controller->delete($_POST);
                             break;
+                        default:
+                            break;
                     }
                 }
+            break;
         case "character" :
             $controller = new CharactersController();
             if (isset($_GET['action'])) {
@@ -84,8 +93,11 @@ if (isset($_GET['controller'])) {
                     case 'delete' :
                         $controller->delete($_POST);
                         break;
+                    default:
+                        break;
                 }
             }
+            break;
         case "actor" :
             $controller = new ActorController();
             if (isset($_GET['action'])) {
@@ -102,8 +114,11 @@ if (isset($_GET['controller'])) {
                     case 'delete' :
                         $controller->delete($_POST);
                         break;
+                    default:
+                        break;
                 }
             }
+            break;
         case "creator" :
             $controller = new CreatorController();
             if (isset($_GET['action'])) {
@@ -117,8 +132,11 @@ if (isset($_GET['controller'])) {
                     case 'delete' :
                         $controller->delete($_POST);
                         break;
+                    default:
+                        break;
                 }
             }
+            break;
         case "creatorCharacter" :
             $controller = new CreatorCharactersController();
             if (isset($_GET['action'])) {
@@ -129,8 +147,11 @@ if (isset($_GET['controller'])) {
                     case 'delete' :
                         $controller->delete($_POST);
                         break;
+                    default:
+                        break;
                 }
             }
+            break;
         case "actorCharacter" :
             $controller = new ActorCharactersController();
             if (isset($_GET['action'])) {
@@ -141,8 +162,11 @@ if (isset($_GET['controller'])) {
                     case 'delete' :
                         $controller->delete($_POST);
                         break;
+                    default:
+                        break;
                 }
             }
+            break;
         case "picture":
             $controller = new PictureController();
             if (isset($_GET['action'])) {
@@ -174,6 +198,8 @@ if (isset($_GET['controller'])) {
                     case 'delete' :
                         $controller->delete($_POST);
                         break;
+                    default:
+                        break;
                 }
             }
             if (isset($_GET['favorite'], $_SESSION['id'])) {
@@ -195,8 +221,11 @@ if (isset($_GET['controller'])) {
                             }
                         }
                         break;
+                    default:
+                        break;
                 }
             }
+            break;
         case "commentPicture" :
             $controller = new CommentPictureController();
             if (isset($_GET['action'])) {
@@ -219,8 +248,11 @@ if (isset($_GET['controller'])) {
                     case 'delete' :
                         $controller->delete($_POST);
                         break;
+                    default:
+                        break;
                 }
             }
+            break;
         case "movie":
             $controller = new MovieController();
             if (isset($_GET['action'])) {
@@ -239,6 +271,8 @@ if (isset($_GET['controller'])) {
                         break;
                     case 'delete' :
                         $controller->delete($_POST);
+                        break;
+                    default:
                         break;
                 }
             }

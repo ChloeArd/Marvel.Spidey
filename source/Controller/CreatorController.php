@@ -78,7 +78,6 @@ class CreatorController {
             if (isset($creator['id'], $creator['firstname'], $creator['lastname'], $files['picture'], $creator['picture_1'])) {
 
                 $creatorManager = new CreatorManager();
-                $userManager = new UserManager();
 
                 $id = intval($creator['id']);
                 $firstname = htmlentities(ucfirst(trim($creator['firstname'])));

@@ -6,7 +6,7 @@ if (isset($var['movie'])) {
 
          <?php
          if (isset($_SESSION['role_fk'])) {
-             if ($_SESSION['role_fk'] !== 2) {?>
+             if ($_SESSION['role_fk'] != 2) {?>
                  <div class="flexRow flexCenter containerView">
                      <a href="../index.php?controller=movie&action=update&id=<?=$movie->getId()?>"><i class="fas fa-edit buttonView"></i></a>
                      <a href="../index.php?controller=movie&action=delete&id=<?=$movie->getId()?>"><i class="fas fa-trash-alt buttonView"></i></a>

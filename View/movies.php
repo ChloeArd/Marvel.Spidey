@@ -2,11 +2,13 @@
         <h1 class="title">Films</h1>
 
      <?php
-     if (isset($_SESSION['id'])) {?>
-         <div class="flexRow flexCenter containerView">
-             <a href="../index.php?controller=movie&action=add"><i class="fas fa-plus buttonView"></i></a>
-         </div>
-         <?php
+     if (isset($_SESSION['id'])) {
+         if ($_SESSION['role_fk'] != 2) {?>
+             <div class="flexRow flexCenter containerView">
+                 <a href="../index.php?controller=movie&action=add"><i class="fas fa-plus buttonView"></i></a>
+             </div>
+             <?php
+         }
      }
 
      if (isset($var['movies_TH'])) { ?>

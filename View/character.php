@@ -13,7 +13,7 @@
 
                         <?php
                         if (isset($_SESSION['role_fk'])) {
-                            if ($_SESSION['role_fk'] !== 2) {?>
+                            if ($_SESSION['role_fk'] != 2) {?>
                                 <div class="flexRow flexCenter containerView width_100">
                                     <a href="../index.php?controller=character&action=update&id=<?=$character->getId()?>"><i class="fas fa-edit buttonView"></i></a>
                                     <a href="../index.php?controller=character&action=delete&id=<?=$character->getId()?>"><i class="fas fa-trash-alt buttonView"></i></a>
@@ -85,7 +85,7 @@
                                     </div>
                                     <?php
                                     if (isset($_SESSION['role_fk'])) {
-                                        if ($_SESSION['role_fk'] !== 2) {?>
+                                        if ($_SESSION['role_fk'] != 2) {?>
                                                 <a href="../index.php?controller=creatorCharacter&action=delete&id=<?=$character->getId()?>&id2=<?=$creator->getCreatorFk()->getId()?>"><i class="fas fa-trash-alt buttonView"></i></a>
                                             <?php
                                         }
@@ -96,7 +96,7 @@
                         </div>
                         <?php
                         if (isset($_SESSION['role_fk'])) {
-                            if ($_SESSION['role_fk'] !== 2) {?>
+                            if ($_SESSION['role_fk'] != 2) {?>
                                 <div class="flexRow flexCenter containerView">
                                     <a href="../index.php?controller=creatorCharacter&action=add&id=<?=$character->getId()?>"><i class="fas fa-plus buttonView"></i></a>
                                 </div>
@@ -158,7 +158,7 @@
                                         </a>
                                     <?php
                                         if (isset($_SESSION['role_fk'])) {
-                                            if ($_SESSION['role_fk'] !== 2) {?>
+                                            if ($_SESSION['role_fk'] != 2) {?>
                                                 <a href="../index.php?controller=actorCharacter&action=delete&id=<?=$character->getId()?>&id2=<?=$actor->getActorFk()->getId()?>"><i class="fas fa-trash-alt buttonView"></i></a>
                                                 <?php
                                             }
@@ -167,7 +167,7 @@
                                 </div>
                                 <?php
                                 if (isset($_SESSION['role_fk'])) {
-                                    if ($_SESSION['role_fk'] !== 2) {?>
+                                    if ($_SESSION['role_fk'] != 2) {?>
                                         <div class="flexRow flexCenter containerView">
                                             <a href="../index.php?controller=actorCharacter&action=add&id=<?=$character->getId()?>"><i class="fas fa-plus buttonView"></i></a>
                                         </div>
@@ -177,7 +177,7 @@
                             }
                             else {
                                 if (isset($_SESSION['role_fk'])) {
-                                    if ($_SESSION['role_fk'] !== 2) {?>
+                                    if ($_SESSION['role_fk'] != 2) {?>
                                         <h2 class="titleDescription">ACTEURS</h2>
                                         <div class="flexRow flexCenter containerView">
                                             <a href="../index.php?controller=actorCharacter&action=add&id=<?=$character->getId()?>"><i class="fas fa-plus buttonView"></i></a>

@@ -925,6 +925,11 @@ button {
     border: none;
 }
 
+.flexRight {
+    display: flex;
+    justify-content: right;
+}
+
 #flexPicture {
     margin: 20px auto;
     border-radius: 20px;

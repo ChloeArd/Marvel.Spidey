@@ -5,7 +5,7 @@
     if (isset($var['picture'])) {
         foreach ($var['picture'] as $picture) {
             if (isset($_SESSION['role_fk'])) {
-                if ($_SESSION['role_fk'] !== 2 || $picture->getUserFk()->getId() === $_SESSION['id']) {?>
+                if ($_SESSION['role_fk'] != 2 || $picture->getUserFk()->getId() == $_SESSION['id']) {?>
                     <div class="flexRow flexCenter containerView">
                         <a href="../index.php?controller=picture&action=update&id=<?=$picture->getId()?>"><i class="fas fa-edit buttonView"></i></a>
                         <a href="../index.php?controller=picture&action=delete&id=<?=$picture->getId()?>"><i class="fas fa-trash-alt buttonView"></i></a>
@@ -77,7 +77,7 @@
                                 <div class="comment">
                                     <?php
                                     if (isset($_SESSION['id'])) {
-                                        if ($_SESSION['role_fk'] !== 2 || $comment->getUserFk()->getId() === $_SESSION['id']) {?>
+                                        if ($_SESSION['role_fk'] != 2 || $comment->getUserFk()->getId() == $_SESSION['id']) {?>
                                             <div class="flexRow flexCenter end">
                                                 <a href="../?controller=commentPicture&action=update&id=<?=$comment->getPictureFk()->getId()?>&id2=<?=$comment->getId()?>"><i class="fas fa-edit buttonComment"></i></a>
                                                 <a href="../?controller=commentPicture&action=delete&id=<?=$comment->getPictureFk()->getId()?>&id2=<?=$comment->getId()?>"><i class="fas fa-trash-alt buttonComment"></i></a>

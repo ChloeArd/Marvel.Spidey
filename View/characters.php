@@ -26,7 +26,7 @@
 
         <?php
         if (isset($_SESSION['role_fk'])) {
-            if ($_SESSION['role_fk'] !== 2) {?>
+            if ($_SESSION['role_fk'] != 2) {?>
                 <div class="flexRow flexCenter containerView">
                     <a href="../index.php?controller=character&action=add"><i class="fas fa-plus buttonView"></i></a>
                 </div>
@@ -51,7 +51,7 @@
 
         <?php
         if (isset($_SESSION['role_fk'])) {
-            if ($_SESSION['role_fk'] !== 2) {?>
+            if ($_SESSION['role_fk'] != 2) {?>
                 <div class="flexRow flexCenter containerView">
                     <a href="../index.php?controller=actor&action=add"><i class="fas fa-plus buttonView"></i></a>
                 </div>
@@ -63,7 +63,7 @@
 
         <?php
         if (isset($_SESSION['role_fk'])) {
-            if ($_SESSION['role_fk'] !== 2) {?>
+            if ($_SESSION['role_fk'] != 2) {?>
             <h2 class="titleChara">CREATEURS</h2>
             <div class="flexRow flexCenter wrap">
                 <?php
@@ -75,7 +75,7 @@
                         </a>
                         <?php
                         if (isset($_SESSION['role_fk'])) {
-                            if ($_SESSION['role_fk'] !== 2) {?>
+                            if ($_SESSION['role_fk'] != 2) {?>
                                 <div class="flexColumn flexCenter">
                                     <a href="../index.php?controller=creator&action=update&id=<?=$creator->getId()?>"><i class="fas fa-edit buttonView"></i></a>
 

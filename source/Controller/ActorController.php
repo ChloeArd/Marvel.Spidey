@@ -107,7 +107,6 @@ class ActorController {
                 $files['picture3'], $actor['picture_4'])) {
 
                 $actorManager = new ActorManager();
-                $userManager = new UserManager();
 
                 $id = intval($actor['id']);
                 $firstname = htmlentities(ucfirst(trim($actor['firstname'])));

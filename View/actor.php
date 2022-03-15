@@ -14,7 +14,7 @@
 
                     <?php
                     if (isset($_SESSION['role_fk'])) {
-                        if ($_SESSION['role_fk'] !== 2) {?>
+                        if ($_SESSION['role_fk'] != 2) {?>
                             <div class="flexRow flexCenter containerView width_100">
                                 <a href="../index.php?controller=actor&action=update&id=<?=$actor->getId()?>"><i class="fas fa-edit buttonView"></i></a>
                                 <a href="../index.php?controller=actor&action=delete&id=<?=$actor->getId()?>"><i class="fas fa-trash-alt buttonView"></i></a>

@@ -41,7 +41,7 @@
 
     <?php
     if (isset($_SESSION['role_fk'])) {
-        if ($_SESSION['role_fk'] !== 2) {?>
+        if ($_SESSION['role_fk'] != 2) {?>
             <div class="flexRow flexCenter containerView">
                 <a href="../index.php?controller=carousel&action=add"><i class="fas fa-plus buttonView"></i></a>
                 <a href="../index.php?controller=carousel&action=delete"><i class="fas fa-trash-alt buttonView"></i></a>
