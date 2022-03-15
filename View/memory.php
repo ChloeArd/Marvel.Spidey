@@ -10,15 +10,6 @@
 </head>
 <body>
 
-<header>
-    <a id="acceuil" href="../index.php">Acceuil</a>
-    <a href="characters.php">Personnages</a>
-    <a href="movies.php">Films</a>
-    <a href="pictures.php">Photos</a>
-    <a href="">Quiz</a>
-    <a href="memory.php">Mémory</a>
-</header>
-
 <main>
     <h1 class="title">MEMORY</h1>
 
@@ -47,12 +38,6 @@
     </div>
 
 </main>
-
-<footer class="flexRow">
-    <div class="flexColumn flexCenter">
-        <img class="width_70" src="https://cdn.discordapp.com/attachments/689017273050202134/872534195547828265/marvel.png">
-    </div>
-</footer>
 
 <script src="/assets/js/memory.js"></script>
 

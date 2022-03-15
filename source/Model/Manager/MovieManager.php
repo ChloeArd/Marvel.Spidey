@@ -92,6 +92,25 @@ class MovieManager {
     }
 
     /**
+     * recent movie to home page
+     * @return array
+     */
+    public function getRecentMovie(): array {
+        $movie = [];
+        $request = DB::getInstance()->prepare("SELECT * FROM movie ORDER by date DESC LIMIT 0,3");
+        if($request->execute()) {
+            foreach ($request->fetchAll() as $info) {
+                $actor = ActorManager::getManager()->getActor($info['actor_fk']);
+                if($actor->getId()) {
+                    $movie[] = new Movie($info['id'], $info['title'], $info['picture'], $info['date'], $info['time'], $info['genre'], $info['director'],
+                        $info['actors'], $info['synopsis'], $info['video'], $actor);
+                }
+            }
+        }
+        return $movie;
+    }
+
+    /**
      * add a movie
      * @param Movie $movie
      * @return bool

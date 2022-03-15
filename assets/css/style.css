@@ -110,6 +110,10 @@ h1 {
     margin-top: 20px;
 }
 
+.marginImage {
+  margin: 40px 25px;
+}
+
 #pictureHeros{
     width: 90%;
 }

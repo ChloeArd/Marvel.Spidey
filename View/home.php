@@ -51,10 +51,25 @@
     }
     ?>
 
-    <h1 class="titleIndex"><span class="marvelWord">MARVEL.Spidey</span>, un site pour les <strong>fans de Marvel</strong> en particulier de <strong>Spider-Man</strong>.</h1> <br>
+    <h1 class="titleIndex marg40"><span class="marvelWord">MARVEL.Spidey</span>, un site pour les <strong>fans de Marvel</strong> en particulier de <strong>Spider-Man</strong>.</h1> <br>
     <div class="borderRed">
         <p>Vous pouvez y trouver la biographie de Spider-Man, les acteurs qui ont interpéter ce héros, les films qu'ils jouent, les créateurs de l'homme arraignée
             et enfin un quiz pour tester vos connaissances en tant que fan de Spidey ! </p>
+    </div>
+
+    <h2 class="titleChara grey">LES FILMS RECENTS</h2>
+
+    <div id="containerMovies" class="width_80 flexRow wrap auto flexCenter">
+    <?php
+    if (isset($var['movie'])) {
+        foreach ($var['movie'] as $movie) {?>
+            <a href="../index.php?controller=movie&action=view&id=<?=$movie->getId()?>" class="width_px center marginImage">
+                <img class="imgMovies" src="../assets/img/movie/<?=$movie->getPicture()?>" alt="<?=$movie->getTitle()?>">
+                <p class="titleMovies"><?=$movie->getTitle()?></p>
+            </a>
+            <?php
+        }
+    } ?>
     </div>
 
 

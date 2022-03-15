@@ -14,6 +14,7 @@ use Chloe\Marvel\Controller\CreatorCharactersController;
 use Chloe\Marvel\Controller\CreatorController;
 use Chloe\Marvel\Controller\FavoritePictureController;
 use Chloe\Marvel\Controller\HomeController;
+use Chloe\Marvel\Controller\MemoryController;
 use Chloe\Marvel\Controller\MovieController;
 use Chloe\Marvel\Controller\PictureController;
 use Chloe\Marvel\Controller\UserController;
@@ -276,6 +277,11 @@ if (isset($_GET['controller'])) {
                         break;
                 }
             }
+            break;
+        case "memory" :
+            $controller = new MemoryController();
+            $controller->memoryPage();
+
     }
 }
 else {

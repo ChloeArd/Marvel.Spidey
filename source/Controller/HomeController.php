@@ -4,6 +4,7 @@ namespace Chloe\Marvel\Controller;
 
 use Chloe\Marvel\Controller\Traits\ReturnViewTrait;
 use Chloe\Marvel\Model\Manager\CarouselManager;
+use Chloe\Marvel\Model\Manager\MovieManager;
 
 class HomeController {
 
@@ -12,7 +13,9 @@ class HomeController {
     public function homePage() {
         $manager = new CarouselManager();
         $carousel = $manager->getCarousels();
-        $this->return("home", "Accueil", ["carousel" => $carousel]);
+        $movieManager = new MovieManager();
+        $movie = $movieManager->getRecentMovie();
+        $this->return("home", "Accueil", ["carousel" => $carousel, "movie" => $movie]);
     }
 
     public function connection() {

@@ -63,7 +63,7 @@ class MovieController {
                     }
                     $time = $time1 . "h " . $time2 . "min";
                 } else {
-                    header("Location: ../index.php?controller=movie&action=add&error=4");
+                    header("Location: ../?controller=movie&action=add&error=4");
                 }
 
                 // I check if all the photos are not empty
@@ -87,19 +87,19 @@ class MovieController {
                                 $a = new Movie(null, $title, $namePicture, $date, $time, $genre, $director, $actors, $synopsis, $video, $actor_fk);
                                 $movieManager->add($a);
 
-                                header("Location: ../index.php?controller=movie&action=viewAll&success=0");
+                                header("Location: ../?controller=movie&action=viewAll&success=0");
                             }
                         } else {
-                            header("Location: ../index.php?controller=movie&action=add&error=0");
+                            header("Location: ../?controller=movie&action=add&error=0");
                         }
                     } else {
                         header("Location: ../index.php?controller=movie&action=add&error=1");
                     }
                 } else {
-                    header("Location: ../index.php?controller=movie&action=add&error=2");
+                    header("Location: ../?controller=movie&action=add&error=2");
                 }
             } else {
-                header("Location: ../index.php?controller=movie&action=add&error=3");
+                header("Location: ../?controller=movie&action=add&error=3");
             }
         }
         $this->return("create/createMovie", "Ajouter un film", ['actors' => $actor]);
@@ -134,7 +134,7 @@ class MovieController {
                     }
                     $time = $time1 . "h " . $time2 . "min";
                 } else {
-                    header("Location: ../index.php?controller=movie&action=add&error=4");
+                    header("Location: ../?controller=movie&action=add&error=4");
                 }
 
                 // I check if all the photos are not empty
@@ -160,13 +160,13 @@ class MovieController {
                                 $a = new Movie(null, $title, $namePicture, $date, $time, $genre, $director, $actors, $synopsis, $video, $actor_fk);
                                 $movieManager->add($a);
 
-                                header("Location: ../index.php?controller=movie&action=viewAll&success=0");
+                                header("Location: ../?controller=movie&action=viewAll&success=0");
                             }
                         } else {
-                            header("Location: ../index.php?controller=movie&action=add&error=0");
+                            header("Location: ../?controller=movie&action=add&error=0");
                         }
                     } else {
-                        header("Location: ../index.php?controller=movie&action=add&error=1");
+                        header("Location: ../?controller=movie&action=add&error=1");
                     }
                 } else {
                     $actor_fk = $manager->getActor($actor_fk);
@@ -174,34 +174,34 @@ class MovieController {
                         $a = new Movie(null, $title, $picture, $date, $time, $genre, $director, $actors, $synopsis, $video, $actor_fk);
                         $movieManager->add($a);
 
-                        header("Location: ../index.php?controller=movie&action=viewAll&success=0");
+                        header("Location: ../?controller=movie&action=viewAll&success=0");
                     }
                 }
             } else {
-                header("Location: ../index.php?controller=movie&action=add&error=3");
+                header("Location: ../?controller=movie&action=add&error=3");
             }
         }
         $this->return("update/updateMovie", "Modifier un film", ['movie' => $movieId]);
     }
 
     /**
-     * delete a picture
-     * @param $picture
+     * delete a movie
+     * @param $movie
      */
-    public function delete ($picture) {
+    public function delete ($movie) {
         if (isset($_SESSION["id"])) {
-            if (isset($picture['id'], $picture['picture'])) {
-                $pictureManager = new PictureManager();
+            if (isset($movie['id'], $movie['picture'])) {
+                $movieManager = new MovieManager();
 
-                $id = intval($picture['id']);
-                $picture = htmlentities($picture['picture']);
+                $id = intval($movie['id']);
+                $picture = htmlentities($movie['picture']);
 
-                unlink("./assets/img/picture/" . $picture);
+                unlink("./assets/img/movie/" . $picture);
 
-                $pictureManager->delete($id);
-                header("Location: ../index.php?controller=picture&action=viewAll&success=3");
+                $movieManager->delete($id);
+                header("Location: ../?controller=movie&action=viewAll&success=3");
             }
-            $this->return("delete/deletePicture", "Supprimer une photo");
+            $this->return("delete/deleteMovie", "Supprimer un film");
         }
     }
 }

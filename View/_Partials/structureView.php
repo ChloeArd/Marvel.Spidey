@@ -26,7 +26,7 @@
             <a href="../../index.php?controller=movie&action=viewAll">Films</a>
             <a href="../../index.php?controller=picture&action=viewAll">Photos</a>
             <a href="">Quiz</a>
-            <a href="../memory.php">Memory</a>
+            <a href="../?controller=memory">Memory</a>
         </div>
         <div class="account">
             <?php
@@ -54,7 +54,7 @@
         <a class="linkMenuMobile colorWhite flexRow align" href="../../index.php?controller=movie&action=viewAll"><i class="fas fa-chevron-circle-right colorWhite"></i>Films</a>
         <a class="linkMenuMobile colorWhite flexRow align" href="../../index.php?controller=picture&action=viewAll"><i class="fas fa-chevron-circle-right colorWhite"></i>Photos</a>
         <a class="linkMenuMobile colorWhite flexRow align" href=""><i class="fas fa-chevron-circle-right colorWhite"></i>Quiz</a>
-        <a class="linkMenuMobile colorWhite flexRow align" href="../memory.php"><i class="fas fa-chevron-circle-right colorWhite"></i>Memory</a>
+        <a class="linkMenuMobile colorWhite flexRow align" href="../?controller=memory"><i class="fas fa-chevron-circle-right colorWhite"></i>Memory</a>
         <?php
         if (isset($_SESSION['id'])) { ?>
             <a class="linkMenuMobile colorWhite flexRow align" href="../../index.php?controller=user&action=view"><i class="fas fa-chevron-circle-right colorWhite"></i><i class="fas fa-user-circle colorWhite margR"></i><?=$_SESSION['pseudo']?></a>
